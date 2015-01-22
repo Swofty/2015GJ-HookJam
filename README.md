@@ -3,11 +3,11 @@
 Game Title: TBD...
 
 Developers:
-* Jamei Wang
-* Roger Liu
-* Sophia Zhu
-* Stephen Chen
-* Taehoon Lee
+* Jamei Wang (GitHub: kiisyuu)
+* Roger Liu (GitHub: FourSwordKirby)
+* Sophia Zhu (GitHub: Sophia-Zhu)
+* Stephen Chen (GitHub: Swofty)
+* Taehoon Lee (GitHub: jmiooo)
 
 ## Team whiteboard
 
