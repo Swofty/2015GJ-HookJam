@@ -40,7 +40,7 @@ public class HeroMovement : MonoBehaviour {
         
         if(Input.GetKeyDown(KeyCode.Z))
         {
-            hook.GetComponent<HookScript>().ShootHook(direction);
+            hook.GetComponent<HookScript>().ShootHook(direction, false);
         }
 
 
@@ -95,5 +95,11 @@ public class HeroMovement : MonoBehaviour {
         }
 
         rigidbody2D.AddForce(totalForces);
+    }
+
+    public void ApplyPull(Vector3 sourcePos, float pullStrength)
+    {
+        Debug.Log("Player getting pulled by " + sourcePos + ". Str: " + pullStrength);
+        rigidbody2D.AddForce(pullStrength * (sourcePos - transform.position).normalized);
     }
 }
