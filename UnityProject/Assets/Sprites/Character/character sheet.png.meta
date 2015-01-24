@@ -1,0 +1,894 @@
+fileFormatVersion: 2
+guid: cf0abae4006bb714fb3ff9a903d80dd8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: character sheet_0
+    21300002: character sheet_1
+    21300004: character sheet_2
+    21300006: character sheet_3
+    21300008: character sheet_4
+    21300010: character sheet_5
+    21300012: character sheet_6
+    21300014: character sheet_7
+    21300016: character sheet_8
+    21300018: character sheet_9
+    21300020: character sheet_10
+    21300022: character sheet_11
+    21300024: character sheet_12
+    21300026: character sheet_13
+    21300028: character sheet_14
+    21300030: character sheet_15
+    21300032: character sheet_16
+    21300034: character sheet_17
+    21300036: character sheet_18
+    21300038: character sheet_19
+    21300040: character sheet_20
+    21300042: character sheet_21
+    21300044: character sheet_22
+    21300046: character sheet_23
+    21300048: character sheet_24
+    21300050: character sheet_25
+    21300052: character sheet_26
+    21300054: character sheet_27
+    21300056: character sheet_28
+    21300058: character sheet_29
+    21300060: character sheet_30
+    21300062: character sheet_31
+    21300064: character sheet_32
+    21300066: character sheet_33
+    21300068: character sheet_34
+    21300070: character sheet_35
+    21300072: character sheet_36
+    21300074: character sheet_37
+    21300076: character sheet_38
+    21300078: character sheet_39
+    21300080: character sheet_40
+    21300082: character sheet_41
+    21300084: character sheet_42
+    21300086: character sheet_43
+    21300088: character sheet_44
+    21300090: character sheet_45
+    21300092: character sheet_46
+    21300094: character sheet_47
+    21300096: character sheet_48
+    21300098: character sheet_49
+    21300100: character sheet_50
+    21300102: character sheet_51
+    21300104: character sheet_52
+    21300106: character sheet_53
+    21300108: character sheet_54
+    21300110: character sheet_55
+    21300112: character sheet_56
+    21300114: character sheet_57
+    21300116: character sheet_58
+    21300118: character sheet_59
+    21300120: character sheet_60
+    21300122: character sheet_61
+    21300124: character sheet_62
+    21300126: character sheet_63
+    21300128: character sheet_64
+    21300130: character sheet_65
+    21300132: character sheet_66
+    21300134: character sheet_67
+    21300136: character sheet_68
+    21300138: character sheet_69
+    21300140: character sheet_70
+    21300142: character sheet_71
+    21300144: character sheet_72
+    21300146: character sheet_73
+    21300148: character sheet_74
+    21300150: character sheet_75
+    21300152: character sheet_76
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: character sheet_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 299
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 299
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 299
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 299
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_4
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 302
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_5
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 302
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 302
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_7
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 301
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_8
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 302
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_9
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 265
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_10
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 265
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_11
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 264
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_12
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 264
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 267
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_14
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 267
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_15
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 268
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_16
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 266
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_17
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 266
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_18
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 231
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_19
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 231
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_20
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 230
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_21
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 230
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_22
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 234
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_23
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 234
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_24
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 234
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_25
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 233
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_26
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 232
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_27
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 197
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_28
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 198
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_29
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 197
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_30
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 198
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_31
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 197
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_32
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 198
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_33
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 199
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_34
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 199
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_35
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 200
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_36
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 154
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_37
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 154
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_38
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 153
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_39
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 154
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_40
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 153
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_41
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 151
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_42
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 152
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_43
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 152
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_44
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 153
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_45
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 121
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_46
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 120
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_47
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 120
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_48
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 121
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_49
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 122
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_50
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 118
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_51
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 118
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_52
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 119
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_53
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 119
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_54
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 84
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_55
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 84
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_56
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 84
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_57
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 86
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_58
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 88
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_59
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 86
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_60
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 87
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_61
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 87
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_62
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 88
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_63
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 52
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_64
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 53
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_65
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 54
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_66
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 54
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_67
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 56
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_68
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 54
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_69
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 55
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_70
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 54
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_71
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 53
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_72
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 13
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_73
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 14
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_74
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 13
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_75
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 14
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character sheet_76
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 11
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

@@ -8,9 +8,14 @@ public class HeroMovement : MonoBehaviour {
     private bool allowKeyMovement = true;
     private bool allowActions = true;
 
+    void Awake()
+    {
+        Animator anim = gameObject.GetComponent<Animator>();
+    }
+
     void Update()
     {
-
+        
     }
 
 	void FixedUpdate()
