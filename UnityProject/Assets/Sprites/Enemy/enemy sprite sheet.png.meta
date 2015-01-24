@@ -48,6 +48,14 @@ TextureImporter:
     21300086: enemy sprite sheet_43
     21300088: enemy sprite sheet_44
     21300090: enemy sprite sheet_45
+    21300092: enemy sprite sheet_46
+    21300094: enemy sprite sheet_47
+    21300096: enemy sprite sheet_48
+    21300098: enemy sprite sheet_49
+    21300100: enemy sprite sheet_50
+    21300102: enemy sprite sheet_51
+    21300104: enemy sprite sheet_52
+    21300106: enemy sprite sheet_53
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -92,8 +100,8 @@ TextureImporter:
     - name: enemy sprite sheet_0
       rect:
         serializedVersion: 2
-        x: 67
-        y: 94
+        x: 38
+        y: 168
         width: 28
         height: 31
       alignment: 0
@@ -102,8 +110,8 @@ TextureImporter:
     - name: enemy sprite sheet_1
       rect:
         serializedVersion: 2
-        x: 109
-        y: 94
+        x: 80
+        y: 168
         width: 36
         height: 29
       alignment: 0
@@ -112,8 +120,8 @@ TextureImporter:
     - name: enemy sprite sheet_2
       rect:
         serializedVersion: 2
-        x: 167
-        y: 94
+        x: 138
+        y: 168
         width: 28
         height: 31
       alignment: 0
@@ -122,8 +130,8 @@ TextureImporter:
     - name: enemy sprite sheet_3
       rect:
         serializedVersion: 2
-        x: 217
-        y: 94
+        x: 188
+        y: 168
         width: 31
         height: 29
       alignment: 0
@@ -132,8 +140,8 @@ TextureImporter:
     - name: enemy sprite sheet_4
       rect:
         serializedVersion: 2
-        x: 262
-        y: 94
+        x: 233
+        y: 168
         width: 33
         height: 32
       alignment: 0
@@ -142,8 +150,8 @@ TextureImporter:
     - name: enemy sprite sheet_5
       rect:
         serializedVersion: 2
-        x: 312
-        y: 94
+        x: 283
+        y: 168
         width: 33
         height: 31
       alignment: 0
@@ -152,8 +160,8 @@ TextureImporter:
     - name: enemy sprite sheet_6
       rect:
         serializedVersion: 2
-        x: 348
-        y: 116
+        x: 319
+        y: 190
         width: 16
         height: 5
       alignment: 0
@@ -162,8 +170,8 @@ TextureImporter:
     - name: enemy sprite sheet_7
       rect:
         serializedVersion: 2
-        x: 352
-        y: 105
+        x: 323
+        y: 179
         width: 12
         height: 5
       alignment: 0
@@ -172,8 +180,8 @@ TextureImporter:
     - name: enemy sprite sheet_8
       rect:
         serializedVersion: 2
-        x: 66
-        y: 58
+        x: 37
+        y: 132
         width: 29
         height: 33
       alignment: 0
@@ -182,8 +190,8 @@ TextureImporter:
     - name: enemy sprite sheet_9
       rect:
         serializedVersion: 2
-        x: 166
-        y: 58
+        x: 137
+        y: 132
         width: 29
         height: 33
       alignment: 0
@@ -192,8 +200,8 @@ TextureImporter:
     - name: enemy sprite sheet_10
       rect:
         serializedVersion: 2
-        x: 352
-        y: 90
+        x: 323
+        y: 164
         width: 12
         height: 6
       alignment: 0
@@ -202,8 +210,8 @@ TextureImporter:
     - name: enemy sprite sheet_11
       rect:
         serializedVersion: 2
-        x: 118
-        y: 58
+        x: 89
+        y: 132
         width: 27
         height: 31
       alignment: 0
@@ -212,8 +220,8 @@ TextureImporter:
     - name: enemy sprite sheet_12
       rect:
         serializedVersion: 2
-        x: 217
-        y: 57
+        x: 188
+        y: 131
         width: 28
         height: 32
       alignment: 0
@@ -222,8 +230,8 @@ TextureImporter:
     - name: enemy sprite sheet_13
       rect:
         serializedVersion: 2
-        x: 267
-        y: 57
+        x: 238
+        y: 131
         width: 28
         height: 32
       alignment: 0
@@ -232,8 +240,8 @@ TextureImporter:
     - name: enemy sprite sheet_14
       rect:
         serializedVersion: 2
-        x: 317
-        y: 57
+        x: 288
+        y: 131
         width: 28
         height: 31
       alignment: 0
@@ -242,8 +250,8 @@ TextureImporter:
     - name: enemy sprite sheet_15
       rect:
         serializedVersion: 2
-        x: 352
-        y: 79
+        x: 323
+        y: 153
         width: 12
         height: 6
       alignment: 0
@@ -252,8 +260,8 @@ TextureImporter:
     - name: enemy sprite sheet_16
       rect:
         serializedVersion: 2
-        x: 69
-        y: 18
+        x: 40
+        y: 92
         width: 26
         height: 32
       alignment: 0
@@ -262,8 +270,8 @@ TextureImporter:
     - name: enemy sprite sheet_17
       rect:
         serializedVersion: 2
-        x: 119
-        y: 19
+        x: 90
+        y: 93
         width: 26
         height: 29
       alignment: 0
@@ -272,8 +280,8 @@ TextureImporter:
     - name: enemy sprite sheet_18
       rect:
         serializedVersion: 2
-        x: 169
-        y: 18
+        x: 140
+        y: 92
         width: 26
         height: 32
       alignment: 0
@@ -282,8 +290,8 @@ TextureImporter:
     - name: enemy sprite sheet_19
       rect:
         serializedVersion: 2
-        x: 219
-        y: 15
+        x: 190
+        y: 89
         width: 26
         height: 33
       alignment: 0
@@ -292,8 +300,8 @@ TextureImporter:
     - name: enemy sprite sheet_20
       rect:
         serializedVersion: 2
-        x: 268
-        y: 22
+        x: 239
+        y: 96
         width: 30
         height: 28
       alignment: 0
@@ -302,8 +310,8 @@ TextureImporter:
     - name: enemy sprite sheet_21
       rect:
         serializedVersion: 2
-        x: 318
-        y: 22
+        x: 289
+        y: 96
         width: 30
         height: 27
       alignment: 0
@@ -312,8 +320,8 @@ TextureImporter:
     - name: enemy sprite sheet_22
       rect:
         serializedVersion: 2
-        x: 66
-        y: 3
+        x: 37
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -322,8 +330,8 @@ TextureImporter:
     - name: enemy sprite sheet_23
       rect:
         serializedVersion: 2
-        x: 72
-        y: 3
+        x: 43
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -332,8 +340,8 @@ TextureImporter:
     - name: enemy sprite sheet_24
       rect:
         serializedVersion: 2
-        x: 78
-        y: 3
+        x: 49
+        y: 77
         width: 5
         height: 5
       alignment: 0
@@ -342,8 +350,8 @@ TextureImporter:
     - name: enemy sprite sheet_25
       rect:
         serializedVersion: 2
-        x: 90
-        y: 3
+        x: 61
+        y: 77
         width: 5
         height: 5
       alignment: 0
@@ -352,8 +360,8 @@ TextureImporter:
     - name: enemy sprite sheet_26
       rect:
         serializedVersion: 2
-        x: 98
-        y: 3
+        x: 69
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -362,8 +370,8 @@ TextureImporter:
     - name: enemy sprite sheet_27
       rect:
         serializedVersion: 2
-        x: 104
-        y: 3
+        x: 75
+        y: 77
         width: 9
         height: 5
       alignment: 0
@@ -372,8 +380,8 @@ TextureImporter:
     - name: enemy sprite sheet_28
       rect:
         serializedVersion: 2
-        x: 115
-        y: 3
+        x: 86
+        y: 77
         width: 8
         height: 5
       alignment: 0
@@ -382,8 +390,8 @@ TextureImporter:
     - name: enemy sprite sheet_29
       rect:
         serializedVersion: 2
-        x: 130
-        y: 3
+        x: 101
+        y: 77
         width: 7
         height: 5
       alignment: 0
@@ -392,8 +400,8 @@ TextureImporter:
     - name: enemy sprite sheet_30
       rect:
         serializedVersion: 2
-        x: 139
-        y: 3
+        x: 110
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -402,8 +410,8 @@ TextureImporter:
     - name: enemy sprite sheet_31
       rect:
         serializedVersion: 2
-        x: 145
-        y: 3
+        x: 116
+        y: 77
         width: 9
         height: 5
       alignment: 0
@@ -412,8 +420,8 @@ TextureImporter:
     - name: enemy sprite sheet_32
       rect:
         serializedVersion: 2
-        x: 156
-        y: 3
+        x: 127
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -422,8 +430,8 @@ TextureImporter:
     - name: enemy sprite sheet_33
       rect:
         serializedVersion: 2
-        x: 166
-        y: 3
+        x: 137
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -432,8 +440,8 @@ TextureImporter:
     - name: enemy sprite sheet_34
       rect:
         serializedVersion: 2
-        x: 172
-        y: 3
+        x: 143
+        y: 77
         width: 5
         height: 5
       alignment: 0
@@ -442,8 +450,8 @@ TextureImporter:
     - name: enemy sprite sheet_35
       rect:
         serializedVersion: 2
-        x: 184
-        y: 3
+        x: 155
+        y: 77
         width: 9
         height: 5
       alignment: 0
@@ -452,8 +460,8 @@ TextureImporter:
     - name: enemy sprite sheet_36
       rect:
         serializedVersion: 2
-        x: 195
-        y: 3
+        x: 166
+        y: 77
         width: 9
         height: 5
       alignment: 0
@@ -462,8 +470,8 @@ TextureImporter:
     - name: enemy sprite sheet_37
       rect:
         serializedVersion: 2
-        x: 206
-        y: 3
+        x: 177
+        y: 77
         width: 6
         height: 5
       alignment: 0
@@ -472,8 +480,8 @@ TextureImporter:
     - name: enemy sprite sheet_38
       rect:
         serializedVersion: 2
-        x: 218
-        y: 3
+        x: 189
+        y: 77
         width: 5
         height: 5
       alignment: 0
@@ -482,8 +490,8 @@ TextureImporter:
     - name: enemy sprite sheet_39
       rect:
         serializedVersion: 2
-        x: 226
-        y: 3
+        x: 197
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -492,8 +500,8 @@ TextureImporter:
     - name: enemy sprite sheet_40
       rect:
         serializedVersion: 2
-        x: 236
-        y: 3
+        x: 207
+        y: 77
         width: 4
         height: 5
       alignment: 0
@@ -502,8 +510,8 @@ TextureImporter:
     - name: enemy sprite sheet_41
       rect:
         serializedVersion: 2
-        x: 242
-        y: 3
+        x: 213
+        y: 77
         width: 9
         height: 5
       alignment: 0
@@ -512,8 +520,8 @@ TextureImporter:
     - name: enemy sprite sheet_42
       rect:
         serializedVersion: 2
-        x: 253
-        y: 3
+        x: 224
+        y: 77
         width: 12
         height: 5
       alignment: 0
@@ -522,8 +530,8 @@ TextureImporter:
     - name: enemy sprite sheet_43
       rect:
         serializedVersion: 2
-        x: 271
-        y: 3
+        x: 242
+        y: 77
         width: 5
         height: 5
       alignment: 0
@@ -532,8 +540,8 @@ TextureImporter:
     - name: enemy sprite sheet_44
       rect:
         serializedVersion: 2
-        x: 279
-        y: 3
+        x: 250
+        y: 77
         width: 19
         height: 5
       alignment: 0
@@ -542,10 +550,90 @@ TextureImporter:
     - name: enemy sprite sheet_45
       rect:
         serializedVersion: 2
-        x: 300
-        y: 3
+        x: 271
+        y: 77
         width: 4
         height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_46
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 62
+        width: 17
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_47
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 40
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_48
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 40
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_49
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 40
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_50
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 40
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_51
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 40
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_52
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 40
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_53
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 40
+        width: 13
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
