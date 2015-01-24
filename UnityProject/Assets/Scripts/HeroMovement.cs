@@ -4,18 +4,33 @@ using System.Collections;
 public class HeroMovement : MonoBehaviour {
 
     public bool grounded = true;
+    public Dir direction;
 
+    public enum Dir { N, E, S, W };
+
+    private Animator anim;
     private bool allowKeyMovement = true;
     private bool allowActions = true;
 
     void Awake()
     {
-        Animator anim = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
+        direction = Dir.N;
     }
 
     void Update()
     {
-        
+        if (Input.GetAxis("Vertical") > 0.0f) direction = Dir.N;
+        else if (Input.GetAxis("Vertical") < 0.0f) direction = Dir.S;
+        else if (Input.GetAxis("Horizontal") > 0.0f) direction = Dir.E;
+        else if (Input.GetAxis("Horizontal") < 0.0f) direction = Dir.W;
+        switch(direction)
+        {
+            case Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+            case Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            case Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+            case Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+        }
     }
 
 	void FixedUpdate()
