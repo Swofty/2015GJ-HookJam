@@ -4,37 +4,47 @@ using System.Collections;
 public class HeroMovement : MonoBehaviour {
 
     public bool grounded = true;
-    public Dir direction;
-
-    public enum Dir { N, E, S, W };
+    public Constants.Dir direction;
 
     private Animator anim;
     private bool allowKeyMovement = true;
     private bool allowActions = true;
+    private GameObject hook;
 
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
-        direction = Dir.N;
+        direction = Constants.Dir.N;
+        hook = transform.FindChild("Hook").gameObject;
     }
 
     void Update()
     {
         // Set internal direction
-        if (Input.GetAxis("Vertical") > 0.0f) direction = Dir.N;
-        else if (Input.GetAxis("Vertical") < 0.0f) direction = Dir.S;
-        else if (Input.GetAxis("Horizontal") > 0.0f) direction = Dir.E;
-        else if (Input.GetAxis("Horizontal") < 0.0f) direction = Dir.W;
+        if (Input.GetAxis("Vertical") > 0.0f) direction = Constants.Dir.N;
+        else if (Input.GetAxis("Vertical") < 0.0f) direction = Constants.Dir.S;
+        else if (Input.GetAxis("Horizontal") > 0.0f) direction = Constants.Dir.E;
+        else if (Input.GetAxis("Horizontal") < 0.0f) direction = Constants.Dir.W;
 
         // Idle state
         // TODO: Move to its own
         switch(direction)
         {
-            case Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-            case Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-            case Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-            case Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
         }
+
+        // -------------HOOK CODE----------------------
+        
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            hook.GetComponent<HookScript>().ShootHook(direction);
+        }
+
+
+        // ------------END HOOK CODE-------------------
     }
 
 	void FixedUpdate()
