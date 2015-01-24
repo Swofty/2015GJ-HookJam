@@ -4,51 +4,59 @@ using System.Collections;
 public class HeroMovement : MonoBehaviour {
 
     public bool grounded = true;
+    public enum State { FREE, STUNNED, GRAPPLE, SWORD, DASH };
+    public State state = State.FREE;
     public Constants.Dir direction;
+    public float HANG_TIME = 0.5f;
 
     private Animator anim;
     private bool allowKeyMovement = true;
     private bool allowActions = true;
     private GameObject hook;
 	private GameObject sword;
+    private float startHang = -1.0f;
 
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
-        direction = Constants.Dir.N;
         hook = transform.FindChild("Hook").gameObject;
 		sword = transform.FindChild("Sword").gameObject;
     }
 
+
     void Update()
     {
         // Set internal direction
-        if (Input.GetAxis("Vertical") > 0.0f) direction = Constants.Dir.N;
-        else if (Input.GetAxis("Vertical") < 0.0f) direction = Constants.Dir.S;
-        else if (Input.GetAxis("Horizontal") > 0.0f) direction = Constants.Dir.E;
-        else if (Input.GetAxis("Horizontal") < 0.0f) direction = Constants.Dir.W;
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
 
-        // Idle state
-        // TODO: Move to its own
+        if (h > 0.0f && v > 0.0f) direction = Constants.Dir.NE;
+        else if (h > 0.0f && v < 0.0f) direction = Constants.Dir.SE;
+        else if (h < 0.0f && v < 0.0f) direction = Constants.Dir.SW;
+        else if (h < 0.0f && v > 0.0f) direction = Constants.Dir.NW;
+        else if (v > 0.0f) direction = Constants.Dir.N;
+        else if (h > 0.0f) direction = Constants.Dir.E;
+        else if (v < 0.0f) direction = Constants.Dir.S;
+        else if (h < 0.0f) direction = Constants.Dir.W;
+
         switch(direction)
         {
             case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
             case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
             case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
             case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            case Constants.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 1.0f); break;
+            case Constants.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", -1.0f); break;
+            case Constants.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", -1.0f); break;
+            case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 1.0f); break;
         }
 
-        // -------------HOOK CODE----------------------
-        
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(Constants.HookKey))
         {
             hook.GetComponent<HookScript>().ShootHook(direction, false);
         }
 
-
-        // ------------END HOOK CODE-------------------
-
-		if(Input.GetKeyDown(KeyCode.RightShift))
+		if(Input.GetKeyDown(Constants.SwordKey))
 		{
 			sword.GetComponent<SwordScript>().ActivateSword(direction);
 		}
@@ -83,7 +91,7 @@ public class HeroMovement : MonoBehaviour {
 
         if (allowKeyMovement)
         {
-            if (currSpeed > topSpeed) moveStrength = weakMoveStrength;
+            if (currSpeed > topSpeed || !grounded) moveStrength = weakMoveStrength;
             else if (currSpeed < 0.5) moveStrength *= 3.0f;
             float horizontalDir = Input.GetAxis("Horizontal");
             float verticalDir = Input.GetAxis("Vertical");
@@ -104,9 +112,63 @@ public class HeroMovement : MonoBehaviour {
         rigidbody2D.AddForce(totalForces);
     }
 
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Hole")
+        {
+            Debug.Log("Player nside a hole...");
+            if (grounded)
+            {
+                if (startHang < 0.0f) startHang = Time.time;
+
+                if (Time.time - startHang <= 0.0f) TakeDamage(GetCurrHealth());
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Hole")
+        {
+            Debug.Log("Leave hole");
+            startHang = -1.0f;
+        }
+    }
+
     public void ApplyPull(Vector3 sourcePos, float pullStrength)
     {
         Debug.Log("Player getting pulled by " + sourcePos + ". Str: " + pullStrength);
         rigidbody2D.AddForce(pullStrength * (sourcePos - transform.position).normalized);
+    }
+
+    public void Launch()
+    {
+        grounded = false;
+    }
+
+    public void Ground()
+    {
+        grounded = true;
+    }
+
+    public float GetCurrHealth()
+    {
+        return 1.0f;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        Debug.Log("Player has taken " + amount + "damage");
+        Invoke("Reset", 2.0f);
+        gameObject.SetActive(false);
+    }
+
+    private void Reset()
+    {
+        gameObject.SetActive(true);
+        transform.position = Vector3.zero;
+        direction = Constants.Dir.N;
+        grounded = true;
+        state = State.FREE;
     }
 }

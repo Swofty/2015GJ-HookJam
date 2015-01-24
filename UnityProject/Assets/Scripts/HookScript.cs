@@ -6,6 +6,7 @@ public class HookScript : MonoBehaviour {
     public float SPEED = 10.0f;
     public float MAX_HOOK_DISTANCE = 5.0f;
     public float HOOK_PULL_FORCE = 50.0f;
+    public bool fired = false;
     public bool latched = false;
     public bool charged = false;
 
@@ -18,6 +19,7 @@ public class HookScript : MonoBehaviour {
 
     void Awake()
     {
+        fired = false;
         latched = false;
         charged = false;
         rigidbody2D.velocity = new Vector2();
@@ -31,6 +33,9 @@ public class HookScript : MonoBehaviour {
 
     public void ShootHook(Constants.Dir dir, bool isChargedShot)
     {
+        if (fired) return;
+        fired = true;
+
         // Turn hook on
         gameObject.SetActive(true);
         charged = isChargedShot;
@@ -49,11 +54,15 @@ public class HookScript : MonoBehaviour {
         // Give hook a velocity
         rigidbody2D.velocity = SPEED * Constants.getVectorFromDirection(dir);
 
+        player.GetComponent<HeroMovement>().Launch();
+
         Debug.Log("Hook enabled!");
     }
 
     void DisableHook()
     {
+        fired = false;
+
         rigidbody2D.velocity = Vector2.zero;
         latched = false;
         charged = false;
@@ -65,6 +74,9 @@ public class HookScript : MonoBehaviour {
         // Reset everything
         rope.transform.localScale = Vector3.zero;
         gameObject.transform.localPosition = Vector3.zero;
+
+        player.GetComponent<HeroMovement>().Ground();
+
         Debug.Log("Hook disabled!");
     }
 
