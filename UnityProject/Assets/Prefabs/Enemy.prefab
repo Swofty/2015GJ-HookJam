@@ -32,7 +32,7 @@ GameObject:
   - 61: {fileID: 6109648}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ GameObject:
   - 61: {fileID: 6109650}
   m_Layer: 0
   m_Name: Shell
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.657921314, y: .735927105, z: 0}
+  m_LocalPosition: {x: -1.88269293, y: .956288338, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 409648}
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_CollisionDetection: 0
 --- !u!61 &6106990
 BoxCollider2D:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106990}
@@ -168,6 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: .100000001
   invulnerable: 0
+  armored: 0
+  health: 0
   direction: 0
 --- !u!212 &21206990
 SpriteRenderer:

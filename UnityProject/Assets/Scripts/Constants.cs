@@ -46,5 +46,4 @@ public static class Constants{
     public static bool isWallTag(string str)
     {
         return false;
-    }
-}
+    }	public enum Attack { HOOK, SWORD, DASH };}

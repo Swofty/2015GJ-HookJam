@@ -15,12 +15,14 @@ public class HeroMovement : MonoBehaviour {
     private GameObject hook;
 	private GameObject sword;
     private float startHang = -1.0f;
+	private GameObject staminaBar;
 
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
         hook = transform.FindChild("Hook").gameObject;
 		sword = transform.FindChild("Sword").gameObject;
+		staminaBar = GameObject.Find("Stamina Bar");
     }
 
 
@@ -53,12 +55,16 @@ public class HeroMovement : MonoBehaviour {
 
         if(Input.GetKeyDown(Constants.HookKey))
         {
-            hook.GetComponent<HookScript>().ShootHook(direction, false);
+			if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.HOOK)) {
+				hook.GetComponent<HookScript>().ShootHook(direction, false);
+			}
         }
 
 		if(Input.GetKeyDown(Constants.SwordKey))
 		{
-			sword.GetComponent<SwordScript>().ActivateSword(direction);
+			if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD)) {
+				sword.GetComponent<SwordScript>().ActivateSword(direction);
+			}
 		}
     }
 
