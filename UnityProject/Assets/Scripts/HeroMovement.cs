@@ -10,12 +10,14 @@ public class HeroMovement : MonoBehaviour {
     private bool allowKeyMovement = true;
     private bool allowActions = true;
     private GameObject hook;
+	private GameObject sword;
 
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
         direction = Constants.Dir.N;
         hook = transform.FindChild("Hook").gameObject;
+		sword = transform.FindChild("Sword").gameObject;
     }
 
     void Update()
@@ -45,6 +47,11 @@ public class HeroMovement : MonoBehaviour {
 
 
         // ------------END HOOK CODE-------------------
+
+		if(Input.GetKeyDown(KeyCode.RightShift))
+		{
+			sword.GetComponent<SwordScript>().ActivateSword(direction);
+		}
     }
 
 	void FixedUpdate()

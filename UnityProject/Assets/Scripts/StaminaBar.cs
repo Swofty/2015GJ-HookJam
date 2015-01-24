@@ -16,7 +16,9 @@ public class StaminaBar : MonoBehaviour {
 		float timePassed = Time.deltaTime;
 		float chargeTime = 0f;
 
-		if (Input.GetKeyDown(KeyCode.Space) && length >= spaceCost * 0.99999f) {
+		if ((Input.GetKeyDown(KeyCode.RightShift)
+		     || Input.GetKeyDown(KeyCode.Z))
+		    && length >= spaceCost * 0.99999f) {
 			length = (length - spaceCost >= 0f) ? length - spaceCost : 0f;
 			timer = delay;
 		}
@@ -35,6 +37,5 @@ public class StaminaBar : MonoBehaviour {
 		}
 		transform.localScale = new Vector3(length * 0.5f, 0.1f, 1f);
 		transform.position = new Vector3((length - maximum) * 7.2f, 0, 0);
-		Debug.Log(length);
 	}
 }
