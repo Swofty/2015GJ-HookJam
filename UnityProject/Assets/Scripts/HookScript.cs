@@ -122,6 +122,15 @@ public class HookScript : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            print(col.gameObject.GetComponent<EnemyHitbox>());
+            col.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+        }
+    }
+
     void OnTriggerStay2D(Collider2D col)
     {
         if (!latched)
