@@ -11,6 +11,7 @@ public class HeroMovement : MonoBehaviour {
     private bool allowActions = true;
     private GameObject hook;
 	private GameObject sword;
+	private GameObject staminaBar;
 
     void Awake()
     {
@@ -18,6 +19,7 @@ public class HeroMovement : MonoBehaviour {
         direction = Constants.Dir.N;
         hook = transform.FindChild("Hook").gameObject;
 		sword = transform.FindChild("Sword").gameObject;
+		staminaBar = GameObject.Find("Stamina Bar");
     }
 
     void Update()
@@ -42,7 +44,9 @@ public class HeroMovement : MonoBehaviour {
         
         if(Input.GetKeyDown(KeyCode.Z))
         {
-            hook.GetComponent<HookScript>().ShootHook(direction, false);
+			if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.HOOK)) {
+				hook.GetComponent<HookScript>().ShootHook(direction, false);
+			}
         }
 
 
@@ -50,7 +54,9 @@ public class HeroMovement : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.RightShift))
 		{
-			sword.GetComponent<SwordScript>().ActivateSword(direction);
+			if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD)) {
+				sword.GetComponent<SwordScript>().ActivateSword(direction);
+			}
 		}
     }
 
