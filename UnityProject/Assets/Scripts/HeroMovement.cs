@@ -20,10 +20,14 @@ public class HeroMovement : MonoBehaviour {
 
     void Update()
     {
+        // Set internal direction
         if (Input.GetAxis("Vertical") > 0.0f) direction = Dir.N;
         else if (Input.GetAxis("Vertical") < 0.0f) direction = Dir.S;
         else if (Input.GetAxis("Horizontal") > 0.0f) direction = Dir.E;
         else if (Input.GetAxis("Horizontal") < 0.0f) direction = Dir.W;
+
+        // Idle state
+        // TODO: Move to its own
         switch(direction)
         {
             case Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
