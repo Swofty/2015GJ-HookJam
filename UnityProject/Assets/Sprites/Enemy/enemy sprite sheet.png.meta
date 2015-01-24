@@ -1,0 +1,553 @@
+fileFormatVersion: 2
+guid: 917a8c2c696ae3445a1691b31a983ee4
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemy sprite sheet_0
+    21300002: enemy sprite sheet_1
+    21300004: enemy sprite sheet_2
+    21300006: enemy sprite sheet_3
+    21300008: enemy sprite sheet_4
+    21300010: enemy sprite sheet_5
+    21300012: enemy sprite sheet_6
+    21300014: enemy sprite sheet_7
+    21300016: enemy sprite sheet_8
+    21300018: enemy sprite sheet_9
+    21300020: enemy sprite sheet_10
+    21300022: enemy sprite sheet_11
+    21300024: enemy sprite sheet_12
+    21300026: enemy sprite sheet_13
+    21300028: enemy sprite sheet_14
+    21300030: enemy sprite sheet_15
+    21300032: enemy sprite sheet_16
+    21300034: enemy sprite sheet_17
+    21300036: enemy sprite sheet_18
+    21300038: enemy sprite sheet_19
+    21300040: enemy sprite sheet_20
+    21300042: enemy sprite sheet_21
+    21300044: enemy sprite sheet_22
+    21300046: enemy sprite sheet_23
+    21300048: enemy sprite sheet_24
+    21300050: enemy sprite sheet_25
+    21300052: enemy sprite sheet_26
+    21300054: enemy sprite sheet_27
+    21300056: enemy sprite sheet_28
+    21300058: enemy sprite sheet_29
+    21300060: enemy sprite sheet_30
+    21300062: enemy sprite sheet_31
+    21300064: enemy sprite sheet_32
+    21300066: enemy sprite sheet_33
+    21300068: enemy sprite sheet_34
+    21300070: enemy sprite sheet_35
+    21300072: enemy sprite sheet_36
+    21300074: enemy sprite sheet_37
+    21300076: enemy sprite sheet_38
+    21300078: enemy sprite sheet_39
+    21300080: enemy sprite sheet_40
+    21300082: enemy sprite sheet_41
+    21300084: enemy sprite sheet_42
+    21300086: enemy sprite sheet_43
+    21300088: enemy sprite sheet_44
+    21300090: enemy sprite sheet_45
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: enemy sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 94
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 94
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 94
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 94
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 94
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 94
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 116
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 105
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 58
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 58
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 90
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 58
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 57
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 57
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 57
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 79
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 18
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 19
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 18
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 15
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 22
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 22
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 3
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 3
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 3
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 3
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 3
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_31
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 3
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_32
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_33
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_34
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 3
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_35
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 3
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_36
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_37
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 3
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_38
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 3
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_39
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_40
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_41
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 3
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_42
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 3
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_43
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 3
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_44
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 3
+        width: 19
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy sprite sheet_45
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 3
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
