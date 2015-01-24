@@ -126,6 +126,7 @@ public class HookScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Enemy")
         {
+            print(col.gameObject.name);
             print(col.gameObject.GetComponent<EnemyHitbox>());
             col.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
         }
