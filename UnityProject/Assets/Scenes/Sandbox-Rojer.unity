@@ -1144,11 +1144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727f15fdba140424aa876e9379c6e410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  invulnerable: 0
-  next_turn: 2
-  armored: 0
-  health: 0
   direction: 0
 --- !u!61 &1398375504
 BoxCollider2D:

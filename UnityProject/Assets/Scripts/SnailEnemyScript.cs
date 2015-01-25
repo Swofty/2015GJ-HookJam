@@ -3,14 +3,14 @@ using System.Collections;
 
 public class SnailEnemyScript : MonoBehaviour {
 
-    public float speed;
-    public float invulnerable; //Used to deal with invincibility frame timing
+    private float speed = 0.5f;
+    private float invulnerable = 0; //Used to deal with invincibility frame timing
 
-    public float next_turn = 2.0f;
+    private float next_turn = 2.0f;
 
-    public bool armored; //Used to tell if the enemy still has armor on him
+    private bool armored = true; //Used to tell if the enemy still has armor on him
 
-    public int health = 12;
+    private int health = 12;
 
     public Constants.Dir direction;
 
@@ -19,8 +19,8 @@ public class SnailEnemyScript : MonoBehaviour {
     {
         anim = gameObject.GetComponent<Animator>();
 
-        invulnerable = 0;
-        armored = true;
+        //invulnerable = 0;
+        //armored = true;
 
         direction = Constants.Dir.S;
     }

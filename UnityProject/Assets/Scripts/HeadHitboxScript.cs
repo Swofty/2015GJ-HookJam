@@ -7,7 +7,7 @@ public class HeadHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
         {
-            Vector3 direction_vector = transform.parent.position - GameObject.Find("Hero").transform.position;
+            Vector3 direction_vector = GameObject.Find("Hero").transform.position - transform.parent.position;
             Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
@@ -20,7 +20,7 @@ public class HeadHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
         {
-            Vector3 direction_vector = transform.parent.position - GameObject.Find("Hero").transform.position;
+            Vector3 direction_vector = GameObject.Find("Hero").transform.position - transform.parent.position;
             Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
@@ -33,7 +33,7 @@ public class HeadHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
         {
-            Vector3 direction_vector = transform.parent.position - GameObject.Find("Hero").transform.position;
+            Vector3 direction_vector = GameObject.Find("Hero").transform.position - transform.parent.position;
             Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
