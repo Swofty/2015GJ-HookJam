@@ -5,7 +5,8 @@ public class ChargeScript : MonoBehaviour {
 
 	public float ANGULAR_SPEED = 0.1f;
 	public float SWORD_SIZE = 0.2f;
-	public float MAXIMUM_CHARGE_LENGTH = 1.5f;
+
+    public float MAXIMUM_CHARGE_LENGTH = 1.0f;
 
 	private Vector3 initPos;
 	private GameObject staminaBar;
@@ -16,6 +17,8 @@ public class ChargeScript : MonoBehaviour {
 
 	public bool inCharge;
 	public bool inSwing;
+
+    private float startTime;
 	private float timeCharged;
 	
 	void Awake()
@@ -45,6 +48,7 @@ public class ChargeScript : MonoBehaviour {
 	public void StartCharge(Constants.Dir dir)
 	{
 		inCharge = true;
+        startTime = Time.time;
 		ActivateSword (dir);
 	}
 
