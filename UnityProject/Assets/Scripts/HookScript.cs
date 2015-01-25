@@ -54,12 +54,12 @@ public class HookScript : MonoBehaviour {
         // Give hook a velocity
         rigidbody2D.velocity = SPEED * Constants.getVectorFromDirection(dir);
 
-        player.GetComponent<HeroMovement>().Launch();
+        player.GetComponent<HeroMovement>().SetGrounded(false);
 
         Debug.Log("Hook enabled!");
     }
 
-    void DisableHook()
+    public void DisableHook()
     {
         fired = false;
 
@@ -75,7 +75,7 @@ public class HookScript : MonoBehaviour {
         rope.transform.localScale = Vector3.zero;
         gameObject.transform.localPosition = Vector3.zero;
 
-        player.GetComponent<HeroMovement>().Ground();
+        player.GetComponent<HeroMovement>().SetGrounded(false);
 
         Debug.Log("Hook disabled!");
     }
@@ -97,6 +97,10 @@ public class HookScript : MonoBehaviour {
             case Constants.Dir.E: rot = Quaternion.Euler(0.0f, 0.0f, 0.0f); break;
             case Constants.Dir.S: rot = Quaternion.Euler(0.0f, 0.0f, -90.0f); break;
             case Constants.Dir.W: rot = Quaternion.Euler(0.0f, 0.0f, 180.0f); break;
+            case Constants.Dir.NE: rot = Quaternion.Euler(0.0f, 0.0f, 45.0f); break;
+            case Constants.Dir.SE: rot = Quaternion.Euler(0.0f, 0.0f, -45.0f); break;
+            case Constants.Dir.SW: rot = Quaternion.Euler(0.0f, 0.0f, -135.0f); break;
+            case Constants.Dir.NW: rot = Quaternion.Euler(0.0f, 0.0f, 135.0f); break;
             default: rot = new Quaternion(); break;
         }
         return rot;
@@ -114,6 +118,12 @@ public class HookScript : MonoBehaviour {
 
         // When to stop
         if(!latched && playerToRopeDist > MAX_HOOK_DISTANCE)
+        {
+            DisableHook();
+        }
+
+        // Bug with getting stuck against wall
+        if(latched && player.rigidbody2D.velocity.sqrMagnitude == 0.0f)
         {
             DisableHook();
         }
@@ -171,7 +181,7 @@ public class HookScript : MonoBehaviour {
             }
         }
 
-        if(latched)
+        else if(latched)
         {
             if (!hookHeadDetach.activeSelf) Debug.Log("WARNING: deatchArea is not active when latched!");
             if(col.gameObject.tag == "Player")

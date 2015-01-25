@@ -16,6 +16,10 @@ public static class Constants{
             case Dir.E: return new Vector2(1.0f, 0.0f);
             case Dir.S: return new Vector2(0.0f, -1.0f);
             case Dir.W: return new Vector2(-1.0f, 0.0f);
+            case Dir.NE: return new Vector2(0.70710678118f, 0.70710678118f);
+            case Dir.SE: return new Vector2(0.70710678118f, -0.70710678118f);
+            case Dir.SW: return new Vector2(-0.70710678118f, -0.70710678118f);
+            case Dir.NW: return new Vector2(-0.70710678118f, 0.70710678118f);
         }
         return new Vector2(0.0f, 0.0f);
     }
@@ -46,4 +50,7 @@ public static class Constants{
     public static bool isWallTag(string str)
     {
         return false;
-    }	public enum Attack { HOOK, SWORD, DASH };}
+    }
+
+	public enum Attack { HOOK, SWORD, DASH };
+}
