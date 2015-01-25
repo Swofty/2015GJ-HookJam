@@ -6,7 +6,7 @@ public class SnailEnemyScript : MonoBehaviour {
     public float speed;
     public float invulnerable; //Used to deal with invincibility frame timing
 
-    public float next_turn = 2.0;
+    public float next_turn = 2.0f;
 
     public bool armored; //Used to tell if the enemy still has armor on him
 

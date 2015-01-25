@@ -30,6 +30,7 @@ GameObject:
   - 4: {fileID: 409648}
   - 212: {fileID: 21209648}
   - 61: {fileID: 6109648}
+  - 114: {fileID: 11446606}
   m_Layer: 0
   m_Name: Head
   m_TagString: Enemy
@@ -47,6 +48,7 @@ GameObject:
   - 4: {fileID: 409650}
   - 212: {fileID: 21209650}
   - 61: {fileID: 6109650}
+  - 114: {fileID: 11446604}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Enemy
@@ -61,7 +63,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.88269293, y: .956288338, z: 0}
+  m_LocalPosition: {x: -.657921314, y: .735927105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 409648}
@@ -166,11 +168,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727f15fdba140424aa876e9379c6e410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .100000001
+  speed: 0
   invulnerable: 0
+  next_turn: 2
   armored: 0
   health: 0
   direction: 0
+--- !u!114 &11446604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b63a1a047ed28c45a76c469a3d459cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11446606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3751304e0e571c045820735edc14a2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21206990
 SpriteRenderer:
   m_ObjectHideFlags: 1
