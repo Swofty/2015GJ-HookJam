@@ -7,12 +7,15 @@ public class ShellHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
         {
-            Vector3 direction_vector = transform.parent.position - transform.position;
+            Vector3 direction_vector = transform.parent.position - GameObject.Find("Hero").transform.position;
             Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
 
-            transform.parent.GetComponent<SnailEnemyScript>().hit();
+            if(transform.parent.GetComponent<SnailEnemyScript>().isArmored())
+                transform.parent.GetComponent<SnailEnemyScript>().hit(1);
+            else
+                transform.parent.GetComponent<SnailEnemyScript>().hit(3);
         }
     }
 
@@ -20,12 +23,15 @@ public class ShellHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
         {
-            //Want to have it so that if the enemy dies, we shake the camera
-
-            Vector3 direction_vector = transform.parent.position - transform.position;
+            Vector3 direction_vector = transform.parent.position - GameObject.Find("Hero").transform.position;
             Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
+
+            if (transform.parent.GetComponent<SnailEnemyScript>().isArmored())
+                transform.parent.GetComponent<SnailEnemyScript>().hit(2);
+            else
+                transform.parent.GetComponent<SnailEnemyScript>().hit(6);
         }
     }
 
@@ -33,7 +39,7 @@ public class ShellHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
         {
-            Vector3 direction_vector = transform.parent.position - transform.position;
+            Vector3 direction_vector = transform.parent.position - GameObject.Find("Hero").transform.position;
             Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
@@ -50,11 +56,6 @@ public class ShellHitboxScript : EnemyHitbox
                 //We want to play an armor poofing animation at this point (noooootteee)
                 ((Animator)transform.parent.gameObject.GetComponent<Animator>()).SetTrigger("BreakArmor");
             }
-
-            Vector3 direction_vector = transform.parent.position - transform.position;
-            Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
-
-            transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
         }
     }
 
@@ -62,10 +63,6 @@ public class ShellHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
         {
-            Vector3 direction_vector = transform.parent.position - transform.position;
-            Constants.Dir direction = Constants.getDirectionFromVector(direction_vector);
-
-            transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
         }
     }
 }
