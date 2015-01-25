@@ -25,6 +25,7 @@ public class HeroMovement : MonoBehaviour
 	private GameObject charge;
     private float startHang = -1.0f;
     private GameObject staminaBar;
+    private GameObject bodyCollider;
 
     void Awake()
     {
@@ -32,7 +33,8 @@ public class HeroMovement : MonoBehaviour
         hook = transform.FindChild("Hook").gameObject;
 		sword = transform.FindChild("Sword").gameObject;
 		charge = transform.FindChild("Charge").gameObject;
-		staminaBar = GameObject.Find("Stamina Bar");
+        staminaBar = GameObject.Find("Stamina Bar");
+        bodyCollider = transform.FindChild("BodyCollider").gameObject;
     }
 
 
@@ -99,9 +101,12 @@ public class HeroMovement : MonoBehaviour
 	}
 */
         // Set internal direction
+		float h = 0.0f;
+		float v = 0.0f;
+
 		if (state != State.CHARGE) {
-	        float h = Input.GetAxis("Horizontal");
-	        float v = Input.GetAxis("Vertical");
+	        h = Input.GetAxis("Horizontal");
+	        v = Input.GetAxis("Vertical");
 
 	        if (h > 0.0f && v > 0.0f) direction = Constants.Dir.NE;
 	        else if (h > 0.0f && v < 0.0f) direction = Constants.Dir.SE;
@@ -118,23 +123,20 @@ public class HeroMovement : MonoBehaviour
 	            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
 	            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
 	            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
-	            case Constants.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 1.0f); break;
-	            case Constants.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", -1.0f); break;
-	            case Constants.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", -1.0f); break;
-	            case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 1.0f); break;
+	            case Constants.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+	            case Constants.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+	            case Constants.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+	            case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
 	        }
-
-	        if (Mathf.Abs(h) > 0.9f || Mathf.Abs(v) > 0.9f)
-	        {
-	            anim.SetBool("Move", true);
-	        }
-	        else
-	            anim.SetBool("Move", false);
 		}
 
         switch (state)
         {
             case State.FREE:
+                if (Mathf.Abs(h) > 0.9f || Mathf.Abs(v) > 0.9f)
+                    anim.SetInteger("Move", 1);
+                else
+                    anim.SetInteger("Move", 0);
                 if (Input.GetKeyDown(Constants.HookKey))
                 {
                     if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.HOOK))
@@ -165,7 +167,16 @@ public class HeroMovement : MonoBehaviour
 				break;
 
             case State.DASH:
-                state = State.FREE;
+                if (gameObject.GetComponent<DashScript>().finished())
+                {
+                    state = State.FREE;
+                    grounded = true;
+                }
+                else
+                {
+                    anim.SetInteger("Move", 2);
+                    grounded = false;
+                }
                 break;
 
             case State.SWORD:
@@ -214,9 +225,15 @@ public class HeroMovement : MonoBehaviour
             rigidbody2D.velocity = new Vector2();
         }
 
-        //if (state == State.DASH)
-        //    GetComponent<DashScript>().Dash();
-        if (state == State.FREE)
+        if (state == State.DASH)
+        {
+            gameObject.GetComponent<DashScript>().Dash(direction);
+        }
+        else if (state == State.SWORD)
+        {
+
+        }
+        else if (state == State.FREE)
         {
             float moveStrength = MOVE_STR;
 
@@ -251,7 +268,7 @@ public class HeroMovement : MonoBehaviour
             {
                 if (startHang < 0.0f) startHang = Time.time;
 
-                if (Time.time - startHang >= rigidbody.velocity.magnitude)
+                if (Time.time - startHang >= rigidbody2D.velocity.magnitude)
                     TakeDamage(GetCurrHealth());
             }
         }
@@ -290,6 +307,7 @@ public class HeroMovement : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (state == State.DASH) return;
         Debug.Log("Player has taken " + amount + "damage");
         Invoke("Reset", 2.0f);
         gameObject.SetActive(false);
