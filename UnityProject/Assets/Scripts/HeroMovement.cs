@@ -12,12 +12,15 @@ public class HeroMovement : MonoBehaviour
     public float GROUND_MIU = 1.0f;
     public float TOP_SPEED = 1.0f;
     public float MIN_FRICTION_SPEED = 0.2f;
+    public float FALL_DAMAGE = 4.0f;
     public float SAVEPOINT_TIMER = 15.0f;
+    private float INVULN_TIME = 0.6f;
 
     public bool grounded = true;
     public State state = State.FREE;
     public Constants.Dir direction;
     public Vector3 spawnPoint = Vector3.zero;
+    public float health = 48.0f;
 
     private Animator anim;
     private bool allowKeyMovement = true;
@@ -27,6 +30,7 @@ public class HeroMovement : MonoBehaviour
     private float startHang = -1.0f;
     private GameObject staminaBar;
     private GameObject bodyCollider;
+    private bool invulnerable;
 
     void Awake()
     {
@@ -233,18 +237,33 @@ public class HeroMovement : MonoBehaviour
 
     public float GetCurrHealth()
     {
-        return 1.0f;
+        return health;
     }
 
     public void TakeDamage(float amount)
     {
         if (state == State.DASH) return;
-        Debug.Log("Player has taken " + amount + "damage");
-        Invoke("Reset", 2.0f);
+        health -= amount;
+        
+        if(health <= 0.0)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            invulnerable = true;
+            Invoke("DisableInvuln", INVULN_TIME);
+        }
+    }
+
+    public void Fall()
+    {
+        TakeDamage(FALL_DAMAGE);
+        Invoke("Respawn", 2.0f);
         gameObject.SetActive(false);
     }
 
-    private void Reset()
+    private void Respawn()
     {
         gameObject.SetActive(true);
         transform.position = spawnPoint;
@@ -253,9 +272,15 @@ public class HeroMovement : MonoBehaviour
         state = State.FREE;
     }
 
+
     public void DisableSword()
     {
         sword.GetComponent<SwordScript>().DisableSword();
+    }
+
+    public void DisableInvuln()
+    {
+        invulnerable = false;
     }
 
     public void ApplyKnockback(Vector2 force)

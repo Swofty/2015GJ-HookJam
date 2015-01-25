@@ -20,14 +20,15 @@ public class ArrowScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Wall")
+        if (col.gameObject.tag == "GWall")
         {
             Reset();
         }
-        if (col.tag == "Player")
+        if (col.gameObject.tag == "Player")
         {
-            col.GetComponent<HeroMovement>().TakeDamage(6);
-            col.GetComponent<HeroMovement>().ApplyKnockback((GameObject.Find("Hero").transform.position - transform.parent.position)/2);
+            HeroMovement s = col.gameObject.transform.parent.gameObject.GetComponent<HeroMovement>();
+            s.TakeDamage(6);
+            s.ApplyKnockback((GameObject.Find("Hero").transform.position - transform.parent.position)/2);
         }
     }
 

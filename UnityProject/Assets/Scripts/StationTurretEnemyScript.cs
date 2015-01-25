@@ -4,6 +4,8 @@ using System.Collections;
 public class StationTurretEnemyScript : TurretEnemyScript {
 
     new public GameObject player;
+    public float FIRING_PERIOD = 5.0f;
+
     private float aggro_range = 10.0f;//Guess
 
     private bool firing;
@@ -64,7 +66,7 @@ public class StationTurretEnemyScript : TurretEnemyScript {
 
         if (firing && cooldown <= 0.0f)
         {
-            cooldown = 5.0f;
+            cooldown = FIRING_PERIOD;
             Transform child = transform.FindChild("Arrow");
             child.GetComponent<ArrowScript>().Fire(direction);
         }

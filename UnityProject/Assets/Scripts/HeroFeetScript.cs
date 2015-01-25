@@ -25,7 +25,7 @@ public class HeroFeetScript : MonoBehaviour {
                 if (startHang < 0.0f) startHang = Time.time;
 
                 if (Time.time - startHang >= player.GetComponent<Rigidbody2D>().velocity.magnitude)
-                    playerScript.TakeDamage(FALL_DAMAGE);
+                    playerScript.Fall();
             }
         }
     }

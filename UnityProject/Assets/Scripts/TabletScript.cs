@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class TabletScript : MonoBehaviour {
+    public TextAsset textFile;
+
 	private bool textOn;
 	// Use this for initialization
 	void Start () {
@@ -25,8 +27,14 @@ public class TabletScript : MonoBehaviour {
 
     public void OnGUI()
     {
-		if (textOn == true) 
-        GUI.Box(new Rect(150, 150, Screen.width - 300, Screen.height - 300), "AAAAAAAAAAH");
+        float x0 = Screen.width * 0.06f;
+        float y0 = Screen.height * 0.7f;
+        float width = Screen.width * 0.88f;
+        float height = Screen.height * 0.25f;
+        Rect r = new Rect(x0, y0, width, height);
+        string text = textFile.text;
+		if (textOn == true)
+            GUI.Box(r, text);
     }
 
 }

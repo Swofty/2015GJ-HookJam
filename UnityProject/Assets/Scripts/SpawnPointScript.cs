@@ -4,6 +4,7 @@ using System.Collections;
 public class SpawnPointScript : MonoBehaviour {
 
     public bool firstSpawn = false;
+    public bool forceSpawn = false;
 
     private GameObject player;
 
@@ -11,6 +12,9 @@ public class SpawnPointScript : MonoBehaviour {
 	void Start () {
         player = GameObject.Find("Hero");
         if (firstSpawn) player.GetComponent<HeroMovement>().SetSpawnPoint(transform.position);
+
+        if(forceSpawn)
+            player.transform.position = transform.position;
 	}
 
     public void SaveSpawnPoint()
