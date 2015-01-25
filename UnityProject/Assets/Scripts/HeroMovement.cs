@@ -14,6 +14,7 @@ public class HeroMovement : MonoBehaviour {
     private bool allowActions = true;
     private GameObject hook;
 	private GameObject sword;
+	private GameObject charge;
     private float startHang = -1.0f;
 	private GameObject staminaBar;
 
@@ -22,51 +23,71 @@ public class HeroMovement : MonoBehaviour {
         anim = gameObject.GetComponent<Animator>();
         hook = transform.FindChild("Hook").gameObject;
 		sword = transform.FindChild("Sword").gameObject;
+		charge = transform.FindChild("Charge").gameObject;
 		staminaBar = GameObject.Find("Stamina Bar");
     }
 
 
     void Update()
     {
-        // Set internal direction
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+		if (allowKeyMovement) {
+	        // Set internal direction
+	        float h = Input.GetAxis("Horizontal");
+	        float v = Input.GetAxis("Vertical");
 
-        if (h > 0.0f && v > 0.0f) direction = Constants.Dir.NE;
-        else if (h > 0.0f && v < 0.0f) direction = Constants.Dir.SE;
-        else if (h < 0.0f && v < 0.0f) direction = Constants.Dir.SW;
-        else if (h < 0.0f && v > 0.0f) direction = Constants.Dir.NW;
-        else if (v > 0.0f) direction = Constants.Dir.N;
-        else if (h > 0.0f) direction = Constants.Dir.E;
-        else if (v < 0.0f) direction = Constants.Dir.S;
-        else if (h < 0.0f) direction = Constants.Dir.W;
+	        if (h > 0.0f && v > 0.0f) direction = Constants.Dir.NE;
+	        else if (h > 0.0f && v < 0.0f) direction = Constants.Dir.SE;
+	        else if (h < 0.0f && v < 0.0f) direction = Constants.Dir.SW;
+	        else if (h < 0.0f && v > 0.0f) direction = Constants.Dir.NW;
+	        else if (v > 0.0f) direction = Constants.Dir.N;
+	        else if (h > 0.0f) direction = Constants.Dir.E;
+	        else if (v < 0.0f) direction = Constants.Dir.S;
+	        else if (h < 0.0f) direction = Constants.Dir.W;
 
-        switch(direction)
-        {
-            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
-            case Constants.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 1.0f); break;
-            case Constants.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", -1.0f); break;
-            case Constants.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", -1.0f); break;
-            case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 1.0f); break;
-        }
+	        switch(direction)
+	        {
+	            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+	            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+	            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+	            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+	            case Constants.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 1.0f); break;
+	            case Constants.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", -1.0f); break;
+	            case Constants.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", -1.0f); break;
+	            case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 1.0f); break;
+	        }
 
-        if(Input.GetKeyDown(Constants.HookKey))
-        {
-			if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.HOOK)) {
-				hook.GetComponent<HookScript>().ShootHook(direction, false);
+	        if(Input.GetKeyDown(Constants.HookKey))
+	        {
+				if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.HOOK)) {
+					hook.GetComponent<HookScript>().ShootHook(direction, false);
+				}
+	        }
+
+			if(Input.GetKeyDown(Constants.SwordKey))
+			{
+				if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD)) {
+					sword.GetComponent<SwordScript>().ActivateSword(direction);
+				}
 			}
-        }
 
-		if(Input.GetKeyDown(Constants.SwordKey))
-		{
-			if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD)) {
-				sword.GetComponent<SwordScript>().ActivateSword(direction);
+			if(Input.GetKeyDown(Constants.ChargeKey))
+			{
+				if (staminaBar.GetComponent<StaminaBar>().PrepareAttack(Constants.Attack.CHARGE)) {
+					allowKeyMovement = false;
+					charge.GetComponent<ChargeScript>().StartCharge(direction);
+				}
 			}
 		}
-    }
+    	else {
+			if(Input.GetKeyUp(Constants.ChargeKey))
+			{
+				if (staminaBar.GetComponent<StaminaBar>().CancelAttack(Constants.Attack.CHARGE)) {
+					allowKeyMovement = true;
+					charge.GetComponent<ChargeScript>().CancelCharge();
+				}
+			}
+		}
+	}
 
 	void FixedUpdate()
     {

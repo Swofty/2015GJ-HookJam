@@ -4,21 +4,25 @@ using System.Collections;
 public class StaminaBar : MonoBehaviour {
 
 	public float MAXIMUM = 1f; // Maximum value of charge possible
-	public float CHARGE_MODIFIER = 0.2f; // How much the bar charges per second
-	public float DELAY = 3f; // Seconds to wait after last attack before charging
+	public float NORMAL_RECHARGE_MODIFIER = 0.2f; // How much the bar recharges per second
+	public float CHARGE_RECHARGE_MODIFIER = 0.05f; // How much the bar recharges per second when charging
+	public float DELAY = 3f; // Seconds to wait after last attack before recharging
 
 	public float HOOK_COST = 0.1f;
 	public float SWORD_COST = 0.1f;
 	public float DASH_COST = 0.1f;
+	public float CHARGE_COST = 0.2f;
 
 	public float length;
 	public float timer;
+	public float currentModifier;
 	public GameObject player;
 	public RectTransform rectTransform;
 
 	void Awake() {
 		length = MAXIMUM;
 		timer = 0f;
+		currentModifier = NORMAL_RECHARGE_MODIFIER;
 		player = GameObject.Find ("Hero");
 		rectTransform = this.GetComponent<RectTransform>();
 	}
@@ -29,8 +33,21 @@ public class StaminaBar : MonoBehaviour {
 			case Constants.Attack.HOOK: return (length >= HOOK_COST * 0.99999f);
 			case Constants.Attack.SWORD: return (length >= SWORD_COST * 0.99999f);
 			case Constants.Attack.DASH: return (length >= DASH_COST * 0.99999f);
+			case Constants.Attack.CHARGE: return (length >= CHARGE_COST * 0.99999f);
 			default: return false;
 		}
+	}
+
+	//Used for certain attacks, like charging and dashing
+	public bool PrepareAttack(Constants.Attack attack) {
+		if (CanAttack (attack)) {
+			switch (attack) {
+				case Constants.Attack.CHARGE: currentModifier = CHARGE_RECHARGE_MODIFIER; return true;
+				default: return false;
+			}
+		}
+
+		return false;
 	}
 
 	// Adjusts bar for attack, returns true if successful, otherwise false
@@ -42,6 +59,7 @@ public class StaminaBar : MonoBehaviour {
 				case Constants.Attack.HOOK: cost = HOOK_COST; break;
 				case Constants.Attack.SWORD: cost = SWORD_COST; break;
 				case Constants.Attack.DASH: cost = DASH_COST; break;
+				case Constants.Attack.CHARGE: cost = CHARGE_COST; break;
 				default: return false;
 			}
 
@@ -54,9 +72,18 @@ public class StaminaBar : MonoBehaviour {
 		return false;
 	}
 
+	public bool CancelAttack(Constants.Attack attack) {
+		switch (attack) {
+			case Constants.Attack.CHARGE: currentModifier = NORMAL_RECHARGE_MODIFIER; return true;
+			default: return false;
+		}
+		
+		return false;
+	}
+
 	void Update() {
 		float timePassed = Time.deltaTime;
-		float chargeTime = 0f;
+		float rechargeTime = 0f;
 
 		/*if ((Input.GetKeyDown(KeyCode.RightShift)
 		     || Input.GetKeyDown(KeyCode.Z))
@@ -66,16 +93,16 @@ public class StaminaBar : MonoBehaviour {
 		}
 		else {*/
 			if (timePassed > timer) {
-				chargeTime = timePassed - timer;
+				rechargeTime = timePassed - timer;
 				timer = 0f;
 			}
 			else {
 				timer -= timePassed;
 			}
 
-			length = ((length + chargeTime * CHARGE_MODIFIER > MAXIMUM)
+			length = ((length + rechargeTime * currentModifier > MAXIMUM)
 			          ? MAXIMUM
-			          : length + chargeTime * CHARGE_MODIFIER);
+			          : length + rechargeTime * currentModifier);
 		//}
 		Debug.Log (length);
 		rectTransform.sizeDelta = new Vector2(((float)Screen.width) * 0.3f * length, ((float)Screen.height) * 0.05f);
