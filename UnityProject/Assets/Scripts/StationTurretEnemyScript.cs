@@ -16,9 +16,12 @@ public class StationTurretEnemyScript : TurretEnemyScript {
     public Constants.Dir direction;
 
     private Animator anim;
+
+    private AudioSource[] sfx;
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
+        sfx = GetComponents<AudioSource>();
 
         invulnerable = 0;
 
@@ -67,6 +70,7 @@ public class StationTurretEnemyScript : TurretEnemyScript {
             cooldown = 5.0f;
             Transform child = transform.FindChild("Arrow");
             child.GetComponent<ArrowScript>().Fire(direction);
+            sfx[0].Play();
         }
         if (cooldown >= 0)
         {
@@ -83,10 +87,16 @@ public class StationTurretEnemyScript : TurretEnemyScript {
     {
         this.health -= damage;
         this.invulnerable = 0.5f;
+        sfx[1].Play();
 
         //Want to have it so that if the enemy dies, we shake the camera
+        //Want to have it so that if the enemy dies, we shake the camera
         if (health <= 0)
-            print("dead");
+        {
+            sfx[2].Play();
+            GameObject.Find("Main Camera").GetComponent<CameraControls>().shake();
+            Destroy(this.gameObject);
+        }
     }
 
     new public bool isInvulnerable()
