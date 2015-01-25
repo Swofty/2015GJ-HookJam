@@ -147,14 +147,15 @@ public class HeroMovement : MonoBehaviour {
         rigidbody2D.AddForce(pullStrength * (sourcePos - transform.position).normalized);
     }
 
-    public void Launch()
+    public void SetGrounded(bool b)
     {
-        grounded = false;
+        grounded = b;
     }
 
-    public void Ground()
+    public void ForceGround()
     {
         grounded = true;
+        hook.GetComponent<HookScript>().DisableHook();
     }
 
     public float GetCurrHealth()
