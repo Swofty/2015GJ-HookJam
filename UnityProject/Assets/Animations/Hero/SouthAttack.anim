@@ -40,7 +40,7 @@ AnimationClip:
         value: {x: -.180999994, y: -.155000001, z: 0}
         inSlope: {x: Infinity, y: Infinity, z: Infinity}
         outSlope: {x: Infinity, y: Infinity, z: Infinity}
-        tangentMode: 34700
+        tangentMode: 1698967141
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: Body

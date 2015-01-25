@@ -3,11 +3,14 @@ using System.Collections;
 
 public class SnailEnemyScript : MonoBehaviour {
 
-    public float speed;
-    public float invulnerable; //Used to deal with invincibility frame timing
-    public bool armored; //Used to tell if the enemy still has armor on him
+    private float speed = 0.5f;
+    private float invulnerable = 0; //Used to deal with invincibility frame timing
 
-    public int health;
+    private float next_turn = 2.0f;
+
+    private bool armored = true; //Used to tell if the enemy still has armor on him
+
+    private int health = 12;
 
     public Constants.Dir direction;
 
@@ -16,10 +19,32 @@ public class SnailEnemyScript : MonoBehaviour {
     {
         anim = gameObject.GetComponent<Animator>();
 
-        invulnerable = 0;
-        armored = true;
+        //invulnerable = 0;
+        //armored = true;
 
         direction = Constants.Dir.S;
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Wall" || col.tag == "Enemy")
+        {
+            switch (direction)
+            {
+                case Constants.Dir.N: direction = Constants.Dir.S; break;
+                case Constants.Dir.E: direction = Constants.Dir.E; break;
+                case Constants.Dir.S: direction = Constants.Dir.N; break;
+                case Constants.Dir.W: direction = Constants.Dir.W; break;
+            }
+
+            switch (direction)
+            {
+                case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            }
+        }
     }
 	
 	// Update is called once per frame
@@ -38,13 +63,18 @@ public class SnailEnemyScript : MonoBehaviour {
             renderer.material.SetColor("_Color", newColor);
         }
 
+        next_turn -= Time.deltaTime;
 
-        switch (direction)
+        if (next_turn <= 0)
         {
-            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            switch (direction)
+            {
+                case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            }
+            next_turn = 2.0f;
         }
 	}
 
@@ -53,10 +83,14 @@ public class SnailEnemyScript : MonoBehaviour {
         rigidbody2D.velocity = Constants.getVectorFromDirection(direction) * speed;
     }
 
-    public void hit()
+    public void hit(int damage)
     {
-        this.health -= 1;
+        this.health -= damage;
         this.invulnerable = 0.5f;
+
+        //Want to have it so that if the enemy dies, we shake the camera
+        if (health <= 0)
+            print("dead");
     }
 
     public bool isInvulnerable()

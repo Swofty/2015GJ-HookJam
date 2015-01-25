@@ -1,7 +1,12 @@
 fileFormatVersion: 2
 guid: a99751e7804cde2469ba076676999dbd
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Right Slash Sheet_0
+    21300002: Right Slash Sheet_1
+    21300004: Right Slash Sheet_2
+    21300006: Right Slash Sheet_3
+    21300008: Right Slash Sheet_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +30,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +47,56 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Right Slash Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1
+        width: 22
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Slash Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Slash Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 2
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Slash Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 1
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right Slash Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

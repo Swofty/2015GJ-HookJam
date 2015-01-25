@@ -6,9 +6,16 @@ public class HookScript : MonoBehaviour {
     public float SPEED = 10.0f;
     public float MAX_HOOK_DISTANCE = 5.0f;
     public float HOOK_PULL_FORCE = 50.0f;
+    public float MIN_CHARGE_TIME = 0.6f;
+    public float PULL_DELAY = 0.5f;
+    public float PULL_SPEED = 1.0f;
+    public float PULL_END = 0.2f;
+
     public bool fired = false;
     public bool latched = false;
     public bool charged = false;
+
+    private float startTime;
 
     private GameObject player;
     private GameObject hookHead;
@@ -31,14 +38,20 @@ public class HookScript : MonoBehaviour {
         rope = transform.FindChild("Rope").gameObject;
     }
 
-    public void ShootHook(Constants.Dir dir, bool isChargedShot)
+    public void StartHook()
     {
         if (fired) return;
         fired = true;
 
+        startTime = Time.time;
+    }
+
+    public void ReleaseHook(Constants.Dir dir)
+    {
+        charged = Time.time - startTime >= MIN_CHARGE_TIME;
+
         // Turn hook on
         gameObject.SetActive(true);
-        charged = isChargedShot;
 
         // Enable hook head hitbox
         hookHeadCollider.SetActive(true);
@@ -54,7 +67,7 @@ public class HookScript : MonoBehaviour {
         // Give hook a velocity
         rigidbody2D.velocity = SPEED * Constants.getVectorFromDirection(dir);
 
-        Debug.Log("Hook enabled!");
+        Debug.Log("Hook fired!");
     }
 
     public void DisableHook()
@@ -64,6 +77,7 @@ public class HookScript : MonoBehaviour {
         rigidbody2D.velocity = Vector2.zero;
         latched = false;
         charged = false;
+        startTime = 0.0f;
 
         gameObject.SetActive(false);
         hookHeadCollider.SetActive(false);
@@ -145,13 +159,45 @@ public class HookScript : MonoBehaviour {
         }
     }
 
+    void Latch()
+    {
+        // Latch and stop
+        latched = true;
+        latchedPos = transform.position;
+        rigidbody2D.velocity = Vector2.zero;
+
+        // Put player in the air
+        player.GetComponent<HeroMovement>().SetGrounded(false);
+
+        // Disable hook hitbox. Enable detachment area.
+        hookHeadCollider.SetActive(false);
+        hookHeadDetach.SetActive(true);
+    }
+
+    void Tug()
+    {
+        rigidbody2D.velocity = PULL_SPEED * (player.transform.position - transform.position).normalized;
+        Invoke("DisableHook", PULL_END);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Enemy")
         {
-            print(col.gameObject.name);
-            print(col.gameObject.GetComponent<EnemyHitbox>());
-            col.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+            var sc = col.gameObject.GetComponent<EnemyHitbox>();
+            sc.OnGrappleHit();
+            if (charged)
+            {
+                sc.OnPull();
+                hookHeadCollider.SetActive(false);
+                rigidbody2D.velocity = Vector2.zero;
+                Invoke("Tug", PULL_DELAY);
+            }
+            else
+            {
+                sc.OnIncoming();
+                Latch();
+            }
         }
     }
 
@@ -171,17 +217,7 @@ public class HookScript : MonoBehaviour {
                 // Regardless if it was charged, it's not anymore
                 charged = false;
 
-                // Latch and stop
-                latched = true;
-                latchedPos = transform.position;
-                rigidbody2D.velocity = Vector2.zero;
-
-                // Put player in the air
-                player.GetComponent<HeroMovement>().SetGrounded(false);
-                
-                // Disable hook hitbox. Enable detachment area.
-                hookHeadCollider.SetActive(false);
-                hookHeadDetach.SetActive(true);
+                Latch();
             }
         }
 

@@ -20,18 +20,18 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -.458823442
-        outSlope: -.458823442
+        inSlope: -.255577683
+        outSlope: -.255577683
         tangentMode: 10
-      - time: .25
-        value: .885294139
+      - time: .166666672
+        value: .957403719
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
-        inSlope: .458823442
-        outSlope: .458823442
+        inSlope: .255577683
+        outSlope: .255577683
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -47,12 +47,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .25
+      - time: .166666672
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
         inSlope: 0
         outSlope: 0
@@ -68,18 +68,18 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -2.55882359
-        outSlope: -2.55882359
+        inSlope: -4.63235283
+        outSlope: -4.63235283
         tangentMode: 10
-      - time: .25
-        value: .360294104
+      - time: .166666672
+        value: .227941155
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
-        inSlope: 2.55882359
-        outSlope: 2.55882359
+        inSlope: 4.63235283
+        outSlope: 4.63235283
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -95,7 +95,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
         inSlope: 0
         outSlope: 0
@@ -107,7 +107,7 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
   m_PPtrCurves: []
-  m_SampleRate: 20
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -142,7 +142,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .5
+    m_StopTime: .333333343
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -162,18 +162,18 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -.458823442
-        outSlope: -.458823442
+        inSlope: -.255577683
+        outSlope: -.255577683
         tangentMode: 10
-      - time: .25
-        value: .885294139
+      - time: .166666672
+        value: .957403719
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
-        inSlope: .458823442
-        outSlope: .458823442
+        inSlope: .255577683
+        outSlope: .255577683
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -189,12 +189,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .25
+      - time: .166666672
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
         inSlope: 0
         outSlope: 0
@@ -210,18 +210,18 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1
-        inSlope: -2.55882359
-        outSlope: -2.55882359
+        inSlope: -4.63235283
+        outSlope: -4.63235283
         tangentMode: 10
-      - time: .25
-        value: .360294104
+      - time: .166666672
+        value: .227941155
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
-        inSlope: 2.55882359
-        outSlope: 2.55882359
+        inSlope: 4.63235283
+        outSlope: 4.63235283
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -237,7 +237,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: .5
+      - time: .333333343
         value: 1
         inSlope: 0
         outSlope: 0
