@@ -44,10 +44,11 @@ public class ShellHitboxScript : EnemyHitbox
     {
         if (!transform.parent.GetComponent<EnemyScript>().isInvulnerable())
         {
-            if (!transform.parent.GetComponent<EnemyScript>().isArmored())
+            if (transform.parent.GetComponent<EnemyScript>().isArmored())
             {
                 transform.parent.GetComponent<EnemyScript>().setArmored(false);
                 //We want to play an armor poofing animation at this point (noooootteee)
+                ((Animator)transform.parent.gameObject.GetComponent<Animator>()).SetTrigger("BreakArmor");
             }
 
             Vector3 direction_vector = transform.parent.position - transform.position;

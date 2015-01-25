@@ -55,7 +55,6 @@ public class EnemyScript : MonoBehaviour {
 
     public void hit()
     {
-        print("Heeereee");
         this.health -= 1;
         this.invulnerable = 0.5f;
     }
