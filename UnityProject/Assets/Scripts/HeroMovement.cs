@@ -22,7 +22,6 @@ public class HeroMovement : MonoBehaviour
     private bool allowActions = true;
     private GameObject hook;
 	private GameObject sword;
-	private GameObject charge;
     private float startHang = -1.0f;
     private GameObject staminaBar;
     private GameObject bodyCollider;
@@ -32,7 +31,6 @@ public class HeroMovement : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         hook = transform.FindChild("Hook").gameObject;
 		sword = transform.FindChild("Sword").gameObject;
-		charge = transform.FindChild("Charge").gameObject;
         staminaBar = GameObject.Find("Stamina Bar");
         bodyCollider = transform.FindChild("BodyCollider").gameObject;
     }
@@ -91,19 +89,12 @@ public class HeroMovement : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(Constants.SwordKey))
                 {
-                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD))
+                    if(staminaBar.GetComponent<StaminaBar>().PrepareAttack(Constants.Attack.CHARGE))
                     {
                         state = State.SWORD;
-                        sword.GetComponent<SwordScript>().ActivateSword(direction);
+                        sword.GetComponent<SwordScript>().ActivateSword();
                     }
                 }
-				else if(Input.GetKeyDown(Constants.ChargeKey))
-				{
-					if (staminaBar.GetComponent<StaminaBar>().PrepareAttack(Constants.Attack.CHARGE)) {
-						state = State.CHARGE;
-						charge.GetComponent<ChargeScript>().StartCharge(direction);
-					}
-				}
 				break;
 
             case State.DASH:
@@ -120,29 +111,34 @@ public class HeroMovement : MonoBehaviour
                 break;
 
             case State.SWORD:
-                anim.SetInteger("Move", 3);
+                SwordScript sc = sword.GetComponent<SwordScript>();
+                if (sc.inCharge) {
+                    if (!sc.IsChargedAttack() && Input.GetKeyUp(Constants.SwordKey))
+                    {
+                        if (staminaBar.GetComponent<StaminaBar>().CancelAttack(Constants.Attack.CHARGE))
+                        {
+                            anim.SetInteger("Move", 3);
+                            sc.FinishRegular();
+                        }
+                    }
+                    else if (sc.IsChargedAttack() && (Input.GetKeyUp(Constants.SwordKey) || sc.IsMaxTime()))
+                    {
+                        anim.SetInteger("Move", 3);
+                        sc.FinishCharge();
+                    }
+                    else
+                        anim.SetInteger("Move", 4);
+                }
                 if (Input.GetKeyDown(Constants.DashKey))
                 {
                     state = State.DASH;
                     ForceGround();
+                    sword.GetComponent<SwordScript>().DisableSword();
                     break;
                 }
                 if (sword.GetComponent<SwordScript>().isFinished())
                     state = State.FREE;
                 break;
-			case State.CHARGE:
-				if (Input.GetKeyUp (Constants.ChargeKey)) {
-					if (staminaBar.GetComponent<StaminaBar>().CancelAttack(Constants.Attack.CHARGE)) {
-						state = State.FREE;
-						charge.GetComponent<ChargeScript>().CancelCharge();
-						break;
-					}
-				}
-				if (!charge.GetComponent<ChargeScript>().inCharge
-			    	&& !charge.GetComponent<ChargeScript>().inSwing) {
-					state = State.FREE;
-				}
-				break;
         }
 
     }
@@ -170,11 +166,11 @@ public class HeroMovement : MonoBehaviour
         {
             gameObject.GetComponent<DashScript>().Dash(direction);
         }
-        else if (state == State.SWORD)
+        else if (state == State.SWORD && !sword.GetComponent<SwordScript>().inCharge)
         {
 
         }
-        else if (state == State.FREE)
+        else if (state == State.FREE || sword.GetComponent<SwordScript>().inCharge)
         {
             float moveStrength = MOVE_STR;
 

@@ -3,58 +3,101 @@ using System.Collections;
 
 public class SwordScript : MonoBehaviour {
 
-	public float ANGULAR_SPEED = 0.1f;
-	public float SWORD_SIZE = 0.2f;
+    public float MIN_CHARGE_TIME = 0.5f;
+    public float MAX_CHARGE_TIME = 1.5f;
 	
-	private Vector3 initPos;
 	private GameObject player;
-	private float rotateTo;
+    private GameObject staminaBar;
     private float startTime;
 
-	private float timeActive = 0f;
-
+    public bool inCharge;
+    public bool inSwing;
+    public bool charged;
     private bool finished = false;
 	
 	void Awake()
 	{
+        staminaBar = GameObject.Find("Stamina Bar");
 		player = transform.parent.gameObject;
         finished = true;
 	}
 	
-	public void ActivateSword(Constants.Dir dir)
+	public void ActivateSword()
 	{
 		gameObject.SetActive(true);
         finished = false;
         startTime = Time.time;
+        inCharge = true;
+        inSwing = false;
 		Debug.Log("Sword enabled!");
 	}
 
-    public bool isFinished()
-    {
-        return finished;
-    }
 	
 	public void DisableSword()
 	{
         finished = true;
         startTime = 0.0f;
-		timeActive = 0.0f;
+        inCharge = false;
+        inSwing = false;
+        charged = false;
 		gameObject.SetActive(false);
 		Debug.Log("Sword disabled!");
 	}
 
-	public void Update()
-	{
-		timeActive += Time.deltaTime;
-		if (timeActive > 0.4) {
-			DisableSword();
-		}
-	}
-	
+    public void FinishRegular()
+    {
+        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD))
+        {
+            inCharge = false;
+            inSwing = true;
+            charged = false;
+        }
+    }
+
+    public void FinishCharge()
+    {
+        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.CHARGE))
+        {
+            inCharge = false;
+            inSwing = true;
+            charged = true;
+        }
+    }
+    public void CancelCharge()
+    {
+        inCharge = false;
+        inSwing = false;
+        DisableSword();
+    }
+
+    public bool InSwing()
+    {
+        return inSwing;
+    }
+
+    public bool isFinished()
+    {
+        return finished;
+    }
+
+    public bool IsChargedAttack()
+    {
+        return Time.time - startTime > MIN_CHARGE_TIME;
+    }
+
+    public bool IsMaxTime()
+    {
+        return Time.time - startTime > MAX_CHARGE_TIME;
+    }
+
+
 	void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+            if (charged)
+                other.gameObject.GetComponent<EnemyHitbox>().OnChargedAttackhit();
+            else
+                other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
         }
 	}
 	
