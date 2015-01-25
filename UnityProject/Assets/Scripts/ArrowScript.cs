@@ -18,7 +18,7 @@ public class ArrowScript : MonoBehaviour {
 	void Update () {
 	}
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Wall")
         {
@@ -41,9 +41,9 @@ public class ArrowScript : MonoBehaviour {
         switch (direction)
         {
             case Constants.Dir.N: this.transform.rigidbody2D.rotation = 0.0f; break;
-            case Constants.Dir.W: this.transform.rigidbody2D.rotation = 90.0f; break;
+            case Constants.Dir.E: this.transform.rigidbody2D.rotation = 90.0f; break;
             case Constants.Dir.S: this.transform.rigidbody2D.rotation = 180.0f; break;
-            case Constants.Dir.E: this.transform.rigidbody2D.rotation = 270.0f; break;
+            case Constants.Dir.W: this.transform.rigidbody2D.rotation = 270.0f; break;
         }
 
         this.transform.rigidbody2D.velocity = Constants.getVectorFromDirection(direction) * speed;
