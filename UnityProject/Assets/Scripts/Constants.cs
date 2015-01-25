@@ -28,19 +28,19 @@ public static class Constants{
 
     public static Dir getDirectionFromVector(Vector3 direction_vector)
     {
-        if (Mathf.Abs(direction_vector.y - direction_vector.x) > 0 && direction_vector.y >= 0)
+        if (Mathf.Abs(direction_vector.y) > Mathf.Abs(direction_vector.x) && direction_vector.y >= 0)
         {
             return Dir.N;
         }
-        else if (Mathf.Abs(direction_vector.y - direction_vector.x) > 0 && direction_vector.y < 0)
+        else if (Mathf.Abs(direction_vector.y) > Mathf.Abs(direction_vector.x)  && direction_vector.y < 0)
         {
             return Dir.S;
         }
-        if (Mathf.Abs(direction_vector.y - direction_vector.x) <= 0 && direction_vector.x >= 0)
+        if (Mathf.Abs(direction_vector.y) <= Mathf.Abs(direction_vector.x) && direction_vector.x >= 0)
         {
             return Dir.E;
         }
-        else if (Mathf.Abs(direction_vector.y - direction_vector.x) <= 0 && direction_vector.x < 0)
+        else if (Mathf.Abs(direction_vector.y) <= Mathf.Abs(direction_vector.x) && direction_vector.x < 0)
         {
             return Dir.W;
         }
