@@ -14,7 +14,7 @@ GameObject:
   - 95: {fileID: 9555716}
   - 61: {fileID: 6106990}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Snail Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
