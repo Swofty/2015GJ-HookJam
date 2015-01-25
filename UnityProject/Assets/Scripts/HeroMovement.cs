@@ -321,4 +321,9 @@ public class HeroMovement : MonoBehaviour
         grounded = true;
         state = State.FREE;
     }
+
+    public void DisableSword()
+    {
+        gameObject.GetComponent<SwordScript>().DisableSword();
+    }
 }
