@@ -38,8 +38,17 @@ public class SwordScript : MonoBehaviour {
 	{
         finished = true;
         startTime = 0.0f;
+		timeActive = 0.0f;
 		gameObject.SetActive(false);
 		Debug.Log("Sword disabled!");
+	}
+
+	public void Update()
+	{
+		timeActive += Time.deltaTime;
+		if (timeActive > 0.4) {
+			DisableSword();
+		}
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
