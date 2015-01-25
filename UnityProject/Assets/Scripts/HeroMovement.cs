@@ -40,66 +40,6 @@ public class HeroMovement : MonoBehaviour
 
     void Update()
     {
-/*
-		if (allowKeyMovement) {
-	        // Set internal direction
-	        float h = Input.GetAxis("Horizontal");
-	        float v = Input.GetAxis("Vertical");
-
-	        if (h > 0.0f && v > 0.0f) direction = Constants.Dir.NE;
-	        else if (h > 0.0f && v < 0.0f) direction = Constants.Dir.SE;
-	        else if (h < 0.0f && v < 0.0f) direction = Constants.Dir.SW;
-	        else if (h < 0.0f && v > 0.0f) direction = Constants.Dir.NW;
-	        else if (v > 0.0f) direction = Constants.Dir.N;
-	        else if (h > 0.0f) direction = Constants.Dir.E;
-	        else if (v < 0.0f) direction = Constants.Dir.S;
-	        else if (h < 0.0f) direction = Constants.Dir.W;
-
-	        switch(direction)
-	        {
-	            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-	            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-	            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-	            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
-	            case Constants.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 1.0f); break;
-	            case Constants.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", -1.0f); break;
-	            case Constants.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", -1.0f); break;
-	            case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 1.0f); break;
-	        }
-
-	        if(Input.GetKeyDown(Constants.HookKey))
-	        {
-				if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.HOOK)) {
-					hook.GetComponent<HookScript>().ShootHook(direction, false);
-				}
-	        }
-
-			if(Input.GetKeyDown(Constants.SwordKey))
-			{
-				if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD)) {
-					sword.GetComponent<SwordScript>().ActivateSword(direction);
-				}
-			}
-
-			if(Input.GetKeyDown(Constants.ChargeKey))
-			{
-				if (staminaBar.GetComponent<StaminaBar>().PrepareAttack(Constants.Attack.CHARGE)) {
-					allowKeyMovement = false;
-					charge.GetComponent<ChargeScript>().StartCharge(direction);
-				}
-			}
-		}
-    	else {
-			if(Input.GetKeyUp(Constants.ChargeKey))
-			{
-				if (staminaBar.GetComponent<StaminaBar>().CancelAttack(Constants.Attack.CHARGE)) {
-					allowKeyMovement = true;
-					charge.GetComponent<ChargeScript>().CancelCharge();
-				}
-			}
-		}
-	}
-*/
         // Set internal direction
 		float h = 0.0f;
 		float v = 0.0f;
@@ -180,6 +120,7 @@ public class HeroMovement : MonoBehaviour
                 break;
 
             case State.SWORD:
+                anim.SetInteger("Move", 3);
                 if (Input.GetKeyDown(Constants.DashKey))
                 {
                     state = State.DASH;
@@ -320,5 +261,10 @@ public class HeroMovement : MonoBehaviour
         direction = Constants.Dir.N;
         grounded = true;
         state = State.FREE;
+    }
+
+    public void DisableSword()
+    {
+        sword.GetComponent<SwordScript>().DisableSword();
     }
 }

@@ -9,6 +9,7 @@ public class SwordScript : MonoBehaviour {
 	private Vector3 initPos;
 	private GameObject player;
 	private float rotateTo;
+    private float startTime;
 
 	private float timeActive = 0f;
 
@@ -23,9 +24,8 @@ public class SwordScript : MonoBehaviour {
 	public void ActivateSword(Constants.Dir dir)
 	{
 		gameObject.SetActive(true);
-		transform.localPosition = GetInitPosition(dir);
-		transform.rotation = GetInitRotation(dir);
         finished = false;
+        startTime = Time.time;
 		Debug.Log("Sword enabled!");
 	}
 
@@ -34,50 +34,19 @@ public class SwordScript : MonoBehaviour {
         return finished;
     }
 	
-	void DisableSword()
+	public void DisableSword()
 	{
         finished = true;
+        startTime = 0.0f;
 		gameObject.SetActive(false);
 		Debug.Log("Sword disabled!");
 	}
 	
-	Vector3 GetInitPosition(Constants.Dir dir)
-	{
-		// TODO
-		Vector3 pos = (0.34f * Constants.getVectorFromDirection(dir));
-		return pos;
-	}
-	
-	Quaternion GetInitRotation(Constants.Dir dir)
-	{
-		// TODO
-		Quaternion rot;
-		switch (dir)
-		{
-			case Constants.Dir.N: rot = Quaternion.Euler(0.0f, 0.0f, 135.0f); break;
-			case Constants.Dir.E: rot = Quaternion.Euler(0.0f, 0.0f, 45.0f); break;
-			case Constants.Dir.S: rot = Quaternion.Euler(0.0f, 0.0f, 315.0f); break;
-			case Constants.Dir.W: rot = Quaternion.Euler(0.0f, 0.0f, 225.0f); break;
-			default: rot = new Quaternion(); break;
-		}
-		return rot;
-	}
-	
-	void Update()
-	{
-		timeActive += Time.deltaTime;
-		transform.Rotate(-Vector3.forward * Time.deltaTime * 360);
-
-		// When to stop
-		if(timeActive > 0.25f)
-		{
-			DisableSword();
-			timeActive = 0f;
-		}
-	}
-
 	void OnTriggerEnter2D(Collider2D other) {
-		other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+        }
 	}
 	
 }
