@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0670000017, y: -.231000006, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420262}
@@ -171,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.33730257, y: .133250162, z: 0}
+  m_LocalPosition: {x: -.0160000008, y: .316000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420260}
@@ -416,6 +416,10 @@ MonoBehaviour:
   SPEED: 10
   MAX_HOOK_DISTANCE: 5
   HOOK_PULL_FORCE: 50
+  MIN_CHARGE_TIME: .600000024
+  PULL_DELAY: .5
+  PULL_SPEED: 1
+  PULL_END: .200000003
   fired: 0
   latched: 0
   charged: 0
@@ -466,7 +470,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1541418173
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300004, guid: ae3c05c83fd236b4bba19db7b0a2b85b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93a121db68de58045804777831b2be28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21266602
 SpriteRenderer:

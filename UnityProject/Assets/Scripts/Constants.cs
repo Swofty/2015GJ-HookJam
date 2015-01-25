@@ -54,5 +54,5 @@ public static class Constants{
         return false;
     }
 
-	public enum Attack { HOOK, SWORD, DASH, CHARGE };
+	public enum Attack { HOOK, SWORD, DASH, CHARGE, HOOKCHARGE };
 }
