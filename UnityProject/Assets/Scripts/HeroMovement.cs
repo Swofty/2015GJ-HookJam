@@ -61,10 +61,12 @@ public class HeroMovement : MonoBehaviour
             case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 1.0f); break;
         }
 
-        if(h != 0.0f || v != 0.0f)
+        if (Mathf.Abs(h) > 0.9f || Mathf.Abs(v) > 0.9f)
         {
-            anim.SetTrigger("Move");
+            anim.SetBool("Move", true);
         }
+        else
+            anim.SetBool("Move", false);
 
         switch (state)
         {
@@ -139,6 +141,7 @@ public class HeroMovement : MonoBehaviour
             float horizontalDir = Input.GetAxis("Horizontal");
             float verticalDir = Input.GetAxis("Vertical");
             Vector2 moveForce = new Vector2(moveStrength * horizontalDir, moveStrength * verticalDir);
+            Debug.Log("Move force" + moveForce + "CurrSPeed: " + currSpeed + "Topspeed:" + TOP_SPEED);
             totalForces += moveForce;
 
             if (currSpeed > TOP_SPEED)
@@ -164,7 +167,8 @@ public class HeroMovement : MonoBehaviour
             {
                 if (startHang < 0.0f) startHang = Time.time;
 
-                if (Time.time - startHang >= 0.0f) TakeDamage(GetCurrHealth());
+                if (Time.time - startHang >= rigidbody.velocity.magnitude)
+                    TakeDamage(GetCurrHealth());
             }
         }
     }
