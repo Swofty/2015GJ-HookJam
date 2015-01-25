@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: NorthAttackCharge
+  m_Name: WestAttackCharge
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -17,7 +17,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: -.0939999968, y: 0, z: 0}
+        value: {x: .00400000019, y: .0109999999, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -29,7 +29,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 246aff5d0d9611a4aa3103899c948930, type: 3}
+      value: {fileID: 21300000, guid: ad2b4b36673a9584d8627475b8baa69b, type: 3}
     attribute: m_Sprite
     path: Body
     classID: 212
@@ -54,7 +54,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 246aff5d0d9611a4aa3103899c948930, type: 3}
+    - {fileID: 21300000, guid: ad2b4b36673a9584d8627475b8baa69b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
@@ -77,7 +77,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.0939999968
+        value: .00400000019
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -91,7 +91,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
+        value: .0109999999
         inSlope: 0
         outSlope: 0
         tangentMode: 10

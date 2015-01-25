@@ -8,9 +8,9 @@ public class StaminaBar : MonoBehaviour {
 	public float CHARGE_RECHARGE_MODIFIER = 0.05f; // How much the bar recharges per second when charging
 	public float DELAY = 3f; // Seconds to wait after last attack before recharging
 
-	public float HOOK_COST = 0.1f;
+	public float HOOK_COST = 0.2f;
 	public float SWORD_COST = 0.1f;
-	public float DASH_COST = 0.1f;
+	public float DASH_COST = 0.4f;
 	public float CHARGE_COST = 0.2f;
 
 	public float length;
@@ -104,7 +104,7 @@ public class StaminaBar : MonoBehaviour {
 			          ? MAXIMUM
 			          : length + rechargeTime * currentModifier);
 		//}
-		Debug.Log (length);
+		//Debug.Log (length);
 		rectTransform.sizeDelta = new Vector2(((float)Screen.width) * 0.3f * length, ((float)Screen.height) * 0.05f);
 		//rectTransform.rect.width = Screen.width * 0.3 * length;
 		//rectTransform.rect.height = Screen.height * 0.05;
