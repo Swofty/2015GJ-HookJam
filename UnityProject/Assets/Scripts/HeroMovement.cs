@@ -242,12 +242,13 @@ public class HeroMovement : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        if (state == State.DASH) return;
+        if (state == State.DASH || invulnerable) return;
         health -= amount;
         
         if(health <= 0.0)
         {
             gameObject.SetActive(false);
+            GameObject.Find("SpawnPoint").GetComponent<SpawnPointScript>().ReloadMap();
         }
         else
         {
@@ -259,6 +260,7 @@ public class HeroMovement : MonoBehaviour
     public void Fall()
     {
         TakeDamage(FALL_DAMAGE);
+        ForceGround();
         Invoke("Respawn", 2.0f);
         gameObject.SetActive(false);
     }
@@ -283,13 +285,18 @@ public class HeroMovement : MonoBehaviour
         invulnerable = false;
     }
 
-    public void ApplyKnockback(Vector2 force)
+    public void ApplyKnockback(Vector2 deltaV)
     {
-        rigidbody2D.AddForce(force);
+        rigidbody2D.velocity += deltaV;
     }
 
     public void SetSpawnPoint(Vector3 point)
     {
         spawnPoint = point;
+    }
+
+    public void RestoreStamina(float amount)
+    {
+        staminaBar.GetComponent<StaminaBar>().AddStamina(amount);
     }
 }

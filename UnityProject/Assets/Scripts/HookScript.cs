@@ -10,6 +10,7 @@ public class HookScript : MonoBehaviour {
     public float PULL_DELAY = 0.5f;
     public float PULL_SPEED = 1.0f;
     public float PULL_END = 0.2f;
+    public float HOOK_LAND_REWARD = 0.1f;
 
     public bool fired = false;
     public bool latched = false;
@@ -167,6 +168,8 @@ public class HookScript : MonoBehaviour {
         latched = true;
         latchedPos = transform.position;
         rigidbody2D.velocity = Vector2.zero;
+
+        player.GetComponent<HeroMovement>().RestoreStamina(HOOK_LAND_REWARD);
 
         // Put player in the air
         player.GetComponent<HeroMovement>().SetGrounded(false);

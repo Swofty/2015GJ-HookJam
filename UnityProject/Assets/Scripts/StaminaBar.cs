@@ -27,6 +27,11 @@ public class StaminaBar : MonoBehaviour {
 		rectTransform = this.GetComponent<RectTransform>();
 	}
 
+    public void AddStamina(float amount)
+    {
+        length = Mathf.Max(MAXIMUM, length + amount);
+    }
+
 	// Returns true if attack possible, otherwise false
 	public bool CanAttack(Constants.Attack attack) {
 		switch (attack) {

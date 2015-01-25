@@ -3,8 +3,10 @@ using System.Collections;
 
 public class ArrowScript : MonoBehaviour {
 
-    private float speed = 4.0f;
+    public float ARROW_FORCE = 10.0f;
 
+    private float speed = 4.0f;
+    
 	// Use this for initialization
 	void Start () {
         Color oldColor = renderer.material.color;
@@ -18,6 +20,7 @@ public class ArrowScript : MonoBehaviour {
 	void Update () {
 	}
 
+   
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "GWall")
@@ -28,7 +31,8 @@ public class ArrowScript : MonoBehaviour {
         {
             HeroMovement s = col.gameObject.transform.parent.gameObject.GetComponent<HeroMovement>();
             s.TakeDamage(6);
-            s.ApplyKnockback((GameObject.Find("Hero").transform.position - transform.parent.position)/2);
+            s.ApplyKnockback(ARROW_FORCE * (GameObject.Find("Hero").transform.position - transform.parent.position).normalized);
+            Reset();
         }
     }
 

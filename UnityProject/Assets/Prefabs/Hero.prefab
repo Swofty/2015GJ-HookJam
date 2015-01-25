@@ -63,7 +63,7 @@ GameObject:
   - 114: {fileID: 11461356}
   m_Layer: 0
   m_Name: FeetCollider
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.73000002, y: 17.3299999, z: 0}
+  m_LocalPosition: {x: -3.0999999, y: 26.4500008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420260}
@@ -413,11 +413,13 @@ MonoBehaviour:
   GROUND_MIU: 1
   TOP_SPEED: 1
   MIN_FRICTION_SPEED: .200000003
+  FALL_DAMAGE: 4
   SAVEPOINT_TIMER: 15
   grounded: 1
   state: 0
   direction: 0
   spawnPoint: {x: 0, y: 0, z: 0}
+  health: 48
 --- !u!114 &11422492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -450,6 +452,7 @@ MonoBehaviour:
   PULL_DELAY: .5
   PULL_SPEED: 1
   PULL_END: .200000003
+  HOOK_LAND_REWARD: .100000001
   fired: 0
   latched: 0
   charged: 0
@@ -464,7 +467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032b46226d5e10d46a8cb035372554e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FALL_DAMAGE: 3
+  FALL_DAMAGE: 5
+  MIN_FLOAT_TIME: .200000003
 --- !u!114 &11467772
 MonoBehaviour:
   m_ObjectHideFlags: 1

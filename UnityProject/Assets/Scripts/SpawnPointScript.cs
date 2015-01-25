@@ -21,4 +21,14 @@ public class SpawnPointScript : MonoBehaviour {
     {
         player.GetComponent<HeroMovement>().SetSpawnPoint(transform.position);
     }
+
+    public void ReloadMap()
+    {
+        Invoke("ReloadMapHelp", 2.0f);
+    }
+
+    public void ReloadMapHelp()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }

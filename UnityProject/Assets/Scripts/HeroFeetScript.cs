@@ -3,7 +3,8 @@ using System.Collections;
 
 public class HeroFeetScript : MonoBehaviour {
 
-    public float FALL_DAMAGE = 3.0f;
+    public float FALL_DAMAGE = 5.0f;
+    public float MIN_FLOAT_TIME = 0.3f;
 
     private GameObject player;
     private HeroMovement playerScript;
@@ -24,7 +25,9 @@ public class HeroFeetScript : MonoBehaviour {
             {
                 if (startHang < 0.0f) startHang = Time.time;
 
-                if (Time.time - startHang >= player.GetComponent<Rigidbody2D>().velocity.magnitude)
+                float airTime = player.GetComponent<Rigidbody2D>().velocity.magnitude;
+
+                if (Time.time - startHang >= airTime)
                     playerScript.Fall();
             }
         }
