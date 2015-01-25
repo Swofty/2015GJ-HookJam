@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DASH_TIME_LENGTH: .200000003
-  DASH_SPEED: 0
+  DASH_SPEED: .5
 --- !u!114 &11422494
 MonoBehaviour:
   m_ObjectHideFlags: 1

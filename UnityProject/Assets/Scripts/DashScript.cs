@@ -3,26 +3,31 @@ using System.Collections;
 
 public class DashScript : MonoBehaviour {
 
-    public float DASH_TIME_LENGTH= 0.2f;
-    public float DASH_SPEED;
+    public float DASH_TIME_LENGTH= 0.1f;
+    public float DASH_SPEED = 10.0f;
+    public float STOP_SPEED = 3.0f;
 
-    private float timeActive = 0f;
+    private float timeStart = -1.0f;
 
     public void Dash(Constants.Dir dir)
     {
+        if (timeStart < 0.0) timeStart = Time.time;
         Vector2 new_velocity = Constants.getVectorFromDirection(dir);
         rigidbody2D.velocity = new Vector2(new_velocity.x * DASH_SPEED, new_velocity.y * DASH_SPEED);
-        print("testing");
-
-        timeActive += Time.deltaTime;
     }
 
     public bool finished()
     {
-        if (timeActive > DASH_TIME_LENGTH)
+        if (Time.time - timeStart >= DASH_TIME_LENGTH)
+        {
+            rigidbody2D.velocity = STOP_SPEED * rigidbody2D.velocity.normalized;
+            timeStart = -1.0f;
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     // DisableControls
     // EnableControls
