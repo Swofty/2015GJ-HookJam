@@ -66,8 +66,8 @@ public class ChargeScript : MonoBehaviour {
 
 	public void StartCharge(Constants.Dir dir)
 	{
-		inCharge = true;
 		ActivateSword (dir);
+		inCharge = true;
 	}
 
 	public void FinishCharge()
