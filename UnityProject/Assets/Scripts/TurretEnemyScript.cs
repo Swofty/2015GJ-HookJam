@@ -16,6 +16,8 @@ public class TurretEnemyScript : MonoBehaviour {
     private Constants.Dir direction;
 
     private Animator anim;
+    //private AudioClip[] sfx;
+
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -25,6 +27,8 @@ public class TurretEnemyScript : MonoBehaviour {
         cooldown = 0.0f;
 
         direction = Constants.Dir.S;
+
+        //sfx = gameObject.GetComponents<AudioClip>();
     }
 
     // Update is called once per frame
@@ -67,6 +71,7 @@ public class TurretEnemyScript : MonoBehaviour {
 
         if (firing && cooldown <= 0.0f)
         {
+            //audio.PlayOneShot();
             cooldown = 5.0f;
             Transform child = transform.FindChild("Arrow");
             child.GetComponent<ArrowScript>().Fire(direction);

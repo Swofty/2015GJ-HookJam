@@ -1,7 +1,17 @@
 fileFormatVersion: 2
 guid: 6b7758e1b2bf64f4db8d374fa8dcd2f0
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: TURTLE_0
+    21300002: TURTLE_1
+    21300004: TURTLE_2
+    21300006: TURTLE_3
+    21300008: TURTLE_4
+    21300010: TURTLE_5
+    21300012: TURTLE_6
+    21300014: TURTLE_7
+    21300016: TURTLE_8
+    21300018: TURTLE_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -25,13 +35,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -42,6 +52,106 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: TURTLE_0
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 2125
+        width: 560
+        height: 830
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_1
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 2152
+        width: 580
+        height: 785
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_2
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 2190
+        width: 597
+        height: 726
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1006
+        width: 563
+        height: 958
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 1003
+        width: 559
+        height: 1055
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_5
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 1877
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_6
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 1766
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_7
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 678
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_8
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 954
+        width: 620
+        height: 1148
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TURTLE_9
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 14
+        width: 591
+        height: 919
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
