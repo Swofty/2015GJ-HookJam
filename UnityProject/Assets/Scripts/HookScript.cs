@@ -15,7 +15,7 @@ public class HookScript : MonoBehaviour {
     public bool latched = false;
     public bool charged = false;
 
-    private float startTime;
+    private float startTime = -1.0f;
 
     private GameObject player;
     private GameObject hookHead;
@@ -40,14 +40,16 @@ public class HookScript : MonoBehaviour {
 
     public void StartHook()
     {
-        if (fired) return;
-        fired = true;
-
         startTime = Time.time;
     }
 
     public void ReleaseHook(Constants.Dir dir)
     {
+        if (startTime < 0.0f) return;
+
+        if (fired) return;
+        fired = true;
+
         charged = Time.time - startTime >= MIN_CHARGE_TIME;
 
         // Turn hook on
@@ -77,7 +79,7 @@ public class HookScript : MonoBehaviour {
         rigidbody2D.velocity = Vector2.zero;
         latched = false;
         charged = false;
-        startTime = 0.0f;
+        startTime = -1.0f;
 
         gameObject.SetActive(false);
         hookHeadCollider.SetActive(false);

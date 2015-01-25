@@ -12,10 +12,12 @@ public class HeroMovement : MonoBehaviour
     public float GROUND_MIU = 1.0f;
     public float TOP_SPEED = 1.0f;
     public float MIN_FRICTION_SPEED = 0.2f;
+    public float SAVEPOINT_TIMER = 15.0f;
 
     public bool grounded = true;
     public State state = State.FREE;
     public Constants.Dir direction;
+    public Vector3 spawnPoint = Vector3.zero;
 
     private Animator anim;
     private bool allowKeyMovement = true;
@@ -38,6 +40,9 @@ public class HeroMovement : MonoBehaviour
 
     void Update()
     {
+        if (grounded && Time.time % SAVEPOINT_TIMER < 0.1f)
+            spawnPoint = transform.position;
+
         // Set internal direction
         float h = 0.0f;
         float v = 0.0f;
@@ -91,8 +96,11 @@ public class HeroMovement : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(Constants.DashKey))
                 {
-                    state = State.DASH;
-                    ForceGround();
+                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.DASH))
+                    {
+                        state = State.DASH;
+                        ForceGround();
+                    }
                 }
                 else if (grounded && Input.GetKeyDown(Constants.SwordKey))
                 {
@@ -187,7 +195,7 @@ public class HeroMovement : MonoBehaviour
             float horizontalDir = Input.GetAxis("Horizontal");
             float verticalDir = Input.GetAxis("Vertical");
             Vector2 moveForce = new Vector2(moveStrength * horizontalDir, moveStrength * verticalDir);
-            Debug.Log("Move force" + moveForce + "CurrSPeed: " + currSpeed + "Topspeed:" + TOP_SPEED);
+            //Debug.Log("Move force" + moveForce + "CurrSPeed: " + currSpeed + "Topspeed:" + TOP_SPEED);
             totalForces += moveForce;
 
             if (currSpeed > TOP_SPEED)
@@ -204,29 +212,6 @@ public class HeroMovement : MonoBehaviour
         rigidbody2D.AddForce(totalForces);
     }
 
-    void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Hole")
-        {
-            Debug.Log("Player nside a hole...");
-            if (grounded)
-            {
-                if (startHang < 0.0f) startHang = Time.time;
-
-                if (Time.time - startHang >= rigidbody2D.velocity.magnitude)
-                    TakeDamage(GetCurrHealth());
-            }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Hole")
-        {
-            Debug.Log("Leave hole");
-            startHang = -1.0f;
-        }
-    }
 
     public void ApplyPull(Vector3 sourcePos, float pullStrength)
     {
@@ -262,8 +247,8 @@ public class HeroMovement : MonoBehaviour
     private void Reset()
     {
         gameObject.SetActive(true);
-        transform.position = Vector3.zero;
-        direction = Constants.Dir.N;
+        transform.position = spawnPoint;
+        direction = Constants.Dir.S;
         grounded = true;
         state = State.FREE;
     }
@@ -275,6 +260,11 @@ public class HeroMovement : MonoBehaviour
 
     public void ApplyKnockback(Vector2 force)
     {
+        rigidbody2D.AddForce(force);
+    }
 
+    public void SetSpawnPoint(Vector3 point)
+    {
+        spawnPoint = point;
     }
 }
