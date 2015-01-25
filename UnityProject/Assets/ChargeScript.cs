@@ -10,6 +10,7 @@ public class ChargeScript : MonoBehaviour {
 	private Vector3 initPos;
 	private GameObject staminaBar;
 	private GameObject player;
+    private GameObject sword;
 	private float rotateTo;
 	private float timeActive;
 
@@ -21,6 +22,7 @@ public class ChargeScript : MonoBehaviour {
 	{
 		staminaBar = GameObject.Find("Stamina Bar");
 		player = transform.parent.gameObject;
+        sword = player.transform.FindChild("Sword").gameObject;
 		inCharge = false;
 		timeActive = 0f;
 		inSwing = false;
@@ -29,38 +31,14 @@ public class ChargeScript : MonoBehaviour {
 	
 	public void ActivateSword(Constants.Dir dir)
 	{
-		gameObject.SetActive(true);
-		transform.localPosition = GetInitPosition(dir);
-		transform.rotation = GetInitRotation(dir);
+		sword.SetActive(true);
 		Debug.Log("Sword enabled!");
 	}
 	
 	void DisableSword()
 	{
-		gameObject.SetActive(false);
+		sword.SetActive(false);
 		Debug.Log("Sword disabled!");
-	}
-	
-	Vector3 GetInitPosition(Constants.Dir dir)
-	{
-		// TODO
-		Vector3 pos = (0.34f * Constants.getVectorFromDirection(dir));
-		return pos;
-	}
-	
-	Quaternion GetInitRotation(Constants.Dir dir)
-	{
-		// TODO
-		Quaternion rot;
-		switch (dir)
-		{
-		case Constants.Dir.N: rot = Quaternion.Euler(0.0f, 0.0f, 135.0f); break;
-		case Constants.Dir.E: rot = Quaternion.Euler(0.0f, 0.0f, 45.0f); break;
-		case Constants.Dir.S: rot = Quaternion.Euler(0.0f, 0.0f, 315.0f); break;
-		case Constants.Dir.W: rot = Quaternion.Euler(0.0f, 0.0f, 225.0f); break;
-		default: rot = new Quaternion(); break;
-		}
-		return rot;
 	}
 
 

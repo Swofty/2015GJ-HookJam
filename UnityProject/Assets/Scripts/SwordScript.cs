@@ -43,7 +43,10 @@ public class SwordScript : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {
-		other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+        }
 	}
 	
 }

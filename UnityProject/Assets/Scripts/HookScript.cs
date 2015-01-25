@@ -24,11 +24,6 @@ public class HookScript : MonoBehaviour {
         charged = false;
         rigidbody2D.velocity = new Vector2();
 
-        
-    }
-
-    void Start()
-    {
         player = transform.parent.gameObject;
         hookHead = transform.FindChild("HookHead").gameObject;
         hookHeadCollider = hookHead.transform.FindChild("Collider").gameObject;
