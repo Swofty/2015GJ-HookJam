@@ -95,7 +95,10 @@ public class SnailEnemyScript : MonoBehaviour {
 
         //Want to have it so that if the enemy dies, we shake the camera
         if (health <= 0)
-            print("dead");
+        {
+            GameObject.Find("Main Camera").GetComponent<CameraControls>().shake();
+            Destroy(this.gameObject);
+        }
     }
 
     public bool isInvulnerable()
