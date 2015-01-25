@@ -1097,14 +1097,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 709949190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 727f15fdba140424aa876e9379c6e410, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b63a1a047ed28c45a76c469a3d459cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  invulnerable: 0
-  armored: 0
-  health: 0
-  direction: 0
 --- !u!1 &992443315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,6 +1252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdad69e02673d464ab1d4c86eec73bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DASH_TIME_LENGTH: .200000003
+  DASH_SPEED: .300000012
 --- !u!61 &1258618585
 BoxCollider2D:
   m_ObjectHideFlags: 0
