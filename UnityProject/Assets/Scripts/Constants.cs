@@ -7,6 +7,7 @@ public static class Constants{
 
     public static KeyCode HookKey = KeyCode.Z;
     public static KeyCode SwordKey = KeyCode.X;
+    public static KeyCode DashKey = KeyCode.Space;
 
     public static Vector2 getVectorFromDirection(Dir direction)
     {

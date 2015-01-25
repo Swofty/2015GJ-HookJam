@@ -1,6 +1,13 @@
 fileFormatVersion: 2
 guid: 93a121db68de58045804777831b2be28
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Front_0
+    21300002: Front_1
+    21300004: Front_2
+    21300006: Front_3
+    21300008: Front_4
+    21300010: Front_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,16 +33,17 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
@@ -44,6 +52,66 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Front_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 55
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 55
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 55
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_4
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 3
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_5
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 3
+        width: 26
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -54,8 +54,6 @@ public class HookScript : MonoBehaviour {
         // Give hook a velocity
         rigidbody2D.velocity = SPEED * Constants.getVectorFromDirection(dir);
 
-        player.GetComponent<HeroMovement>().SetGrounded(false);
-
         Debug.Log("Hook enabled!");
     }
 
@@ -158,7 +156,7 @@ public class HookScript : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (!latched)
+        if (hookHeadCollider.activeSelf && !latched)
         {
             if (hookHeadDetach.activeSelf)
             {
@@ -176,6 +174,9 @@ public class HookScript : MonoBehaviour {
                 latched = true;
                 latchedPos = transform.position;
                 rigidbody2D.velocity = Vector2.zero;
+
+                // Put player in the air
+                player.GetComponent<HeroMovement>().SetGrounded(false);
                 
                 // Disable hook hitbox. Enable detachment area.
                 hookHeadCollider.SetActive(false);
@@ -183,7 +184,7 @@ public class HookScript : MonoBehaviour {
             }
         }
 
-        else if(latched)
+        if(latched)
         {
             if (!hookHeadDetach.activeSelf) Debug.Log("WARNING: deatchArea is not active when latched!");
             if(col.gameObject.tag == "Player")
