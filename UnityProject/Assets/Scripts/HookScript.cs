@@ -73,7 +73,7 @@ public class HookScript : MonoBehaviour {
         rope.transform.localScale = Vector3.zero;
         gameObject.transform.localPosition = Vector3.zero;
 
-        player.GetComponent<HeroMovement>().SetGrounded(true);
+		player.GetComponent<HeroMovement> ().SetGrounded (true);
 
         Debug.Log("Hook disabled!");
     }
@@ -119,6 +119,7 @@ public class HookScript : MonoBehaviour {
         {
             DisableHook();
         }
+
 
         /*
         // Bug with getting stuck against wall

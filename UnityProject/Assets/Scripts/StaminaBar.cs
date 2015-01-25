@@ -13,10 +13,14 @@ public class StaminaBar : MonoBehaviour {
 
 	public float length;
 	public float timer;
+	public GameObject player;
+	public RectTransform rectTransform;
 
 	void Awake() {
 		length = MAXIMUM;
 		timer = 0f;
+		player = GameObject.Find ("Hero");
+		rectTransform = this.GetComponent<RectTransform>();
 	}
 
 	// Returns true if attack possible, otherwise false
@@ -73,7 +77,12 @@ public class StaminaBar : MonoBehaviour {
 			          ? MAXIMUM
 			          : length + chargeTime * CHARGE_MODIFIER);
 		//}
-		transform.localScale = new Vector3(length * 0.5f, 0.1f, 1f);
-		transform.position = new Vector3((length - MAXIMUM) * 7.2f, 0, 0);
+		Debug.Log (length);
+		rectTransform.sizeDelta = new Vector2(((float)Screen.width) * 0.3f * length, ((float)Screen.height) * 0.05f);
+		//rectTransform.rect.width = Screen.width * 0.3 * length;
+		//rectTransform.rect.height = Screen.height * 0.05;
+		rectTransform.position = new Vector3(25 + rectTransform.rect.width / 2,
+		                                 	 Screen.height - 25 - rectTransform.rect.height / 2,
+		                                 	 0);
 	}
 }
