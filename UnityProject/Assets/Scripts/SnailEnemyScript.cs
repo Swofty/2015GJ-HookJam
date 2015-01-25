@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScript : MonoBehaviour {
+public class SnailEnemyScript : MonoBehaviour {
 
     public float speed;
     public float invulnerable; //Used to deal with invincibility frame timing
