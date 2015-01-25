@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11407668}
   - 114: {fileID: 11425730}
   m_Layer: 0
-  m_Name: Turret Enemy
+  m_Name: Stationary Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.48000002, y: -1.13999999, z: 0}
+  m_LocalPosition: {x: -3.81202054, y: 1.84013009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425282}
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 125282}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Size: {x: .100000001, y: .239999995}
   m_Center: {x: 0, y: 0}
 --- !u!95 &9507668
@@ -140,10 +140,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 107668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec1a43a28c2b4434eb0fec6c4d7fbd3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 80f40bbe6feea42498c19ab2dc840b26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 120262, guid: 7a30a30e878ad0f4a9ae089e1ae38be6, type: 2}
+  player: {fileID: 120262, guid: 7a30a30e878ad0f4a9ae089e1ae38be6, type: 2}
+  direction: 2
 --- !u!114 &11425282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +165,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 107668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfea5b523eab09549b7d7e5ea3a21878, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bf0e4c343a47db4196ed510cc401a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21207668

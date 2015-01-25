@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurretEnemyScript : MonoBehaviour {
+public class StationTurretEnemyScript : TurretEnemyScript {
 
-    public GameObject player;
+    new public GameObject player;
     private float aggro_range = 10.0f;//Guess
 
     private bool firing;
@@ -13,7 +13,7 @@ public class TurretEnemyScript : MonoBehaviour {
 
     private int health = 4;
 
-    private Constants.Dir direction;
+    public Constants.Dir direction;
 
     private Animator anim;
     void Awake()
@@ -23,8 +23,6 @@ public class TurretEnemyScript : MonoBehaviour {
         invulnerable = 0;
 
         cooldown = 0.0f;
-
-        direction = Constants.Dir.S;
     }
 
     // Update is called once per frame
@@ -49,7 +47,6 @@ public class TurretEnemyScript : MonoBehaviour {
 
         if (offset_vector.magnitude < aggro_range)
         {
-            direction = Constants.getDirectionFromVector(-offset_vector);
             firing = true;
         }
         else
@@ -82,15 +79,7 @@ public class TurretEnemyScript : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.tag == "Player")
-        {
-            print("hi");
-            col.transform.rigidbody2D.velocity = Vector2.zero;
-        }
-    }
-    public void hit(int damage)
+    new public void hit(int damage)
     {
         this.health -= damage;
         this.invulnerable = 0.5f;
@@ -100,12 +89,12 @@ public class TurretEnemyScript : MonoBehaviour {
             print("dead");
     }
 
-    public bool isInvulnerable()
+    new public bool isInvulnerable()
     {
         return (invulnerable > 0);
     }
 
-    public void setDirection(Constants.Dir direction)
+    new public void setDirection(Constants.Dir direction)
     {
         this.direction = direction;
     }
