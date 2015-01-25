@@ -158,7 +158,7 @@ BlendTree:
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
-  - m_Motion: {fileID: 7400000, guid: 7d283d48728dcfd44b273c465612414f, type: 2}
+  - m_Motion: {fileID: 7400000, guid: 73e046c38fd493c4bb8eeeacfd4c1e47, type: 2}
     m_Threshold: .666666687
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -192,21 +192,21 @@ BlendTree:
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
-  - m_Motion: {fileID: 7400000, guid: 7e7a0ec6d0090bb47b6182183d203987, type: 2}
+  - m_Motion: {fileID: 7400000, guid: 43129c33fe76a044da3c1afa86c9fede, type: 2}
     m_Threshold: .333333343
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
-  - m_Motion: {fileID: 7400000, guid: 7d283d48728dcfd44b273c465612414f, type: 2}
+  - m_Motion: {fileID: 7400000, guid: cfde4c68d1087f841a154f505313222a, type: 2}
     m_Threshold: .666666687
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
-  - m_Motion: {fileID: 7400000, guid: 59b2b236e89743a41878cd32e64ea768, type: 2}
+  - m_Motion: {fileID: 7400000, guid: 754d9b81c54d3244c9d6259419ca5928, type: 2}
     m_Threshold: 1
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -399,6 +399,21 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1102 &110202386
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: EastAttack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 43129c33fe76a044da3c1afa86c9fede, type: 2}
+  m_ParentStateMachine: {fileID: 110764994}
+  m_Position: {x: 666, y: 438, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110218308
 State:
   m_ObjectHideFlags: 3
@@ -516,6 +531,21 @@ State:
   - {fileID: 7400000, guid: 2da6552865d2b3244846c88ba2cb51ac, type: 2}
   m_ParentStateMachine: {fileID: 0}
   m_Position: {x: -48, y: -36, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110234236
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: RightAttack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 68bf777ccbbc0bb44a9857bbd0321a92, type: 2}
+  m_ParentStateMachine: {fileID: 110764994}
+  m_Position: {x: 631, y: 373, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -639,6 +669,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110272628
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: WestAttack
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 754d9b81c54d3244c9d6259419ca5928, type: 2}
+  m_ParentStateMachine: {fileID: 110764994}
+  m_Position: {x: 701, y: 503, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110278394
 State:
   m_ObjectHideFlags: 3
@@ -666,6 +711,21 @@ State:
   - {fileID: 7400000, guid: ccac01da0b612944b8293509b84c5235, type: 2}
   m_ParentStateMachine: {fileID: 110764994}
   m_Position: {x: 59, y: 17, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110284578
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NorthAttackCharge
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 73e046c38fd493c4bb8eeeacfd4c1e47, type: 2}
+  m_ParentStateMachine: {fileID: 110764994}
+  m_Position: {x: 596, y: 308, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -721,45 +781,13 @@ StateMachine:
   - {fileID: 110278394}
   - {fileID: 110258804}
   - {fileID: 110226106}
+  - {fileID: 110284578}
+  - {fileID: 110234236}
+  - {fileID: 110202386}
+  - {fileID: 110272628}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
-    data:
-      first: {fileID: 110226106}
-      second: []
-    data:
-      first: {fileID: 110258804}
-      second: []
-    data:
-      first: {fileID: 110278394}
-      second: []
-    data:
-      first: {fileID: 110257270}
-      second: []
-    data:
-      first: {fileID: 110285492}
-      second: []
-    data:
-      first: {fileID: 110258788}
-      second: []
-    data:
-      first: {fileID: 110218308}
-      second: []
-    data:
-      first: {fileID: 110238012}
-      second: []
-    data:
-      first: {fileID: 110269596}
-      second: []
-    data:
-      first: {fileID: 110223214}
-      second: []
-    data:
-      first: {fileID: 110229592}
-      second: []
-    data:
-      first: {fileID: 110251566}
-      second: []
     data:
       first: {fileID: 0}
       second:
@@ -770,6 +798,42 @@ StateMachine:
       - {fileID: 110153292}
     data:
       first: {fileID: 110221326}
+      second: []
+    data:
+      first: {fileID: 110251566}
+      second: []
+    data:
+      first: {fileID: 110229592}
+      second: []
+    data:
+      first: {fileID: 110223214}
+      second: []
+    data:
+      first: {fileID: 110269596}
+      second: []
+    data:
+      first: {fileID: 110238012}
+      second: []
+    data:
+      first: {fileID: 110218308}
+      second: []
+    data:
+      first: {fileID: 110258788}
+      second: []
+    data:
+      first: {fileID: 110285492}
+      second: []
+    data:
+      first: {fileID: 110257270}
+      second: []
+    data:
+      first: {fileID: 110278394}
+      second: []
+    data:
+      first: {fileID: 110258804}
+      second: []
+    data:
+      first: {fileID: 110226106}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 252, y: 12, z: 0}
@@ -789,16 +853,16 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
+      first: {fileID: 0}
+      second:
+      - {fileID: 110139338}
+      - {fileID: 110103418}
+    data:
       first: {fileID: 110228692}
       second: []
     data:
       first: {fileID: 110265062}
       second: []
-    data:
-      first: {fileID: 0}
-      second:
-      - {fileID: 110139338}
-      - {fileID: 110103418}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 84, y: 36, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

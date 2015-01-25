@@ -846,7 +846,7 @@ AnimationClip:
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_Events:
-  - time: .333333343
+  - time: .400000006
     functionName: DisableSword
     data: 
     objectReferenceParameter: {fileID: 0}

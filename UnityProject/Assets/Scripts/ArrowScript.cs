@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ArrowScript : MonoBehaviour {
 
-    public float speed = 4.0f;
+    private float speed = 4.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -18,8 +18,22 @@ public class ArrowScript : MonoBehaviour {
 	void Update () {
 	}
 
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Wall")
+        {
+            Reset();
+        }
+        if (col.tag == "Player")
+        {
+            col.GetComponent<HeroMovement>().TakeDamage(6);
+            col.GetComponent<HeroMovement>().ApplyKnockback((GameObject.Find("Hero").transform.position - transform.parent.position)/2);
+        }
+    }
+
     public void Fire(Constants.Dir direction)
     {
+        Reset();
         Color oldColor = renderer.material.color;
         Color newColor = new Color(oldColor.r, oldColor.b, oldColor.g, 100.0f);
         renderer.material.SetColor("_Color", newColor);
