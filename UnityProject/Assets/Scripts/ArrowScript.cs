@@ -18,6 +18,19 @@ public class ArrowScript : MonoBehaviour {
 	void Update () {
 	}
 
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Wall")
+        {
+            Reset();
+        }
+        if (col.tag == "Player")
+        {
+            col.GetComponent<HeroMovement>().TakeDamage(6);
+            col.GetComponent<HeroMovement>().ApplyKnockback((GameObject.Find("Hero").transform.position - transform.parent.position)/2);
+        }
+    }
+
     public void Fire(Constants.Dir direction)
     {
         Color oldColor = renderer.material.color;

@@ -45,6 +45,11 @@ public class SnailEnemyScript : MonoBehaviour {
                 case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
             }
         }
+        if (col.tag == "Player")
+        {
+            col.GetComponent<HeroMovement>().TakeDamage(12);
+            col.GetComponent<HeroMovement>().ApplyKnockback(GameObject.Find("Hero").transform.position - transform.parent.position);
+        }
     }
 	
 	// Update is called once per frame

@@ -3,17 +3,17 @@ using System.Collections;
 
 public class TurretEnemyScript : MonoBehaviour {
 
-    public float invulnerable; //Used to deal with invincibility frame timing
-
-    public int health;
-
-    public Constants.Dir direction;
-
     public GameObject player;
-    public float aggro_range = 10.0f;//Guess
+    private float aggro_range = 10.0f;//Guess
 
-    public bool firing;
-    public float cooldown = 0.0f;
+    private bool firing;
+    private float cooldown = 0.0f;
+
+    private float invulnerable = 0; //Used to deal with invincibility frame timing
+
+    private int health = 4;
+
+    private Constants.Dir direction;
 
     private Animator anim;
     void Awake()
@@ -65,9 +65,6 @@ public class TurretEnemyScript : MonoBehaviour {
             case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
         }
 
-        print(firing);
-        print(cooldown <= 0.0f);
-
         if (firing && cooldown <= 0.0f)
         {
             cooldown = 5.0f;
@@ -85,10 +82,14 @@ public class TurretEnemyScript : MonoBehaviour {
         }
     }
 
-    public void hit()
+    public void hit(int damage)
     {
-        this.health -= 1;
+        this.health -= damage;
         this.invulnerable = 0.5f;
+
+        //Want to have it so that if the enemy dies, we shake the camera
+        if (health <= 0)
+            print("dead");
     }
 
     public bool isInvulnerable()

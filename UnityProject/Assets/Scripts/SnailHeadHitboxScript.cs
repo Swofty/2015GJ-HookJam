@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShellHitboxScript : EnemyHitbox
+public class SnailHeadHitboxScript : EnemyHitbox 
 {
     override public void OnAttackHit()
     {
@@ -12,10 +12,7 @@ public class ShellHitboxScript : EnemyHitbox
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
 
-            if(transform.parent.GetComponent<SnailEnemyScript>().isArmored())
-                transform.parent.GetComponent<SnailEnemyScript>().hit(1);
-            else
-                transform.parent.GetComponent<SnailEnemyScript>().hit(3);
+            transform.parent.GetComponent<SnailEnemyScript>().hit(3);
         }
     }
 
@@ -28,10 +25,7 @@ public class ShellHitboxScript : EnemyHitbox
 
             transform.parent.GetComponent<SnailEnemyScript>().setDirection(direction);
 
-            if (transform.parent.GetComponent<SnailEnemyScript>().isArmored())
-                transform.parent.GetComponent<SnailEnemyScript>().hit(2);
-            else
-                transform.parent.GetComponent<SnailEnemyScript>().hit(6);
+            transform.parent.GetComponent<SnailEnemyScript>().hit(6);
         }
     }
 
@@ -66,4 +60,3 @@ public class ShellHitboxScript : EnemyHitbox
         }
     }
 }
-
