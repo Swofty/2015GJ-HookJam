@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .114, y: -.00600000005, z: 0}
+  m_LocalPosition: {x: .0670000017, y: -.231000006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 420262}
@@ -351,8 +351,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2.74983168, y: 1.11474693}
-  m_Center: {x: 2.70182252, y: .988165736}
+  m_Size: {x: 3.26968646, y: 2.86583424}
+  m_Center: {x: .887972236, y: -3.08911204}
 --- !u!95 &9520260
 Animator:
   serializedVersion: 3
@@ -360,7 +360,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120262}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b5f32335538b6634e92b212466434282, type: 2}
   m_CullingMode: 0
@@ -466,7 +466,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1541418173
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ae3c05c83fd236b4bba19db7b0a2b85b, type: 3}
+  m_Sprite: {fileID: 21300004, guid: ae3c05c83fd236b4bba19db7b0a2b85b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21266602
 SpriteRenderer:
