@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HeroMovement : MonoBehaviour {
+public class HeroMovement : MonoBehaviour
+{
+    public enum State { FREE, STUNNED, GRAPPLE, SWORD, DASH, CHARGE };
+
+    //public float HANG_TIME = 0.5f;
+    public float MOVE_STR = 20.0f;
+    public float WEAK_MOVE_STR = 2.0f;
+    public float GRAVITY = 10.0f;
+    public float GROUND_MIU = 1.0f;
+    public float TOP_SPEED = 1.0f;
+    public float MIN_FRICTION_SPEED = 0.2f;
 
     public bool grounded = true;
-    public enum State { FREE, STUNNED, GRAPPLE, SWORD, DASH };
     public State state = State.FREE;
     public Constants.Dir direction;
-    public float HANG_TIME = 0.5f;
 
     private Animator anim;
     private bool allowKeyMovement = true;
@@ -16,7 +24,7 @@ public class HeroMovement : MonoBehaviour {
 	private GameObject sword;
 	private GameObject charge;
     private float startHang = -1.0f;
-	private GameObject staminaBar;
+    private GameObject staminaBar;
 
     void Awake()
     {
@@ -30,6 +38,7 @@ public class HeroMovement : MonoBehaviour {
 
     void Update()
     {
+/*
 		if (allowKeyMovement) {
 	        // Set internal direction
 	        float h = Input.GetAxis("Horizontal");
@@ -88,27 +97,116 @@ public class HeroMovement : MonoBehaviour {
 			}
 		}
 	}
+*/
+        // Set internal direction
+		if (state != State.CHARGE) {
+	        float h = Input.GetAxis("Horizontal");
+	        float v = Input.GetAxis("Vertical");
 
-	void FixedUpdate()
+	        if (h > 0.0f && v > 0.0f) direction = Constants.Dir.NE;
+	        else if (h > 0.0f && v < 0.0f) direction = Constants.Dir.SE;
+	        else if (h < 0.0f && v < 0.0f) direction = Constants.Dir.SW;
+	        else if (h < 0.0f && v > 0.0f) direction = Constants.Dir.NW;
+	        else if (v > 0.0f) direction = Constants.Dir.N;
+	        else if (h > 0.0f) direction = Constants.Dir.E;
+	        else if (v < 0.0f) direction = Constants.Dir.S;
+	        else if (h < 0.0f) direction = Constants.Dir.W;
+
+	        switch (direction)
+	        {
+	            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+	            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+	            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+	            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+	            case Constants.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 1.0f); break;
+	            case Constants.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", -1.0f); break;
+	            case Constants.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", -1.0f); break;
+	            case Constants.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 1.0f); break;
+	        }
+
+	        if (Mathf.Abs(h) > 0.9f || Mathf.Abs(v) > 0.9f)
+	        {
+	            anim.SetBool("Move", true);
+	        }
+	        else
+	            anim.SetBool("Move", false);
+		}
+
+        switch (state)
+        {
+            case State.FREE:
+                if (Input.GetKeyDown(Constants.HookKey))
+                {
+                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.HOOK))
+                    {
+                        hook.GetComponent<HookScript>().ShootHook(direction, false);
+                    }
+                }
+                else if (Input.GetKeyDown(Constants.DashKey))
+                {
+                    state = State.DASH;
+                    ForceGround();
+                }
+                else if (Input.GetKeyDown(Constants.SwordKey))
+                {
+                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD))
+                    {
+                        state = State.SWORD;
+                        sword.GetComponent<SwordScript>().ActivateSword(direction);
+                    }
+                }
+				else if(Input.GetKeyDown(Constants.ChargeKey))
+				{
+					if (staminaBar.GetComponent<StaminaBar>().PrepareAttack(Constants.Attack.CHARGE)) {
+						state = State.CHARGE;
+						charge.GetComponent<ChargeScript>().StartCharge(direction);
+					}
+				}
+				break;
+
+            case State.DASH:
+                state = State.FREE;
+                break;
+
+            case State.SWORD:
+                if (Input.GetKeyDown(Constants.DashKey))
+                {
+                    state = State.DASH;
+                    ForceGround();
+                    break;
+                }
+                if (sword.GetComponent<SwordScript>().isFinished())
+                    state = State.FREE;
+                break;
+			case State.CHARGE:
+				if (Input.GetKeyUp (Constants.ChargeKey)) {
+					if (staminaBar.GetComponent<StaminaBar>().CancelAttack(Constants.Attack.CHARGE)) {
+						state = State.FREE;
+						charge.GetComponent<ChargeScript>().CancelCharge();
+						break;
+					}
+				}
+				if (!charge.GetComponent<ChargeScript>().inCharge
+			    	&& !charge.GetComponent<ChargeScript>().inSwing) {
+					state = State.FREE;
+				}
+				break;
+        }
+
+    }
+
+    void FixedUpdate()
     {
         Vector2 currVel = rigidbody2D.velocity;
         float currSpeed = currVel.magnitude;
         Vector2 currVelNorm = currVel / currSpeed;
-
-        float moveStrength = 20.0f;
-        float weakMoveStrength = 2.0f;
-        float gravity = 10.0f;
-        float groundMiu = 1.0f;
-        float topSpeed = 1.0f;
-
-        float MIN_FRICTION_SPEED = 0.2f;
 
         Vector2 totalForces = new Vector2();
 
         if (currSpeed > MIN_FRICTION_SPEED)
         {
             Vector2 frictionForce = new Vector2();
-            if (grounded) frictionForce = -groundMiu * (gravity * rigidbody2D.mass) * currVelNorm;
+            if (grounded) frictionForce = -GROUND_MIU * (GRAVITY * rigidbody2D.mass) * currVelNorm;
             totalForces += frictionForce;
         }
         else
@@ -116,18 +214,23 @@ public class HeroMovement : MonoBehaviour {
             rigidbody2D.velocity = new Vector2();
         }
 
-        if (allowKeyMovement)
+        //if (state == State.DASH)
+        //    GetComponent<DashScript>().Dash();
+        if (state == State.FREE)
         {
-            if (currSpeed > topSpeed || !grounded) moveStrength = weakMoveStrength;
+            float moveStrength = MOVE_STR;
+
+            if (currSpeed > TOP_SPEED || !grounded) moveStrength = WEAK_MOVE_STR;
             else if (currSpeed < 0.5) moveStrength *= 3.0f;
             float horizontalDir = Input.GetAxis("Horizontal");
             float verticalDir = Input.GetAxis("Vertical");
             Vector2 moveForce = new Vector2(moveStrength * horizontalDir, moveStrength * verticalDir);
+            Debug.Log("Move force" + moveForce + "CurrSPeed: " + currSpeed + "Topspeed:" + TOP_SPEED);
             totalForces += moveForce;
 
-            if(currSpeed > topSpeed)
+            if (currSpeed > TOP_SPEED)
             {
-                if(Vector2.Dot(totalForces, currVelNorm) > 0.0)
+                if (Vector2.Dot(totalForces, currVelNorm) > 0.0)
                 {
                     totalForces -= Vector2.Dot(totalForces, currVelNorm) * currVelNorm;
                     if (Mathf.Abs(Vector2.Dot(totalForces, currVelNorm)) < 0.01)
@@ -148,14 +251,15 @@ public class HeroMovement : MonoBehaviour {
             {
                 if (startHang < 0.0f) startHang = Time.time;
 
-                if (Time.time - startHang <= 0.0f) TakeDamage(GetCurrHealth());
+                if (Time.time - startHang >= rigidbody.velocity.magnitude)
+                    TakeDamage(GetCurrHealth());
             }
         }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Hole")
+        if (col.gameObject.tag == "Hole")
         {
             Debug.Log("Leave hole");
             startHang = -1.0f;

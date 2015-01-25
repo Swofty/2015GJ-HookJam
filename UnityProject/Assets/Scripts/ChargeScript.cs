@@ -5,7 +5,7 @@ public class ChargeScript : MonoBehaviour {
 
 	public float ANGULAR_SPEED = 0.1f;
 	public float SWORD_SIZE = 0.2f;
-	public float MAXIMUM_CHARGE_LENGTH = 3f;
+	public float MAXIMUM_CHARGE_LENGTH = 1.5f;
 
 	private Vector3 initPos;
 	private GameObject staminaBar;
@@ -94,6 +94,7 @@ public class ChargeScript : MonoBehaviour {
 	public void Update() {
 		if (inCharge)
 		{
+			Debug.Log (timeCharged);
 			timeCharged += Time.deltaTime;
 
 			if (timeCharged >= MAXIMUM_CHARGE_LENGTH) {

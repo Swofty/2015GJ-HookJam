@@ -11,10 +11,13 @@ public class SwordScript : MonoBehaviour {
 	private float rotateTo;
 
 	private float timeActive = 0f;
+
+    private bool finished = false;
 	
 	void Awake()
 	{
 		player = transform.parent.gameObject;
+        finished = true;
 	}
 	
 	public void ActivateSword(Constants.Dir dir)
@@ -22,11 +25,18 @@ public class SwordScript : MonoBehaviour {
 		gameObject.SetActive(true);
 		transform.localPosition = GetInitPosition(dir);
 		transform.rotation = GetInitRotation(dir);
+        finished = false;
 		Debug.Log("Sword enabled!");
 	}
+
+    public bool isFinished()
+    {
+        return finished;
+    }
 	
 	void DisableSword()
 	{
+        finished = true;
 		gameObject.SetActive(false);
 		Debug.Log("Sword disabled!");
 	}

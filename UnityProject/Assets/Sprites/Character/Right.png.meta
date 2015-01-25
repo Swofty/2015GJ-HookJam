@@ -1,6 +1,14 @@
 fileFormatVersion: 2
 guid: 7d631a221a02bde459cc51e146c5e260
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Right_0
+    21300002: Right_1
+    21300004: Right_2
+    21300006: Right_3
+    21300008: Right_4
+    21300010: Right_5
+    21300012: Right_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,16 +34,17 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
-  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings:
@@ -44,6 +53,76 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Right_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 105
+        width: 16
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 105
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right_2
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 105
+        width: 23
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 53
+        width: 23
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 53
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 53
+        width: 24
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Right_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1
+        width: 19
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

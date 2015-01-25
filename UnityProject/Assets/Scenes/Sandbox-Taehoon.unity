@@ -1218,6 +1218,85 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300020, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1004369040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1004369041}
+  - 212: {fileID: 1004369044}
+  - 61: {fileID: 1004369043}
+  - 114: {fileID: 1004369042}
+  m_Layer: 0
+  m_Name: Charge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1004369041
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004369040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1258618583}
+  m_RootOrder: 3
+--- !u!114 &1004369042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004369040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8b2c750ea90a4baf7143b0bb01eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ANGULAR_SPEED: .100000001
+  SWORD_SIZE: .200000003
+  MAXIMUM_CHARGE_LENGTH: 3
+  inCharge: 0
+  inSwing: 0
+--- !u!61 &1004369043
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004369040}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 3, y: 1.49000001}
+  m_Center: {x: 0, y: 0}
+--- !u!212 &1004369044
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1004369040}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 333046f0b4a1ce44ab8e3b62cbe4c01b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1258618582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1330,7 @@ Transform:
   - {fileID: 329462990}
   - {fileID: 108090100}
   - {fileID: 375543487}
+  - {fileID: 1004369041}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!114 &1258618584
@@ -1307,10 +1387,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7375a3c946603ca4e80d1b3321d10ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MOVE_STR: 20
+  WEAK_MOVE_STR: 2
+  GRAVITY: 10
+  GROUND_MIU: 1
+  TOP_SPEED: 1
+  MIN_FRICTION_SPEED: .200000003
   grounded: 1
   state: 0
   direction: 0
-  HANG_TIME: .5
 --- !u!50 &1258618588
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1675,13 +1760,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAXIMUM: 1
-  CHARGE_MODIFIER: .200000003
+  NORMAL_RECHARGE_MODIFIER: .200000003
+  CHARGE_RECHARGE_MODIFIER: .0500000007
   DELAY: 3
   HOOK_COST: .100000001
   SWORD_COST: .100000001
   DASH_COST: .100000001
+  CHARGE_COST: .200000003
   length: 1
   timer: 0
+  currentModifier: 0
   player: {fileID: 0}
   rectTransform: {fileID: 1873526519}
 --- !u!114 &1873526521

@@ -29,7 +29,7 @@ GameObject:
   - 95: {fileID: 9520260}
   - 61: {fileID: 6199454}
   - 114: {fileID: 11422492}
-  - 61: {fileID: 6107724}
+  - 61: {fileID: 6126638}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -156,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.340000004, y: -2.6500001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420260}
@@ -292,7 +292,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: .860000014
   m_Center: {x: 0, y: 0}
---- !u!61 &6107724
+--- !u!61 &6126638
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -301,8 +301,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .235997081, y: .440047383}
-  m_Center: {x: .0071182251, y: -.00949078798}
+  m_Size: {x: .194398716, y: .589801311}
+  m_Center: {x: -.046959579, y: -.00533103943}
 --- !u!61 &6199356
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -323,8 +323,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .235997081, y: .440047383}
-  m_Center: {x: .0071182251, y: -.00949078798}
+  m_Size: {x: .194398716, y: .589801311}
+  m_Center: {x: -.046959579, y: -.00533103943}
 --- !u!95 &9520260
 Animator:
   serializedVersion: 3
@@ -351,10 +351,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7375a3c946603ca4e80d1b3321d10ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MOVE_STR: 20
+  WEAK_MOVE_STR: 2
+  GRAVITY: 10
+  GROUND_MIU: 1
+  TOP_SPEED: 1
+  MIN_FRICTION_SPEED: .200000003
   grounded: 1
   state: 0
   direction: 0
-  HANG_TIME: .5
 --- !u!114 &11422492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,6 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdad69e02673d464ab1d4c86eec73bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DASH_TIME_LENGTH: .200000003
+  DASH_SPEED: 0
 --- !u!114 &11422494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,7 +434,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 1541418173
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300054, guid: cf0abae4006bb714fb3ff9a903d80dd8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93a121db68de58045804777831b2be28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21287252
 SpriteRenderer:

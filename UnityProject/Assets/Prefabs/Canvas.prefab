@@ -48,15 +48,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAXIMUM: 1
-  CHARGE_MODIFIER: .200000003
+  NORMAL_RECHARGE_MODIFIER: .200000003
+  CHARGE_RECHARGE_MODIFIER: .0500000007
   DELAY: 3
   HOOK_COST: .100000001
   SWORD_COST: .100000001
   DASH_COST: .100000001
-  length: 1
+  CHARGE_COST: .200000003
+  length: 0
   timer: 0
+  currentModifier: 0
   player: {fileID: 0}
-  rectTransform: {fileID: 22473680}
+  rectTransform: {fileID: 0}
 --- !u!114 &11473682
 MonoBehaviour:
   m_ObjectHideFlags: 1
