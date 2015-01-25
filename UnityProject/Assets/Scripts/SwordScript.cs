@@ -71,7 +71,7 @@ public class SwordScript : MonoBehaviour {
     }
 
     public bool InSwing()
-    {
+	{
         return inSwing;
     }
 
