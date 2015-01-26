@@ -4,6 +4,8 @@ using System.Collections;
 public class GUIScripts : MonoBehaviour
 {
 
+    public Texture2D Image;
+
     private bool valid;
     private StaminaBar staminaScript;
     private HeroMovement playerScript;
@@ -38,5 +40,6 @@ public class GUIScripts : MonoBehaviour
         Rect staminaBox = new Rect(15, 50, 100, 30);
         GUI.Box(healthBox, "Health: " + health);
         GUI.Box(staminaBox, "Stamina: " + stamina);
+        GUI.DrawTexture(healthBox, Image);
     }
 }

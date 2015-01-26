@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.0999999, y: 26.4500008, z: 0}
+  m_LocalPosition: {x: 1.48476529, y: -2.28401542, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420260}
@@ -415,6 +415,7 @@ MonoBehaviour:
   MIN_FRICTION_SPEED: .200000003
   FALL_DAMAGE: 4
   SAVEPOINT_TIMER: 15
+  MAX_HEALTH: 48
   grounded: 1
   state: 0
   direction: 0

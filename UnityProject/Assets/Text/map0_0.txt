@@ -1,1 +1,3 @@
-Press 'Z' to fire the GPH.
+Press 'Z' to fire the grappling hook.
+Press 'X' to swing your sword.
+Press 'Space' to dash.

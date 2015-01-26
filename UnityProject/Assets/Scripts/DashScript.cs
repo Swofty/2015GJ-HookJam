@@ -18,7 +18,7 @@ public class DashScript : MonoBehaviour {
 
     public bool finished()
     {
-        if (Time.time - timeStart >= DASH_TIME_LENGTH)
+        if (Time.time - timeStart > DASH_TIME_LENGTH)
         {
             rigidbody2D.velocity = STOP_SPEED * rigidbody2D.velocity.normalized;
             timeStart = -1.0f;

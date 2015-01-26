@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Stamina
   - 
+  - Hole
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -64,4 +66,8 @@ TagManager:
   - name: Hero
     userID: 1
     uniqueID: 1541418173
+    locked: 0
+  - name: In Front
+    userID: 6
+    uniqueID: 2366408003
     locked: 0

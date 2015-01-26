@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 657d82ce8d90da1479f951a33c41ffd2
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: pillars_0
+    21300002: pillars_1
+    21300004: pillars_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -31,17 +34,47 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 75
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: pillars_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 6
+        width: 51
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pillars_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 42
+        width: 69
+        height: 78
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pillars_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 4
+        width: 69
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

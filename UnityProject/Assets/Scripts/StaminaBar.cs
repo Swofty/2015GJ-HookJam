@@ -4,14 +4,14 @@ using System.Collections;
 public class StaminaBar : MonoBehaviour {
 
 	public float MAXIMUM = 1f; // Maximum value of charge possible
-	public float NORMAL_RECHARGE_MODIFIER = 0.2f; // How much the bar recharges per second
+	public float NORMAL_RECHARGE_MODIFIER = 0.4f; // How much the bar recharges per second
 	public float CHARGE_RECHARGE_MODIFIER = 0.05f; // How much the bar recharges per second when charging
-	public float DELAY = 3f; // Seconds to wait after last attack before recharging
+	public float DELAY = 1f; // Seconds to wait after last attack before recharging
 
-	public float HOOK_COST = 0.2f;
-	public float SWORD_COST = 0.1f;
-	public float DASH_COST = 0.4f;
-	public float CHARGE_COST = 0.2f;
+	public float HOOK_COST = 0.05f;
+	public float SWORD_COST = 0.01f;
+	public float DASH_COST = 0.01f;
+	public float CHARGE_COST = 0.01f;
 
 	public float length;
 	public float timer;
@@ -29,7 +29,7 @@ public class StaminaBar : MonoBehaviour {
 
     public void AddStamina(float amount)
     {
-        length = Mathf.Max(MAXIMUM, length + amount);
+        length = Mathf.Min(MAXIMUM, length + amount);
     }
 
 	// Returns true if attack possible, otherwise false
@@ -110,11 +110,11 @@ public class StaminaBar : MonoBehaviour {
 			          : length + rechargeTime * currentModifier);
 		//}
 		//Debug.Log (length);
-		rectTransform.sizeDelta = new Vector2(((float)Screen.width) * 0.3f * length, ((float)Screen.height) * 0.05f);
-		//rectTransform.rect.width = Screen.width * 0.3 * length;
+         rectTransform.sizeDelta = new Vector2(240 * length, 10);
+        //rectTransform.rect.width = Screen.width * 0.3 * length;
 		//rectTransform.rect.height = Screen.height * 0.05;
-		rectTransform.position = new Vector3(25 + rectTransform.rect.width / 2,
-		                                 	 Screen.height - 25 - rectTransform.rect.height / 2,
-		                                 	 0);
+         rectTransform.position = new Vector3(80 + rectTransform.rect.width / 2,
+                                              Screen.height - 42 - rectTransform.rect.height / 2,
+                                              0);
 	}
 }

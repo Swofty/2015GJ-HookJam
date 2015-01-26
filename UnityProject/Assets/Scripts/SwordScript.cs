@@ -94,10 +94,16 @@ public class SwordScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy")
         {
+            staminaBar.GetComponent<StaminaBar>().AddStamina(0.05f);
+            Debug.Log("Got other enemy");
             if (charged)
                 other.gameObject.GetComponent<EnemyHitbox>().OnChargedAttackhit();
             else
+            {
+                print("hello" + other.gameObject.name);
+                print(other.gameObject.GetComponent<EnemyHitbox>().name);
                 other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+            }
         }
 	}
 	

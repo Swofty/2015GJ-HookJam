@@ -20,6 +20,7 @@ public class TurretEnemyScript : MonoBehaviour {
 
     void Awake()
     {
+        player = GameObject.Find("Hero");
         anim = gameObject.GetComponent<Animator>();
 
         invulnerable = 0;
@@ -29,6 +30,11 @@ public class TurretEnemyScript : MonoBehaviour {
         direction = Constants.Dir.S;
 
         //sfx = gameObject.GetComponents<AudioClip>();
+    }
+
+    void Start()
+    {
+        player = GameObject.Find("Hero");
     }
 
     // Update is called once per frame
@@ -49,6 +55,10 @@ public class TurretEnemyScript : MonoBehaviour {
         }
 
 
+        if(player == null)
+        {
+            return;
+        }
         Vector3 offset_vector = (Vector2) (transform.position - player.transform.position);
 
         if (offset_vector.magnitude < aggro_range)

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HookScript : MonoBehaviour {
+public class HookScript : MonoBehaviour
+{
 
     public float SPEED = 10.0f;
     public float MAX_HOOK_DISTANCE = 5.0f;
@@ -32,12 +33,21 @@ public class HookScript : MonoBehaviour {
         charged = false;
         rigidbody2D.velocity = new Vector2();
 
+
         player = transform.parent.gameObject;
+        Debug.Log("aw transform: " + transform);
+        Debug.Log("aw transform.parent: " + transform.parent);
         hookHead = transform.FindChild("HookHead").gameObject;
         hookHeadCollider = hookHead.transform.FindChild("Collider").gameObject;
         hookHeadDetach = hookHead.transform.FindChild("DetachArea").gameObject;
         rope = transform.FindChild("Rope").gameObject;
     }
+
+    public void WakeUp()
+    {
+        Awake();
+    }
+
 
     public void StartHook()
     {
@@ -82,7 +92,10 @@ public class HookScript : MonoBehaviour {
         charged = false;
         startTime = -1.0f;
 
+        Debug.Log(player);
+        player.GetComponent<HeroMovement>().SetGrounded(true);
         gameObject.SetActive(false);
+
         hookHeadCollider.SetActive(false);
         hookHeadDetach.SetActive(false);
 
@@ -90,7 +103,6 @@ public class HookScript : MonoBehaviour {
         rope.transform.localScale = Vector3.zero;
         gameObject.transform.localPosition = Vector3.zero;
 
-		player.GetComponent<HeroMovement> ().SetGrounded (true);
 
         Debug.Log("Hook disabled!");
     }
@@ -120,7 +132,7 @@ public class HookScript : MonoBehaviour {
         }
         return rot;
     }
-	
+
     void Update()
     {
         Vector3 playerToRopeVec = (transform.position - player.transform.position);
@@ -132,7 +144,7 @@ public class HookScript : MonoBehaviour {
         rope.transform.rotation = Quaternion.LookRotation(Vector3.forward, q);
 
         // When to stop
-        if(!latched && playerToRopeDist > MAX_HOOK_DISTANCE)
+        if (!latched && playerToRopeDist > MAX_HOOK_DISTANCE)
         {
             DisableHook();
         }
@@ -226,10 +238,10 @@ public class HookScript : MonoBehaviour {
             }
         }
 
-        if(latched)
+        if (latched)
         {
             if (!hookHeadDetach.activeSelf) Debug.Log("WARNING: deatchArea is not active when latched!");
-            if(col.gameObject.tag == "Player")
+            if (col.gameObject.tag == "Player")
             {
                 Debug.Log("Player is in detach radius");
                 DisableHook();

@@ -17,7 +17,8 @@ public class TabletScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		textOn = true;
+        if(col.gameObject.tag == "Player")
+    		textOn = true;
 	}
 
 	void OnTriggerExit2D(Collider2D col)

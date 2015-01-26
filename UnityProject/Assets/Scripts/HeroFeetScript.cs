@@ -4,7 +4,7 @@ using System.Collections;
 public class HeroFeetScript : MonoBehaviour {
 
     public float FALL_DAMAGE = 5.0f;
-    public float MIN_FLOAT_TIME = 0.3f;
+    public float MIN_FLOAT_TIME = 0.0f;
 
     private GameObject player;
     private HeroMovement playerScript;
@@ -13,6 +13,11 @@ public class HeroFeetScript : MonoBehaviour {
 	void Awake()
     {
         player = transform.parent.gameObject;
+    }
+
+    void Update()
+    {
+
         playerScript = player.GetComponent<HeroMovement>();
     }
 
@@ -23,12 +28,7 @@ public class HeroFeetScript : MonoBehaviour {
             Debug.Log("Player nside a hole...");
             if (playerScript.grounded)
             {
-                if (startHang < 0.0f) startHang = Time.time;
-
-                float airTime = player.GetComponent<Rigidbody2D>().velocity.magnitude;
-
-                if (Time.time - startHang >= airTime)
-                    playerScript.Fall();
+               playerScript.Fall();
             }
         }
     }

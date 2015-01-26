@@ -11,10 +11,11 @@ public class HeroMovement : MonoBehaviour
     public float GRAVITY = 10.0f;
     public float GROUND_MIU = 1.0f;
     public float TOP_SPEED = 1.0f;
-    public float MIN_FRICTION_SPEED = 0.2f;
+    public float MIN_FRICTION_SPEED = 0.1f;
     public float FALL_DAMAGE = 4.0f;
     public float SAVEPOINT_TIMER = 15.0f;
-    private float INVULN_TIME = 0.6f;
+    public float MAX_HEALTH = 48.0f;
+    private float INVULN_TIME = 1.6f;
 
     public bool grounded = true;
     public State state = State.FREE;
@@ -39,6 +40,8 @@ public class HeroMovement : MonoBehaviour
         sword = transform.FindChild("Sword").gameObject;
         staminaBar = GameObject.Find("Stamina Bar");
         bodyCollider = transform.FindChild("BodyCollider").gameObject;
+
+        hook.GetComponent<HookScript>().WakeUp();
     }
 
 
@@ -104,6 +107,7 @@ public class HeroMovement : MonoBehaviour
                     {
                         state = State.DASH;
                         ForceGround();
+                        grounded = false;
                     }
                 }
                 else if (grounded && Input.GetKeyDown(Constants.SwordKey))
@@ -262,7 +266,7 @@ public class HeroMovement : MonoBehaviour
         TakeDamage(FALL_DAMAGE);
         ForceGround();
         Invoke("Respawn", 2.0f);
-        gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     private void Respawn()

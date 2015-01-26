@@ -2,11 +2,21 @@
 using System.Collections;
 
 public class TurtleLimbHitbox: EnemyHitbox {
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            GameObject.Find("Hero").GetComponent<HeroMovement>().TakeDamage(16);
+            GameObject.Find("Hero").GetComponent<HeroMovement>().ApplyKnockback(GameObject.Find("Hero").transform.position - transform.parent.position);
+        }
+    }
+
     override public void OnAttackHit()
     {
         if (!transform.parent.GetComponent<TurtleEnemyScript>().isInvulnerable())
         {
-            transform.parent.GetComponent<TurtleEnemyScript>().hit(1);
+            transform.parent.GetComponent<TurtleEnemyScript>().stun_action(1);
         }
     }
 
@@ -14,7 +24,7 @@ public class TurtleLimbHitbox: EnemyHitbox {
     {
         if (!transform.parent.GetComponent<TurtleEnemyScript>().isInvulnerable())
         {
-            transform.parent.GetComponent<TurtleEnemyScript>().hit(2);
+            transform.parent.GetComponent<TurtleEnemyScript>().stun_action(2);
         }
     }
 
@@ -28,7 +38,7 @@ public class TurtleLimbHitbox: EnemyHitbox {
 
     override public void OnIncoming()
     {
-        if (!transform.parent.GetComponent<SnailEnemyScript>().isInvulnerable())
+        if (!transform.parent.GetComponent<TurtleEnemyScript>().isInvulnerable())
         {
         }
     }
