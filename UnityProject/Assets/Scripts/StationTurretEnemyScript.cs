@@ -1,39 +1,50 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StationTurretEnemyScript : MonoBehaviour {
+public class StationTurretEnemyScript : TurretEnemyScript {
 
-    public float COOLDOWN = 1.0f;
-    public int SHOTS_PER_BURST = 1;
-    public float TIME_PER_BURST_SHOT = 0.5f;
-    public float AGGRO_RANGE = 5.0f;
+    new public GameObject player;
+    public float FIRING_PERIOD = 5.0f;
 
-    public float health = 4.0f;
-    public Constants.Dir direction;
-    public Rigidbody2D arrow;
+    private float aggro_range = 10.0f;//Guess
 
     private bool firing;
-    private float timeLastFired = 0.0f;
-    private float invulnerable = 0.0f;
-    private Animator anim;
-    private AudioSource[] sfx;
+    private float cooldown = 0.0f;
 
+    private float invulnerable = 0; //Used to deal with invincibility frame timing
+
+    private int health = 4;
+
+    public Constants.Dir direction;
+
+    private Animator anim;
+
+    private AudioSource[] sfx;
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
+        sfx = GetComponents<AudioSource>();
+
+        invulnerable = 0;
+
+        cooldown = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (invulnerable > 0.0)
+        if (invulnerable > 0)
         {
             invulnerable -= Time.deltaTime;
+            Color oldColor = renderer.material.color;
+            Color newColor = new Color(oldColor.r, oldColor.b, oldColor.g, 0.2f);
+            renderer.material.SetColor("_Color", newColor);
         }
         else
         {
-            invulnerable = 0.0f;
-            anim.SetTrigger("Invulnerable");
+            Color oldColor = renderer.material.color;
+            Color newColor = new Color(oldColor.r, oldColor.b, oldColor.g, 1.0f);
+            renderer.material.SetColor("_Color", newColor);
         }
 
 
@@ -58,7 +69,7 @@ public class StationTurretEnemyScript : MonoBehaviour {
 
         if (firing && cooldown <= 0.0f)
         {
-            cooldown = BURST_FREQUENCY;
+            cooldown = FIRING_PERIOD;
             Transform child = transform.FindChild("Arrow");
             child.GetComponent<ArrowScript>().Fire(direction);
             sfx[0].Play();

@@ -10,11 +10,6 @@ public static class Constants{
 	public static KeyCode ChargeKey = KeyCode.C;
     public static KeyCode DashKey = KeyCode.Space;
 
-    public static GameObject GetPlayer()
-    {
-        return GameObject.Find("Hero");
-    }
-
     public static Vector2 getVectorFromDirection(Dir direction)
     {
         switch (direction)
