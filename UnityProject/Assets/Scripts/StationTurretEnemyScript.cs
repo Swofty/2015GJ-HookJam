@@ -1,50 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StationTurretEnemyScript : TurretEnemyScript {
+public class StationTurretEnemyScript : MonoBehaviour {
 
-    new public GameObject player;
-    public float FIRING_PERIOD = 5.0f;
+    public float COOLDOWN = 1.0f;
+    public int SHOTS_PER_BURST = 1;
+    public float TIME_PER_BURST_SHOT = 0.5f;
+    public float AGGRO_RANGE = 5.0f;
 
-    private float aggro_range = 10.0f;//Guess
+    public float health = 4.0f;
+    public Constants.Dir direction;
+    public Rigidbody2D arrow;
 
     private bool firing;
-    private float cooldown = 0.0f;
-
-    private float invulnerable = 0; //Used to deal with invincibility frame timing
-
-    private int health = 4;
-
-    public Constants.Dir direction;
-
+    private float timeLastFired = 0.0f;
+    private float invulnerable = 0.0f;
     private Animator anim;
-
     private AudioSource[] sfx;
+
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
-        sfx = GetComponents<AudioSource>();
-
-        invulnerable = 0;
-
-        cooldown = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (invulnerable > 0)
+        if (invulnerable > 0.0)
         {
             invulnerable -= Time.deltaTime;
-            Color oldColor = renderer.material.color;
-            Color newColor = new Color(oldColor.r, oldColor.b, oldColor.g, 0.2f);
-            renderer.material.SetColor("_Color", newColor);
         }
         else
         {
-            Color oldColor = renderer.material.color;
-            Color newColor = new Color(oldColor.r, oldColor.b, oldColor.g, 1.0f);
-            renderer.material.SetColor("_Color", newColor);
+            invulnerable = 0.0f;
+            anim.SetTrigger("Invulnerable");
         }
 
 
@@ -69,7 +58,7 @@ public class StationTurretEnemyScript : TurretEnemyScript {
 
         if (firing && cooldown <= 0.0f)
         {
-            cooldown = FIRING_PERIOD;
+            cooldown = BURST_FREQUENCY;
             Transform child = transform.FindChild("Arrow");
             child.GetComponent<ArrowScript>().Fire(direction);
             sfx[0].Play();
