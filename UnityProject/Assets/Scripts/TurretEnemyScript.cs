@@ -84,7 +84,7 @@ public class TurretEnemyScript : MonoBehaviour {
             //audio.PlayOneShot();
             cooldown = 5.0f;
             Transform child = transform.FindChild("Arrow");
-            child.GetComponent<ArrowScript>().Fire(direction);
+            //child.GetComponent<ArrowScript>().Fire(direction);
         }
         if (cooldown >= 0)
         {
@@ -92,7 +92,7 @@ public class TurretEnemyScript : MonoBehaviour {
             if (cooldown <= 0)
             {
                 Transform child = transform.FindChild("Arrow");
-                child.GetComponent<ArrowScript>().Reset();
+                //child.GetComponent<ArrowScript>().Reset();
             }
         }
     }

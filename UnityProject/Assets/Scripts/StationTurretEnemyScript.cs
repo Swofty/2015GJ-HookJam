@@ -4,9 +4,9 @@ using System.Collections;
 public class StationTurretEnemyScript : MonoBehaviour, EnemyReactions {
 
     public float COOLDOWN = 1.0f;
-    public int SHOTS_PER_BURST = 1;
+    public int SHOTS_PER_BURST = 4;
     public float TIME_PER_SHOT = 0.5f;
-    public float AGGRO_RANGE = 5.0f;
+    public float AGGRO_RANGE = 7.0f;
 
     public float health = 4.0f;
     public Globals.Dir direction;
@@ -17,15 +17,17 @@ public class StationTurretEnemyScript : MonoBehaviour, EnemyReactions {
     private float timeToNextShot = 0.0f;
     private int shotsFired = 0;
     private float invulnerable = 0.0f;
+    private float arrowSpeed = 4.0f;
 
     private GameObject player;
     private Animator anim;
-    private AudioSource[] sfx;
+    private AudioSource sfx;
 
     void Awake()
     {
         player = Globals.GetPlayer();
         anim = gameObject.GetComponent<Animator>();
+        sfx = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,7 +65,13 @@ public class StationTurretEnemyScript : MonoBehaviour, EnemyReactions {
             }
             if (timeToNextShot <= 0.0f && shotsFired < SHOTS_PER_BURST)
             {
-                // Instantiate arrow
+                Vector3 pos = transform.position +
+                    0.2f * (Vector3) Globals.getVectorFromDirection(direction);
+                Quaternion rot = Quaternion.LookRotation(Vector3.forward,
+                     Globals.getVectorFromDirection(direction));
+                Rigidbody2D clone = (Rigidbody2D) Instantiate(arrow, pos, rot);
+                clone.velocity = arrowSpeed * Globals.getVectorFromDirection(direction);
+                sfx.Play();
                 timeToNextShot = TIME_PER_SHOT;
                 shotsFired++;
             }

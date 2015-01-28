@@ -58,6 +58,17 @@ public static class Globals {
 
     public static bool isWallTag(string str)
     {
+        if (str == "GWall")
+            return true;
+        return false;
+    }
+
+    public static bool isEnemyTag(string str)
+    {
+        if (str == "Enemy")
+            return true;
+        if (str == "GEnemy")
+            return true;
         return false;
     }
 

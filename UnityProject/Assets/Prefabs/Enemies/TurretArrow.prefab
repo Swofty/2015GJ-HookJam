@@ -54,7 +54,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 179760}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .0843330175, y: .200278103}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11479760
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cdd4e47274a0294396aff92f7f4ef55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ARROW_FORCE: 10
+  ARROW_FORCE: 4
 --- !u!212 &21279760
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1633176869
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300014, guid: 2b6f0658dc25c8c4aa95b2af7f70f72d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
