@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class Constants{
+public static class Globals {
 
     public enum Dir { N, E, S, W, NE, SE, SW, NW };
 
@@ -9,6 +9,8 @@ public static class Constants{
     public static KeyCode SwordKey = KeyCode.X;
 	public static KeyCode ChargeKey = KeyCode.C;
     public static KeyCode DashKey = KeyCode.Space;
+
+    public static float ENEMY_INVULN_TIME = 2.0f;
 
     public static GameObject GetPlayer()
     {

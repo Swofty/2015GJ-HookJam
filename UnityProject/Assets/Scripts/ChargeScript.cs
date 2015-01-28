@@ -32,7 +32,7 @@ public class ChargeScript : MonoBehaviour {
 		timeCharged = 0f;
 	}
 	
-	public void ActivateSword(Constants.Dir dir)
+	public void ActivateSword(Globals.Dir dir)
 	{
 		sword.SetActive(true);
 		Debug.Log("Sword enabled!");
@@ -45,7 +45,7 @@ public class ChargeScript : MonoBehaviour {
 	}
 
 
-	public void StartCharge(Constants.Dir dir)
+	public void StartCharge(Globals.Dir dir)
 	{
 		ActivateSword (dir);
 		inCharge = true;
@@ -54,7 +54,7 @@ public class ChargeScript : MonoBehaviour {
 
 	public void FinishCharge()
 	{
-		if (staminaBar.GetComponent<StaminaBar> ().DoAttack (Constants.Attack.CHARGE)) {
+		if (staminaBar.GetComponent<StaminaBar> ().DoAttack (Globals.Attack.CHARGE)) {
 			inCharge = false;
 			timeCharged = 0;
 			inSwing = true;

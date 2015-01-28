@@ -1,25 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StationTurretEnemyScript : MonoBehaviour {
+public class StationTurretEnemyScript : MonoBehaviour, EnemyReactions {
 
     public float COOLDOWN = 1.0f;
     public int SHOTS_PER_BURST = 1;
-    public float TIME_PER_BURST_SHOT = 0.5f;
+    public float TIME_PER_SHOT = 0.5f;
     public float AGGRO_RANGE = 5.0f;
 
     public float health = 4.0f;
-    public Constants.Dir direction;
+    public Globals.Dir direction;
     public Rigidbody2D arrow;
 
-    private bool firing;
-    private float timeLastFired = 0.0f;
+    private bool aggro = false;
+    private float timeToNextBurst = 0.0f;
+    private float timeToNextShot = 0.0f;
+    private int shotsFired = 0;
     private float invulnerable = 0.0f;
+
+    private GameObject player;
     private Animator anim;
     private AudioSource[] sfx;
 
     void Awake()
     {
+        player = Globals.GetPlayer();
         anim = gameObject.GetComponent<Animator>();
     }
 
@@ -33,70 +38,68 @@ public class StationTurretEnemyScript : MonoBehaviour {
         else
         {
             invulnerable = 0.0f;
-            anim.SetTrigger("Invulnerable");
+            anim.SetBool("Invulnerable", false);
         }
 
-
-        Vector3 offset_vector = (Vector2) (transform.position - player.transform.position);
-
-        if (offset_vector.magnitude < aggro_range)
-        {
-            firing = true;
-        }
-        else
-        {
-            firing = false;
-        }
+        aggro = (transform.position - player.transform.position).magnitude < AGGRO_RANGE;
 
         switch (direction)
         {
-            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f);  break;
-            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f);  break;
-            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            case Globals.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f);  break;
+            case Globals.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f);  break;
+            case Globals.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+            case Globals.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
         }
 
-        if (firing && cooldown <= 0.0f)
+        if (aggro)
         {
-            cooldown = BURST_FREQUENCY;
-            Transform child = transform.FindChild("Arrow");
-            child.GetComponent<ArrowScript>().Fire(direction);
-            sfx[0].Play();
-        }
-        if (cooldown >= 0)
-        {
-            cooldown -= Time.deltaTime;
-            if (cooldown <= 0)
+            timeToNextBurst -= Time.deltaTime;
+            timeToNextShot -= Time.deltaTime;
+            if (timeToNextBurst <= 0.0f)
             {
-                Transform child = transform.FindChild("Arrow");
-                child.GetComponent<ArrowScript>().Reset();
+                shotsFired = 0;
+                timeToNextShot = 0.0f;
+                timeToNextBurst = COOLDOWN + TIME_PER_SHOT * SHOTS_PER_BURST;
+            }
+            if (timeToNextShot <= 0.0f && shotsFired < SHOTS_PER_BURST)
+            {
+                // Instantiate arrow
+                timeToNextShot = TIME_PER_SHOT;
+                shotsFired++;
             }
         }
     }
 
-    new public void hit(int damage)
+    public void OnAttackHit(GameObject source, float damageHint)
     {
-        this.health -= damage;
-        this.invulnerable = 0.5f;
-        sfx[1].Play();
-
-        //Want to have it so that if the enemy dies, we shake the camera
-        //Want to have it so that if the enemy dies, we shake the camera
-        if (health <= 0)
+        if (invulnerable <= 0.0f)
         {
-            sfx[2].Play();
-            GameObject.Find("Main Camera").GetComponent<CameraControls>().shake();
-            Destroy(this.gameObject);
+            health -= damageHint;
+            invulnerable = Globals.ENEMY_INVULN_TIME;
+
+            if (health <= 0)
+            {
+                //sfx[2].Play();
+                GameObject.Find("Main Camera").GetComponent<CameraControls>().shake();
+                Destroy(this.gameObject);
+            }
         }
     }
 
-    new public bool isInvulnerable()
+    public void OnChargedAttackHit(GameObject source, float damageHint)
     {
-        return (invulnerable > 0);
+        OnAttackHit(source, damageHint);
     }
 
-    new public void setDirection(Constants.Dir direction)
+    public void OnGrappleHit(GameObject source)
     {
-        this.direction = direction;
+        // No reaction
     }
+
+    public void OnPull(GameObject source)
+    {
+        // No reaction
+    }
+
+
 }

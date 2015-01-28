@@ -36,7 +36,7 @@ public class ArrowScript : MonoBehaviour {
         }
     }
 
-    public void Fire(Constants.Dir direction)
+    public void Fire(Globals.Dir direction)
     {
         Reset();
         Color oldColor = renderer.material.color;
@@ -45,13 +45,13 @@ public class ArrowScript : MonoBehaviour {
 
         switch (direction)
         {
-            case Constants.Dir.N: this.transform.rigidbody2D.rotation = 0.0f; break;
-            case Constants.Dir.E: this.transform.rigidbody2D.rotation = 90.0f; break;
-            case Constants.Dir.S: this.transform.rigidbody2D.rotation = 180.0f; break;
-            case Constants.Dir.W: this.transform.rigidbody2D.rotation = 270.0f; break;
+            case Globals.Dir.N: this.transform.rigidbody2D.rotation = 0.0f; break;
+            case Globals.Dir.E: this.transform.rigidbody2D.rotation = 90.0f; break;
+            case Globals.Dir.S: this.transform.rigidbody2D.rotation = 180.0f; break;
+            case Globals.Dir.W: this.transform.rigidbody2D.rotation = 270.0f; break;
         }
 
-        this.transform.rigidbody2D.velocity = Constants.getVectorFromDirection(direction) * speed;
+        this.transform.rigidbody2D.velocity = Globals.getVectorFromDirection(direction) * speed;
     }
 
     public void Reset()

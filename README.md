@@ -1,6 +1,8 @@
 # 2015GJ-HookJam
 
-Game Title: TBD...
+##to death: AFTER OUR TIME
+An action-adventure game in which you dash, bash, and hook your way through an ancient castle in search of a cure for a deadly blight in a post-apocalyptic world.
+
 
 Developers:
 * Jamei Wang (GitHub: kiisyuu)

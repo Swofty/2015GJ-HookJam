@@ -33,21 +33,21 @@ public class StaminaBar : MonoBehaviour {
     }
 
 	// Returns true if attack possible, otherwise false
-	public bool CanAttack(Constants.Attack attack) {
+	public bool CanAttack(Globals.Attack attack) {
 		switch (attack) {
-			case Constants.Attack.HOOK: return (length >= HOOK_COST * 0.99999f);
-			case Constants.Attack.SWORD: return (length >= SWORD_COST * 0.99999f);
-			case Constants.Attack.DASH: return (length >= DASH_COST * 0.99999f);
-			case Constants.Attack.CHARGE: return (length >= CHARGE_COST * 0.99999f);
+			case Globals.Attack.HOOK: return (length >= HOOK_COST * 0.99999f);
+			case Globals.Attack.SWORD: return (length >= SWORD_COST * 0.99999f);
+			case Globals.Attack.DASH: return (length >= DASH_COST * 0.99999f);
+			case Globals.Attack.CHARGE: return (length >= CHARGE_COST * 0.99999f);
 			default: return false;
 		}
 	}
 
 	//Used for certain attacks, like charging and dashing
-	public bool PrepareAttack(Constants.Attack attack) {
+	public bool PrepareAttack(Globals.Attack attack) {
 		if (CanAttack (attack)) {
 			switch (attack) {
-				case Constants.Attack.CHARGE: currentModifier = CHARGE_RECHARGE_MODIFIER; return true;
+				case Globals.Attack.CHARGE: currentModifier = CHARGE_RECHARGE_MODIFIER; return true;
 				default: return false;
 			}
 		}
@@ -56,15 +56,15 @@ public class StaminaBar : MonoBehaviour {
 	}
 
 	// Adjusts bar for attack, returns true if successful, otherwise false
-	public bool DoAttack(Constants.Attack attack) {
+	public bool DoAttack(Globals.Attack attack) {
 		if (CanAttack (attack)) {
 			float cost;
 
 			switch (attack) {
-				case Constants.Attack.HOOK: cost = HOOK_COST; break;
-				case Constants.Attack.SWORD: cost = SWORD_COST; break;
-				case Constants.Attack.DASH: cost = DASH_COST; break;
-				case Constants.Attack.CHARGE: cost = CHARGE_COST; break;
+				case Globals.Attack.HOOK: cost = HOOK_COST; break;
+				case Globals.Attack.SWORD: cost = SWORD_COST; break;
+				case Globals.Attack.DASH: cost = DASH_COST; break;
+				case Globals.Attack.CHARGE: cost = CHARGE_COST; break;
 				default: return false;
 			}
 
@@ -77,9 +77,9 @@ public class StaminaBar : MonoBehaviour {
 		return false;
 	}
 
-	public bool CancelAttack(Constants.Attack attack) {
+	public bool CancelAttack(Globals.Attack attack) {
 		switch (attack) {
-			case Constants.Attack.CHARGE: currentModifier = NORMAL_RECHARGE_MODIFIER; return true;
+			case Globals.Attack.CHARGE: currentModifier = NORMAL_RECHARGE_MODIFIER; return true;
 			default: return false;
 		}
 		

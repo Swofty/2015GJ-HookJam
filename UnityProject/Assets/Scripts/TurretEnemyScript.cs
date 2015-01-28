@@ -13,7 +13,7 @@ public class TurretEnemyScript : MonoBehaviour {
 
     private int health = 4;
 
-    private Constants.Dir direction;
+    private Globals.Dir direction;
 
     private Animator anim;
     //private AudioClip[] sfx;
@@ -27,7 +27,7 @@ public class TurretEnemyScript : MonoBehaviour {
 
         cooldown = 0.0f;
 
-        direction = Constants.Dir.S;
+        direction = Globals.Dir.S;
 
         //sfx = gameObject.GetComponents<AudioClip>();
     }
@@ -63,7 +63,7 @@ public class TurretEnemyScript : MonoBehaviour {
 
         if (offset_vector.magnitude < aggro_range)
         {
-            direction = Constants.getDirectionFromVector(-offset_vector);
+            direction = Globals.getDirectionFromVector(-offset_vector);
             firing = true;
         }
         else
@@ -73,10 +73,10 @@ public class TurretEnemyScript : MonoBehaviour {
 
         switch (direction)
         {
-            case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f);  break;
-            case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f);  break;
-            case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-            case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+            case Globals.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f);  break;
+            case Globals.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f);  break;
+            case Globals.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+            case Globals.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
         }
 
         if (firing && cooldown <= 0.0f)
@@ -120,7 +120,7 @@ public class TurretEnemyScript : MonoBehaviour {
         return (invulnerable > 0);
     }
 
-    public void setDirection(Constants.Dir direction)
+    public void setDirection(Globals.Dir direction)
     {
         this.direction = direction;
     }

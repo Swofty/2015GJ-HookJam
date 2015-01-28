@@ -46,7 +46,7 @@ public class SwordScript : MonoBehaviour {
 
     public void FinishRegular()
     {
-        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.SWORD))
+        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Globals.Attack.SWORD))
         {
             inCharge = false;
             inSwing = true;
@@ -56,7 +56,7 @@ public class SwordScript : MonoBehaviour {
 
     public void FinishCharge()
     {
-        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Constants.Attack.CHARGE))
+        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Globals.Attack.CHARGE))
         {
             inCharge = false;
             inSwing = true;

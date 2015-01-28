@@ -54,7 +54,7 @@ public class HookScript : MonoBehaviour
         startTime = Time.time;
     }
 
-    public void ReleaseHook(Constants.Dir dir)
+    public void ReleaseHook(Globals.Dir dir)
     {
         if (startTime < 0.0f) return;
 
@@ -78,7 +78,7 @@ public class HookScript : MonoBehaviour
         transform.rotation = GetInitRotation(dir);
 
         // Give hook a velocity
-        rigidbody2D.velocity = SPEED * Constants.getVectorFromDirection(dir);
+        rigidbody2D.velocity = SPEED * Globals.getVectorFromDirection(dir);
 
         Debug.Log("Hook fired!");
     }
@@ -107,27 +107,27 @@ public class HookScript : MonoBehaviour
         Debug.Log("Hook disabled!");
     }
 
-    Vector3 GetInitPosition(Constants.Dir dir)
+    Vector3 GetInitPosition(Globals.Dir dir)
     {
         // TODO
-        Vector3 pos = (0.34f * Constants.getVectorFromDirection(dir));
+        Vector3 pos = (0.34f * Globals.getVectorFromDirection(dir));
         return pos;
     }
 
-    Quaternion GetInitRotation(Constants.Dir dir)
+    Quaternion GetInitRotation(Globals.Dir dir)
     {
         // TODO
         Quaternion rot;
         switch (dir)
         {
-            case Constants.Dir.N: rot = Quaternion.Euler(0.0f, 0.0f, 90.0f); break;
-            case Constants.Dir.E: rot = Quaternion.Euler(0.0f, 0.0f, 0.0f); break;
-            case Constants.Dir.S: rot = Quaternion.Euler(0.0f, 0.0f, -90.0f); break;
-            case Constants.Dir.W: rot = Quaternion.Euler(0.0f, 0.0f, 180.0f); break;
-            case Constants.Dir.NE: rot = Quaternion.Euler(0.0f, 0.0f, 45.0f); break;
-            case Constants.Dir.SE: rot = Quaternion.Euler(0.0f, 0.0f, -45.0f); break;
-            case Constants.Dir.SW: rot = Quaternion.Euler(0.0f, 0.0f, -135.0f); break;
-            case Constants.Dir.NW: rot = Quaternion.Euler(0.0f, 0.0f, 135.0f); break;
+            case Globals.Dir.N: rot = Quaternion.Euler(0.0f, 0.0f, 90.0f); break;
+            case Globals.Dir.E: rot = Quaternion.Euler(0.0f, 0.0f, 0.0f); break;
+            case Globals.Dir.S: rot = Quaternion.Euler(0.0f, 0.0f, -90.0f); break;
+            case Globals.Dir.W: rot = Quaternion.Euler(0.0f, 0.0f, 180.0f); break;
+            case Globals.Dir.NE: rot = Quaternion.Euler(0.0f, 0.0f, 45.0f); break;
+            case Globals.Dir.SE: rot = Quaternion.Euler(0.0f, 0.0f, -45.0f); break;
+            case Globals.Dir.SW: rot = Quaternion.Euler(0.0f, 0.0f, -135.0f); break;
+            case Globals.Dir.NW: rot = Quaternion.Euler(0.0f, 0.0f, 135.0f); break;
             default: rot = new Quaternion(); break;
         }
         return rot;

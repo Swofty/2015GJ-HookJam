@@ -12,7 +12,7 @@ public class SnailEnemyScript : MonoBehaviour {
 
     private int health = 12;
 
-    public Constants.Dir direction;
+    public Globals.Dir direction;
 
     private Animator anim;
     void Awake()
@@ -22,7 +22,7 @@ public class SnailEnemyScript : MonoBehaviour {
         //invulnerable = 0;
         //armored = true;
 
-        direction = Constants.Dir.S;
+        direction = Globals.Dir.S;
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -31,18 +31,18 @@ public class SnailEnemyScript : MonoBehaviour {
         {
             switch (direction)
             {
-                case Constants.Dir.N: direction = Constants.Dir.S; break;
-                case Constants.Dir.E: direction = Constants.Dir.E; break;
-                case Constants.Dir.S: direction = Constants.Dir.N; break;
-                case Constants.Dir.W: direction = Constants.Dir.W; break;
+                case Globals.Dir.N: direction = Globals.Dir.S; break;
+                case Globals.Dir.E: direction = Globals.Dir.E; break;
+                case Globals.Dir.S: direction = Globals.Dir.N; break;
+                case Globals.Dir.W: direction = Globals.Dir.W; break;
             }
 
             switch (direction)
             {
-                case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-                case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-                case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Globals.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Globals.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Globals.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Globals.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
             }
         }
         if (col.tag == "Player")
@@ -74,10 +74,10 @@ public class SnailEnemyScript : MonoBehaviour {
         {
             switch (direction)
             {
-                case Constants.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-                case Constants.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Constants.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-                case Constants.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Globals.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Globals.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Globals.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Globals.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
             }
             next_turn = 2.0f;
         }
@@ -85,7 +85,7 @@ public class SnailEnemyScript : MonoBehaviour {
 
     void FixedUpdate()
     {
-        rigidbody2D.velocity = Constants.getVectorFromDirection(direction) * speed;
+        rigidbody2D.velocity = Globals.getVectorFromDirection(direction) * speed;
     }
 
     public void hit(int damage)
@@ -111,7 +111,7 @@ public class SnailEnemyScript : MonoBehaviour {
         return armored;
     }
 
-    public void setDirection(Constants.Dir direction)
+    public void setDirection(Globals.Dir direction)
     {
         this.direction = direction;
     }
