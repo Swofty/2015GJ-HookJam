@@ -12,7 +12,7 @@ public class SnailEnemyScript : MonoBehaviour {
 
     private int health = 12;
 
-    public Globals.Dir direction;
+    public Util.Dir direction;
 
     private Animator anim;
     void Awake()
@@ -22,7 +22,7 @@ public class SnailEnemyScript : MonoBehaviour {
         //invulnerable = 0;
         //armored = true;
 
-        direction = Globals.Dir.S;
+        direction = Util.Dir.S;
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -31,18 +31,18 @@ public class SnailEnemyScript : MonoBehaviour {
         {
             switch (direction)
             {
-                case Globals.Dir.N: direction = Globals.Dir.S; break;
-                case Globals.Dir.E: direction = Globals.Dir.E; break;
-                case Globals.Dir.S: direction = Globals.Dir.N; break;
-                case Globals.Dir.W: direction = Globals.Dir.W; break;
+                case Util.Dir.N: direction = Util.Dir.S; break;
+                case Util.Dir.E: direction = Util.Dir.E; break;
+                case Util.Dir.S: direction = Util.Dir.N; break;
+                case Util.Dir.W: direction = Util.Dir.W; break;
             }
 
             switch (direction)
             {
-                case Globals.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-                case Globals.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Globals.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-                case Globals.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Util.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Util.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
             }
         }
         if (col.tag == "Player")
@@ -74,10 +74,10 @@ public class SnailEnemyScript : MonoBehaviour {
         {
             switch (direction)
             {
-                case Globals.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-                case Globals.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Globals.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-                case Globals.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Util.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Util.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
             }
             next_turn = 2.0f;
         }
@@ -85,7 +85,7 @@ public class SnailEnemyScript : MonoBehaviour {
 
     void FixedUpdate()
     {
-        rigidbody2D.velocity = Globals.getVectorFromDirection(direction) * speed;
+        rigidbody2D.velocity = Util.GetVectorFromDirection(direction) * speed;
     }
 
     public void hit(int damage)
@@ -96,7 +96,7 @@ public class SnailEnemyScript : MonoBehaviour {
         //Want to have it so that if the enemy dies, we shake the camera
         if (health <= 0)
         {
-            GameObject.Find("Main Camera").GetComponent<CameraControls>().shake();
+            GameObject.Find("Main Camera").GetComponent<CameraControls>().Shake();
             Destroy(this.gameObject);
         }
     }
@@ -111,7 +111,7 @@ public class SnailEnemyScript : MonoBehaviour {
         return armored;
     }
 
-    public void setDirection(Globals.Dir direction)
+    public void setDirection(Util.Dir direction)
     {
         this.direction = direction;
     }

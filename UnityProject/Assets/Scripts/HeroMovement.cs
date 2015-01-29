@@ -19,7 +19,7 @@ public class HeroMovement : MonoBehaviour
 
     public bool grounded = true;
     public State state = State.FREE;
-    public Globals.Dir direction;
+    public Util.Dir direction;
     public Vector3 spawnPoint = Vector3.zero;
     public float health = 48.0f;
 
@@ -59,25 +59,25 @@ public class HeroMovement : MonoBehaviour
             h = Input.GetAxis("Horizontal");
             v = Input.GetAxis("Vertical");
 
-            if (h > 0.0f && v > 0.0f) direction = Globals.Dir.NE;
-            else if (h > 0.0f && v < 0.0f) direction = Globals.Dir.SE;
-            else if (h < 0.0f && v < 0.0f) direction = Globals.Dir.SW;
-            else if (h < 0.0f && v > 0.0f) direction = Globals.Dir.NW;
-            else if (v > 0.0f) direction = Globals.Dir.N;
-            else if (h > 0.0f) direction = Globals.Dir.E;
-            else if (v < 0.0f) direction = Globals.Dir.S;
-            else if (h < 0.0f) direction = Globals.Dir.W;
+            if (h > 0.0f && v > 0.0f) direction = Util.Dir.NE;
+            else if (h > 0.0f && v < 0.0f) direction = Util.Dir.SE;
+            else if (h < 0.0f && v < 0.0f) direction = Util.Dir.SW;
+            else if (h < 0.0f && v > 0.0f) direction = Util.Dir.NW;
+            else if (v > 0.0f) direction = Util.Dir.N;
+            else if (h > 0.0f) direction = Util.Dir.E;
+            else if (v < 0.0f) direction = Util.Dir.S;
+            else if (h < 0.0f) direction = Util.Dir.W;
 
             switch (direction)
             {
-                case Globals.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-                case Globals.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Globals.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-                case Globals.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Globals.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Globals.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Globals.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Globals.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Util.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Util.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.NE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.SE: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.SW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.NW: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
             }
         }
 
@@ -88,31 +88,31 @@ public class HeroMovement : MonoBehaviour
                     anim.SetInteger("Move", 1);
                 else
                     anim.SetInteger("Move", 0);
-                if (Input.GetKeyDown(Globals.HookKey))
+                if (Input.GetKeyDown(Util.HOOK_KEY))
                 {
-                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Globals.Attack.HOOK))
+                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Util.Attack.HOOK))
                     {
                         anim.SetBool("Charge", true);
                         hook.GetComponent<HookScript>().StartHook();
                     }
                 }
-                else if (Input.GetKeyUp(Globals.HookKey))
+                else if (Input.GetKeyUp(Util.HOOK_KEY))
                 {
                     anim.SetBool("Charge", false);
                     hook.GetComponent<HookScript>().ReleaseHook(direction);
                 }
-                else if (Input.GetKeyDown(Globals.DashKey))
+                else if (Input.GetKeyDown(Util.DASH_KEY))
                 {
-                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Globals.Attack.DASH))
+                    if (staminaBar.GetComponent<StaminaBar>().DoAttack(Util.Attack.DASH))
                     {
                         state = State.DASH;
                         ForceGround();
                         grounded = false;
                     }
                 }
-                else if (grounded && Input.GetKeyDown(Globals.SwordKey))
+                else if (grounded && Input.GetKeyDown(Util.SWORD_KEY))
                 {
-                    if (staminaBar.GetComponent<StaminaBar>().PrepareAttack(Globals.Attack.CHARGE))
+                    if (staminaBar.GetComponent<StaminaBar>().PrepareAttack(Util.Attack.CHARGE))
                     {
                         state = State.SWORD;
                         sword.GetComponent<SwordScript>().ActivateSword();
@@ -137,15 +137,15 @@ public class HeroMovement : MonoBehaviour
                 SwordScript sc = sword.GetComponent<SwordScript>();
                 if (sc.inCharge)
                 {
-                    if (!sc.IsChargedAttack() && Input.GetKeyUp(Globals.SwordKey))
+                    if (!sc.IsChargedAttack() && Input.GetKeyUp(Util.SWORD_KEY))
                     {
-                        if (staminaBar.GetComponent<StaminaBar>().CancelAttack(Globals.Attack.CHARGE))
+                        if (staminaBar.GetComponent<StaminaBar>().CancelAttack(Util.Attack.CHARGE))
                         {
                             anim.SetInteger("Move", 3);
                             sc.FinishRegular();
                         }
                     }
-                    else if (sc.IsChargedAttack() && (Input.GetKeyUp(Globals.SwordKey) || sc.IsMaxTime()))
+                    else if (sc.IsChargedAttack() && (Input.GetKeyUp(Util.SWORD_KEY) || sc.IsMaxTime()))
                     {
                         anim.SetInteger("Move", 3);
                         sc.FinishCharge();
@@ -153,7 +153,7 @@ public class HeroMovement : MonoBehaviour
                     else
                         anim.SetInteger("Move", 4);
                 }
-                if (Input.GetKeyDown(Globals.DashKey))
+                if (Input.GetKeyDown(Util.DASH_KEY))
                 {
                     state = State.DASH;
                     ForceGround();
@@ -273,7 +273,7 @@ public class HeroMovement : MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.position = spawnPoint;
-        direction = Globals.Dir.S;
+        direction = Util.Dir.S;
         grounded = true;
         state = State.FREE;
     }

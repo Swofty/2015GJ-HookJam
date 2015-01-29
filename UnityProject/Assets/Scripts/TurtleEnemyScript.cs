@@ -85,7 +85,7 @@ public class TurtleEnemyScript : MonoBehaviour {
         //Want to have it so that if the enemy dies, we shake the camera
         if (health <= 0)
         {
-            GameObject.Find("Main Camera").GetComponent<CameraControls>().shake(0.15f, 10.25f);
+            GameObject.Find("Main Camera").GetComponent<CameraControls>().Shake(0.15f, 10.25f);
             Destroy(this.gameObject);
 
             GameObject.Find("White").GetComponent<FadeOutScript>().end = true;

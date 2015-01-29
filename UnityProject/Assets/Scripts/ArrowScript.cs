@@ -21,15 +21,14 @@ public class ArrowScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.CompareTag("Player"))
         {
-            GameObject player = Globals.GetPlayer();
-            HeroMovement s = player.GetComponent<HeroMovement>();
-            s.TakeDamage(6);
-            s.ApplyKnockback(ARROW_FORCE * (player.transform.position - transform.position).normalized);
+            GameManager.Player.TakeDamage(6);
+            Vector3 impulse = ARROW_FORCE * (GameManager.Player.transform.position - transform.position).normalized;
+            GameManager.Player.ApplyKnockback(impulse);
             Destroy(this.gameObject);
         }
-        else if(Globals.isWallTag(col.gameObject.tag))
+        else if(Util.IsWallTag(col.gameObject.tag))
             Destroy(this.gameObject);
     }
 

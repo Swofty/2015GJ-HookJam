@@ -9,10 +9,10 @@ public class DashScript : MonoBehaviour {
 
     private float timeStart = -1.0f;
 
-    public void Dash(Globals.Dir dir)
+    public void Dash(Util.Dir dir)
     {
         if (timeStart < 0.0) timeStart = Time.time;
-        Vector2 new_velocity = Globals.getVectorFromDirection(dir);
+        Vector2 new_velocity = Util.GetVectorFromDirection(dir);
         rigidbody2D.velocity = new Vector2(new_velocity.x * DASH_SPEED, new_velocity.y * DASH_SPEED);
     }
 

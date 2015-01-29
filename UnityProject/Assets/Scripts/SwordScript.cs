@@ -46,7 +46,7 @@ public class SwordScript : MonoBehaviour {
 
     public void FinishRegular()
     {
-        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Globals.Attack.SWORD))
+        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Util.Attack.SWORD))
         {
             inCharge = false;
             inSwing = true;
@@ -56,7 +56,7 @@ public class SwordScript : MonoBehaviour {
 
     public void FinishCharge()
     {
-        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Globals.Attack.CHARGE))
+        if (staminaBar.GetComponent<StaminaBar>().DoAttack(Util.Attack.CHARGE))
         {
             inCharge = false;
             inSwing = true;
@@ -92,17 +92,16 @@ public class SwordScript : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Enemy")
+        EnemyBase e = Util.GetEnemy(other);
+        if (e)
         {
             staminaBar.GetComponent<StaminaBar>().AddStamina(0.05f);
             Debug.Log("Got other enemy");
             if (charged)
-                other.gameObject.GetComponent<EnemyHitbox>().OnChargedAttackhit();
+                e.OnChargedAttackHit(player, 2.0f);
             else
             {
-                print("hello" + other.gameObject.name);
-                print(other.gameObject.GetComponent<EnemyHitbox>().name);
-                other.gameObject.GetComponent<EnemyHitbox>().OnAttackHit();
+                e.OnAttackHit(player, 1.0f);
             }
         }
 	}
