@@ -83,7 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 5179850}
   - 212: {fileID: 5179851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,6 +192,10 @@ Prefab:
       propertyPath: m_Name
       value: White
       objectReference: {fileID: 0}
+    - target: {fileID: 141262, guid: 1a52de841ac78394b8f837f3ac14c075, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5041262, guid: 1a52de841ac78394b8f837f3ac14c075, type: 2}
     - {fileID: 6141262, guid: 1a52de841ac78394b8f837f3ac14c075, type: 2}
@@ -209,7 +213,7 @@ GameObject:
   - 4: {fileID: 181397353}
   - 58: {fileID: 181397355}
   - 114: {fileID: 181397354}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DetachArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +265,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 201238794}
   - 212: {fileID: 201238795}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +316,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 203250614}
   - 61: {fileID: 203250615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -339,7 +343,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 203250613}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0eb8f22162ddde84387bb82b9aacb8d8, type: 2}
   m_IsTrigger: 0
   m_Size: {x: .169717491, y: .429618835}
   m_Center: {x: -.0456854105, y: -.0786130428}
@@ -353,7 +357,7 @@ GameObject:
   - 4: {fileID: 225733812}
   - 61: {fileID: 225733814}
   - 114: {fileID: 225733813}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FeetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FALL_DAMAGE: 5
-  MIN_FLOAT_TIME: .200000003
+  MIN_FLOAT_TIME: 0
 --- !u!61 &225733814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -741,7 +745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb4ce1629e5cca428b30197d7cb74b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1270438290}
 --- !u!50 &301840891
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -754,7 +757,7 @@ Rigidbody2D:
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -1162,7 +1165,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 1544789346}
   m_GameObject: {fileID: 544889104}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6c2383b7799dcf9428a1fe2845c7ebca, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 1.44000006, y: 1.63}
   m_Center: {x: 1.04999995, y: -.400000006}
@@ -1213,7 +1216,7 @@ GameObject:
   - 4: {fileID: 577633232}
   - 114: {fileID: 577633234}
   - 61: {fileID: 577633233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1678,7 +1681,7 @@ GameObject:
   - 114: {fileID: 1270438293}
   - 95: {fileID: 1270438292}
   - 114: {fileID: 1270438291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1877,7 +1880,7 @@ GameObject:
   - 4: {fileID: 1373242972}
   - 114: {fileID: 1373242974}
   - 50: {fileID: 1373242973}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hook
   m_TagString: Hook
   m_Icon: {fileID: 0}
@@ -1953,7 +1956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1382018482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,6 +2110,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6150838, guid: 11e59d44ddbcd414b8287dc35415e12f, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 6c2383b7799dcf9428a1fe2845c7ebca, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11e59d44ddbcd414b8287dc35415e12f, type: 2}
   m_RootGameObject: {fileID: 253133034}
@@ -2234,7 +2241,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1917763156}
   - 58: {fileID: 1917763157}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2328,7 +2335,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1968065040}
   - 212: {fileID: 1968065041}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HookHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,21 +7,27 @@ public class DashScript : MonoBehaviour {
     public float DASH_SPEED = 10.0f;
     public float STOP_SPEED = 3.0f;
 
-    private float timeStart = -1.0f;
+    private float duration;
+    private bool inDash;
+
+    public void StartDash(Util.Dir dir)
+    {
+        duration = DASH_TIME_LENGTH;
+        inDash = true;
+    }
 
     public void Dash(Util.Dir dir)
     {
-        if (timeStart < 0.0) timeStart = Time.time;
-        Vector2 new_velocity = Util.GetVectorFromDirection(dir);
-        rigidbody2D.velocity = new Vector2(new_velocity.x * DASH_SPEED, new_velocity.y * DASH_SPEED);
+        duration -= Time.deltaTime;
+        if (!inDash) Debug.Log("Dash() called without being inDash!");
+        rigidbody2D.velocity = DASH_SPEED * Util.GetVectorFromDirection(dir);
     }
 
     public bool finished()
     {
-        if (Time.time - timeStart > DASH_TIME_LENGTH)
+        if (duration <= 0.0f)
         {
             rigidbody2D.velocity = STOP_SPEED * rigidbody2D.velocity.normalized;
-            timeStart = -1.0f;
             return true;
         }
         else
@@ -29,6 +35,4 @@ public class DashScript : MonoBehaviour {
             return false;
         }
     }
-    // DisableControls
-    // EnableControls
 }

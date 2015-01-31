@@ -3635,7 +3635,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 897558580}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0eb8f22162ddde84387bb82b9aacb8d8, type: 2}
   m_IsTrigger: 0
   m_Size: {x: .169717491, y: .429618835}
   m_Center: {x: -.0456854105, y: -.0786130428}
@@ -3899,7 +3899,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 933339727}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1

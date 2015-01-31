@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StationTurretEnemy : EnemyBase {
+public class TurretEnemy : EnemyBase, IAware {
 
     public float COOLDOWN = 1.0f;
     public int SHOTS_PER_BURST = 4;
     public float TIME_PER_SHOT = 0.5f;
-    public float AGGRO_RANGE = 7.0f;
     public float ARROW_SPEED = 4.0f;
+    public bool FOLLOW_PLAYER = false;
 
     public float health = 4.0f;
     public Util.Dir direction = Util.Dir.E;
     public Rigidbody2D arrow;
 
-    private bool aggro = false;
+    private bool aggro = true;
     private float timeToNextBurst = 0.0f;
     private float timeToNextShot = 0.0f;
     private int shotsFired = 0;
@@ -22,6 +22,16 @@ public class StationTurretEnemy : EnemyBase {
     private GameObject player;
     private Animator anim;
     private AudioSource sfx;
+
+    // Optimization
+    private Transform _transform;
+    public new Transform transform {
+        get {
+            if (_transform == null)
+                _transform = base.transform;
+            return _transform;
+        }
+    }
 
     void Awake()
     {
@@ -44,8 +54,6 @@ public class StationTurretEnemy : EnemyBase {
             anim.SetBool("Invulnerable", false);
         }
 
-        aggro = (transform.position - player.transform.position).magnitude < AGGRO_RANGE;
-
         switch (direction)
         {
             case Util.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f);  break;
@@ -56,6 +64,12 @@ public class StationTurretEnemy : EnemyBase {
 
         if (aggro)
         {
+            if(FOLLOW_PLAYER)
+            {
+                direction = Util.GetDirectionFromVector(
+                    GameManager.Player.transform.position - transform.position);
+            }
+
             timeToNextBurst -= Time.deltaTime;
             timeToNextShot -= Time.deltaTime;
             if (timeToNextBurst <= 0.0f)
@@ -107,4 +121,21 @@ public class StationTurretEnemy : EnemyBase {
         OnAttackHit(source, damageHint);
     }
 
+
+    public void SetAwareness(bool aware)
+    {
+        aggro = aware;
+    }
+
+    public void EnterAwareness(GameObject go)
+    {
+        if(go.CompareTag("Player"))
+            aggro = true;
+    }
+
+    public void LeaveAwareness(GameObject go)
+    {
+        if (go.CompareTag("Player"))
+            aggro = false;
+    }
 }

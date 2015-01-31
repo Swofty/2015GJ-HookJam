@@ -229,6 +229,7 @@ public class HookScript : MonoBehaviour
 
             Debug.Log("Hook latched to " + col.gameObject.tag);
 
+            // TODO: Drop support for tags
             if (col.gameObject.tag == "GWall")
             {
                 // Regardless if it was charged, it's not anymore
@@ -236,6 +237,13 @@ public class HookScript : MonoBehaviour
 
                 Latch();
             }
+
+            if(col.GetComponent<HookablePart>())
+            {
+                charged = false;
+                Latch();
+            }
+
         }
 
         if (latched)

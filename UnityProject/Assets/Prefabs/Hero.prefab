@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 420260}
   - 212: {fileID: 21220260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 114: {fileID: 11420260}
   - 95: {fileID: 9520260}
   - 114: {fileID: 11422492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hero
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 435514}
   - 61: {fileID: 6135514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 461356}
   - 61: {fileID: 6161356}
   - 114: {fileID: 11461356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FeetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 466288}
   - 58: {fileID: 5866288}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 487252}
   - 212: {fileID: 21287252}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HookHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - 4: {fileID: 499356}
   - 114: {fileID: 11499356}
   - 61: {fileID: 6199356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - 4: {fileID: 499450}
   - 114: {fileID: 11422494}
   - 50: {fileID: 5028034}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hook
   m_TagString: Hook
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 499452}
   - 212: {fileID: 21299454}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - 4: {fileID: 499454}
   - 58: {fileID: 5899454}
   - 114: {fileID: 11467772}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DetachArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.48476529, y: -2.28401542, z: 0}
+  m_LocalPosition: {x: 1.01699996, y: .0260000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 420260}
@@ -355,7 +355,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135514}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0eb8f22162ddde84387bb82b9aacb8d8, type: 2}
   m_IsTrigger: 0
   m_Size: {x: .169717491, y: .429618835}
   m_Center: {x: -.0456854105, y: -.0786130428}
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FALL_DAMAGE: 5
-  MIN_FLOAT_TIME: .200000003
+  MIN_FLOAT_TIME: 0
 --- !u!114 &11467772
 MonoBehaviour:
   m_ObjectHideFlags: 1

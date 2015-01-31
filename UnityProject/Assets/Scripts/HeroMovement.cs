@@ -33,6 +33,18 @@ public class HeroMovement : MonoBehaviour
     private GameObject bodyCollider;
     private bool invulnerable;
 
+    // Optimization
+    private Transform _transform;
+    public new Transform transform
+    {
+        get
+        {
+            if (_transform == null)
+                _transform = base.transform;
+            return _transform;
+        }
+    }
+
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -103,8 +115,10 @@ public class HeroMovement : MonoBehaviour
                 }
                 else if (Input.GetKeyDown(Util.DASH_KEY))
                 {
+                    Debug.Log("Dash Key detected");
                     if (staminaBar.GetComponent<StaminaBar>().DoAttack(Util.Attack.DASH))
                     {
+                        gameObject.GetComponent<DashScript>().StartDash(direction);
                         state = State.DASH;
                         ForceGround();
                         grounded = false;
