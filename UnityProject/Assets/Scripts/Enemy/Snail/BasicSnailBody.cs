@@ -13,7 +13,7 @@ public class BasicSnailBody : HittableSubpart<BasicSnailCore>
 
             transform.parent.GetComponent<BasicSnailCore>().setDirection(direction);
             
-            if(transform.parent.GetComponent<BasicSnailCore>().pArmored)
+            if(transform.parent.GetComponent<BasicSnailCore>().Armored)
                 transform.parent.GetComponent<BasicSnailCore>().TakeDamage(1.0f);
             else
                 transform.parent.GetComponent<BasicSnailCore>().TakeDamage(3.0f);
@@ -29,7 +29,7 @@ public class BasicSnailBody : HittableSubpart<BasicSnailCore>
 
             transform.parent.GetComponent<BasicSnailCore>().setDirection(direction);
 
-            if (transform.parent.GetComponent<BasicSnailCore>().pArmored)
+            if (transform.parent.GetComponent<BasicSnailCore>().Armored)
                 transform.parent.GetComponent<BasicSnailCore>().TakeDamage(2.0f);
             else
                 transform.parent.GetComponent<BasicSnailCore>().TakeDamage(6.0f);

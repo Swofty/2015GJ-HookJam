@@ -6,8 +6,22 @@ namespace Snail
     public class BasicSnailCore : MonoBehaviour, IAware
     {
         public float SPEED = 0.5f;
-        public Util.Dir direction;
-        public bool test = true;
+        public float TURN_FREQUENCY = 2.0f;
+
+        public Util.Dir Direction
+        {
+            get { return direction; }
+            set
+            {
+                direction = value;
+                SelectAnimationDirection(direction);
+            }
+        }
+        public bool Armored { get { return armored; } }
+        public bool Invulnerable { get { return invulnerable > 0.0f; } }
+
+        [SerializeField]
+        private Util.Dir direction;
 
         [SerializeField]
         private float health = 12.0f;
@@ -15,13 +29,19 @@ namespace Snail
         [SerializeField]
         private bool armored = true;
 
-
-        public bool pArmored { get { return armored; } }
-
-
-        private float invulnerable = 0.0f; //Used to deal with invincibility frame timing
-        private float next_turn = 2.0f;
+        [SerializeField]
         private bool aggro = false;
+
+
+        /// <summary>
+        /// Time for invulnerability
+        /// </summary>
+        private float invulnerable = 0.0f;
+
+        /// <summary>
+        /// Time to next direction change update
+        /// </summary>
+        private float nextTurn = 0.0f;
 
         private Animator anim;
 
@@ -32,16 +52,13 @@ namespace Snail
 
         void OnTriggerStay2D(Collider2D col)
         {
-            if (!aggro)
+            // TODO: Change to support whatever Wall/Hole tagger we use later
+            if (col.CompareTag("GWall") || col.CompareTag("Hole"))
             {
-                if (col.CompareTag("GWall") || col.CompareTag("Hole"))
-                {
-                    direction = Util.FlipDirection(direction);
-                    SelectAnimationDirection(direction);
-                }
+                Direction = Util.FlipDirection(direction);
             }
 
-
+            // TODO: Change to figure out player collider
             if (col.tag == "Player")
             {
                 col.GetComponent<HeroMovement>().TakeDamage(12);
@@ -52,32 +69,30 @@ namespace Snail
         // Update is called once per frame
         void Update()
         {
-            if (invulnerable > 0)
+            if (invulnerable > 0.0f)
             {
                 invulnerable -= Time.deltaTime;
-                Color oldColor = renderer.material.color;
-                Color newColor = new Color(oldColor.r, oldColor.b, oldColor.g, 0.2f);
-                renderer.material.SetColor("_Color", newColor);
+                anim.SetBool("Invulnerable", true);
             }
             else
             {
-                Color oldColor = renderer.material.color;
-                Color newColor = new Color(oldColor.r, oldColor.b, oldColor.g, 1.0f);
-                renderer.material.SetColor("_Color", newColor);
+                anim.SetBool("Invulnerable", false);
             }
 
-            next_turn -= Time.deltaTime;
+            nextTurn -= Time.deltaTime;
 
-            if (next_turn <= 0)
+            if (nextTurn <= 0.0f)
             {
-                switch (direction)
+                if (aggro)
                 {
-                    case Util.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-                    case Util.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                    case Util.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-                    case Util.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                    Direction = Util.GetDirectionFromVector(
+                        GameManager.Player.transform.position - transform.position);
                 }
-                next_turn = 2.0f;
+                else
+                {
+                    Direction = (Util.Dir)(int)(Random.value * 8);
+                }
+                nextTurn = TURN_FREQUENCY;
             }
         }
 
@@ -88,14 +103,16 @@ namespace Snail
 
         public void GetHit(float damage, bool headHit)
         {
+
             if (headHit)
             {
+
                 TakeDamage(3.0f);
                 return;
             }
             else
             {
-                if(pArmored)
+                if (Armored)
                 {
                     // Bounce off
                 }
@@ -104,6 +121,7 @@ namespace Snail
 
         public void TakeDamage(float damage)
         {
+            aggro = true;
             anim.SetTrigger("Hurt");
             this.health -= damage;
             this.invulnerable = 0.5f;
@@ -126,10 +144,6 @@ namespace Snail
             this.direction = direction;
         }
 
-        public void setArmored(bool armored)
-        {
-            this.armored = armored;
-        }
 
         private void SelectAnimationDirection(Util.Dir dir)
         {
