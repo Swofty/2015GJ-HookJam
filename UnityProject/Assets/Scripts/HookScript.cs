@@ -238,9 +238,11 @@ public class HookScript : MonoBehaviour
                 Latch();
             }
 
-            if(col.GetComponent<HookablePart>())
+            HookablePart p = col.GetComponent<HookablePart>();
+            if(p)
             {
-                charged = false;
+                //charged = false;
+                p.OnHookHit();
                 Latch();
             }
 

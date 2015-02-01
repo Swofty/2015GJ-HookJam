@@ -89,4 +89,9 @@ public class GameManager : MonoBehaviour {
             Debug.Log("Cannot find player on the current scene.");
         }
     }
+
+    public static void EnemyDeath()
+    {
+        Camera.Shake();
+    }
 }

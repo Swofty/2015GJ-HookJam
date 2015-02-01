@@ -33,6 +33,22 @@ public static class Util {
         return new Vector2(0.0f, 0.0f);
     }
 
+    public static Dir FlipDirection(Dir dir)
+    {
+        switch (dir)
+        {
+            case Dir.N: return Dir.S;
+            case Dir.E: return Dir.W;
+            case Dir.S: return Dir.N;
+            case Dir.W: return Dir.E;
+            case Dir.NE: return Dir.SW;
+            case Dir.NW: return Dir.SE;
+            case Dir.SE: return Dir.NW;
+            case Dir.SW: return Dir.NE;
+        }
+        return Dir.N;
+    }
+
     public static Dir GetDirectionFromVector(Vector3 direction_vector)
     {
         if (Mathf.Abs(direction_vector.y) > Mathf.Abs(direction_vector.x) && direction_vector.y >= 0)
@@ -63,19 +79,9 @@ public static class Util {
         return false;
     }
 
-    public static EnemyBase GetEnemy(Collider2D col)
+    public static HittablePart GetHittablePart(Component c)
     {
-        return col.gameObject.GetComponent<EnemyBase>();
-    }
-
-    public static EnemyBase GetEnemy(Collision2D col)
-    {
-        return col.gameObject.GetComponent<EnemyBase>();
-    }
-
-    public static EnemyBase GetEnemy(GameObject go)
-    {
-        return go.GetComponent<EnemyBase>();
+        return c.GetComponent<HittablePart>();
     }
 
 	public enum Attack { HOOK, SWORD, DASH, CHARGE, HOOKCHARGE };

@@ -7,4 +7,8 @@ public class HookablePart : MonoBehaviour {
     // Attach this script to a GameObject with colliders
     
     // The hook relies on a component having this script to be grapple-able
+    public virtual void OnHookHit()
+    {
+
+    }
 }

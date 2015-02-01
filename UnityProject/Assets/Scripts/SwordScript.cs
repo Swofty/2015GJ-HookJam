@@ -92,16 +92,16 @@ public class SwordScript : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D other) {
-        EnemyBase e = Util.GetEnemy(other);
-        if (e)
+        HittablePart p = Util.GetHittablePart(other);
+        if (p)
         {
             staminaBar.GetComponent<StaminaBar>().AddStamina(0.05f);
             Debug.Log("Got other enemy");
             if (charged)
-                e.OnChargedAttackHit(player, 2.0f);
+                p.OnChargedAttackHit(player, 2.0f);
             else
             {
-                e.OnAttackHit(player, 1.0f);
+                p.OnAttackHit(player, 1.0f);
             }
         }
 	}
