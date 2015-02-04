@@ -303,9 +303,9 @@ public class HeroMovement : MonoBehaviour
         invulnerable = false;
     }
 
-    public void ApplyKnockback(Vector2 deltaV)
+    public void ApplyImpulse(Vector2 deltaP)
     {
-        rigidbody2D.velocity += deltaV;
+        rigidbody2D.velocity += deltaP;
     }
 
     public void SetSpawnPoint(Vector3 point)

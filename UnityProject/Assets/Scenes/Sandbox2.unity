@@ -696,10 +696,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SPEED: .5
+  TURN_FREQUENCY: 2
   direction: 0
-  test: 1
   health: 12
   armored: 1
+  aggro: 0
 --- !u!50 &549368279
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1684,6 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b63a1a047ed28c45a76c469a3d459cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  KNOCKBACK_FORCE: 3
 --- !u!61 &1561389860
 BoxCollider2D:
   m_ObjectHideFlags: 0

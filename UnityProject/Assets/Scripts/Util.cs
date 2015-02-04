@@ -12,11 +12,6 @@ public static class Util {
 
     public static float ENEMY_INVULN_TIME = 0.7f;
 
-    public static GameObject GetPlayer()
-    {
-        return GameObject.Find("Hero");
-    }
-
     public static Vector2 GetVectorFromDirection(Dir direction)
     {
         switch (direction)

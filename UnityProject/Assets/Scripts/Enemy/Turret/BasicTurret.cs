@@ -87,7 +87,7 @@ namespace Turret
                     Quaternion rot = Quaternion.LookRotation(Vector3.forward,
                          Util.GetVectorFromDirection(direction));
                     Rigidbody2D arrowInstance = (Rigidbody2D)Instantiate(arrow, pos, rot);
-                    arrowInstance.transform.parent = this.gameObject.transform;
+                    arrowInstance.transform.parent = transform;
                     arrowInstance.velocity = ARROW_SPEED * Util.GetVectorFromDirection(direction);
                     sfx.Play();
                     timeToNextShot = TIME_PER_SHOT;
@@ -96,10 +96,6 @@ namespace Turret
             }
         }
 
-        void OnCollisionEnter2D(Collision2D col)
-        {
-            Debug.Log("Collision detected");
-        }
 
         public override void OnAttackHit(GameObject source, float damageHint)
         {
@@ -110,8 +106,7 @@ namespace Turret
 
                 if (health <= 0.0f)
                 {
-                    //sfx[2].Play();
-                    GameManager.Camera.Shake();
+                    GameManager.EnemyDeath();
                     transform.DetachChildren();
                     Destroy(this.gameObject);
                 }

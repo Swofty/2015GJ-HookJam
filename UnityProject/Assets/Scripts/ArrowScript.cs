@@ -25,7 +25,7 @@ public class ArrowScript : MonoBehaviour {
         {
             GameManager.Player.TakeDamage(6);
             Vector3 impulse = ARROW_FORCE * (GameManager.Player.transform.position - transform.position).normalized;
-            GameManager.Player.ApplyKnockback(impulse);
+            GameManager.Player.ApplyImpulse(impulse);
             Destroy(this.gameObject);
         }
         else if(Util.IsWallTag(col.gameObject.tag))

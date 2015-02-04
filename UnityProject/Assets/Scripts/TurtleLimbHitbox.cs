@@ -8,7 +8,7 @@ public class TurtleLimbHitbox: EnemyHitbox {
         if (col.tag == "Player")
         {
             GameObject.Find("Hero").GetComponent<HeroMovement>().TakeDamage(16);
-            GameObject.Find("Hero").GetComponent<HeroMovement>().ApplyKnockback(GameObject.Find("Hero").transform.position - transform.parent.position);
+            GameObject.Find("Hero").GetComponent<HeroMovement>().ApplyImpulse(GameObject.Find("Hero").transform.position - transform.parent.position);
         }
     }
 

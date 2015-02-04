@@ -50,19 +50,21 @@ namespace Snail
             anim = gameObject.GetComponent<Animator>();
         }
 
-        void OnTriggerStay2D(Collider2D col)
+        void OnCollisionEnter2D(Collision2D col)
         {
             // TODO: Change to support whatever Wall/Hole tagger we use later
-            if (col.CompareTag("GWall") || col.CompareTag("Hole"))
+            if (col.gameObject.CompareTag("GWall") || col.gameObject.CompareTag("Hole"))
             {
                 Direction = Util.FlipDirection(direction);
             }
 
             // TODO: Change to figure out player collider
-            if (col.tag == "Player")
+            if (col.gameObject.tag == "Player")
             {
-                col.GetComponent<HeroMovement>().TakeDamage(12);
-                col.GetComponent<HeroMovement>().ApplyKnockback(GameObject.Find("Hero").transform.position - transform.parent.position);
+                GameManager.Player.TakeDamage(12);
+                GameManager.Player.ApplyImpulse(
+                    1.0f * 
+                    (GameManager.Player.transform.position - transform.position).normalized);
             }
         }
 
@@ -100,59 +102,39 @@ namespace Snail
         {
             rigidbody2D.velocity = Util.GetVectorFromDirection(direction) * SPEED;
         }
-
-        public void GetHit(float damage, bool headHit)
-        {
-
-            if (headHit)
-            {
-
-                TakeDamage(3.0f);
-                return;
-            }
-            else
-            {
-                if (Armored)
-                {
-                    // Bounce off
-                }
-            }
-        }
-
+        
         public void TakeDamage(float damage)
         {
             aggro = true;
             anim.SetTrigger("Hurt");
-            this.health -= damage;
-            this.invulnerable = 0.5f;
+            health -= damage;
+            invulnerable = 0.2f;
+            nextTurn = 0.0f;
 
             //Want to have it so that if the enemy dies, we shake the camera
             if (health <= 0)
             {
                 GameManager.EnemyDeath();
-                Destroy(this);
+                Destroy(this.gameObject);
             }
         }
-
-        public bool isInvulnerable()
-        {
-            return (invulnerable > 0);
-        }
-
-        public void setDirection(Util.Dir direction)
-        {
-            this.direction = direction;
-        }
-
-
+        
         private void SelectAnimationDirection(Util.Dir dir)
         {
             switch (dir)
             {
-                case Util.Dir.N: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
-                case Util.Dir.E: anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
-                case Util.Dir.S: anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
-                case Util.Dir.W: anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.N:
+                case Util.Dir.NE:
+                    anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", 1.0f); break;
+                case Util.Dir.E:
+                case Util.Dir.SE:
+                    anim.SetFloat("Horizontal", 1.0f); anim.SetFloat("Vertical", 0.0f); break;
+                case Util.Dir.S:
+                case Util.Dir.SW:
+                    anim.SetFloat("Horizontal", 0.0f); anim.SetFloat("Vertical", -1.0f); break;
+                case Util.Dir.W:
+                case Util.Dir.NW:
+                    anim.SetFloat("Horizontal", -1.0f); anim.SetFloat("Vertical", 0.0f); break;
             }
         }
 
