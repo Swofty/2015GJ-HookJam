@@ -68,7 +68,7 @@ namespace Turret
             {
                 if (FOLLOW_PLAYER)
                 {
-                    direction = Util.GetDirectionFromVector(
+                    direction = Util.GetDirection4FromVector(
                         GameManager.Player.transform.position - transform.position);
                 }
 

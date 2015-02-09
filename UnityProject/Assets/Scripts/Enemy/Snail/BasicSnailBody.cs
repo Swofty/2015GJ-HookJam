@@ -1,14 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Snail
+namespace Enemy.Snail
 {
-    public class BasicSnailBody : HittableSubpart<BasicSnailCore>
+    public class BasicSnailBody : HittablePart
     {
-        public float KNOCKBACK_FORCE = 10.0f;
+        public float KNOCKBACK_FORCE = 3.0f;
+
+        private BasicSnailCore core;
+
+        void Awake()
+        {
+            core = GetComponentInParent<BasicSnailCore>();
+        }
 
         override public void OnAttackHit(GameObject source, float damageHint)
         {
+            core.EnterAwareness(source);
             if (core.Armored)
             {
                 GameManager.Player.ApplyImpulse(KNOCKBACK_FORCE *
@@ -23,9 +31,10 @@ namespace Snail
 
         override public void OnChargedAttackHit(GameObject source, float damageHint)
         {
+            core.EnterAwareness(source);
             if (core.Armored)
             {
-                GameManager.Player.ApplyImpulse(KNOCKBACK_FORCE *
+                GameManager.Player.ApplyImpulse(2 * KNOCKBACK_FORCE *
                     (source.transform.position - core.transform.position).normalized);
                 return;
             }

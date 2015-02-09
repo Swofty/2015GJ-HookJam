@@ -159,7 +159,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 499454}
   - 58: {fileID: 5899454}
-  - 114: {fileID: 11467772}
   m_Layer: 11
   m_Name: DetachArea
   m_TagString: Untagged
@@ -469,18 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FALL_DAMAGE: 5
-  MIN_FLOAT_TIME: 0
---- !u!114 &11467772
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 199454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 359908aa044526e42aba9b13d1ced9ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  MIN_FLOAT_TIME: .200000003
 --- !u!114 &11499356
 MonoBehaviour:
   m_ObjectHideFlags: 1

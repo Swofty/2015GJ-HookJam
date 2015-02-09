@@ -4,7 +4,6 @@ using System.Collections;
 public class ArrowScript : MonoBehaviour {
 
     public float ARROW_FORCE = 4.0f;
-    private float speed = 4.0f;
     private float timeout = 3.0f;
 
     void Awake()

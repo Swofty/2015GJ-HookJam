@@ -63,7 +63,7 @@ public class TurretEnemyScript : MonoBehaviour {
 
         if (offset_vector.magnitude < aggro_range)
         {
-            direction = Util.GetDirectionFromVector(-offset_vector);
+            direction = Util.GetDirection4FromVector(-offset_vector);
             firing = true;
         }
         else

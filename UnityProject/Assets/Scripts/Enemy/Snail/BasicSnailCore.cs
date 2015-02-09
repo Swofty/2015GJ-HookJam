@@ -1,12 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Snail
+namespace Enemy.Snail
 {
-    public class BasicSnailCore : MonoBehaviour, IAware
+    public class BasicSnailCore : StateEntity, IAware
     {
-        public float SPEED = 0.5f;
         public float TURN_FREQUENCY = 2.0f;
+        public float SPEED = 0.5f;
+        public float INVULN_TIME = 0.2f;
+        public float PAUSE_DURATION = 2.0f;
+        public float MOVE_DURATION = 3.0f;
+
+        public float AGGRO_CHASE_DURATION = 5.0f;
+        public float AGGRO_PAUSE_DURATION = 2.0f;
+        public float AGGRO_ATTACK_RADIUS = 1.5f;
+
+        public float ATTACK_SPEED = 12.0f;
+        public float ATTACK_PREP_DURATION = 2.0f;
+        public float ATTACK_JUMP_DURATION = 0.2f;
+        public float ATTACK_RECOVER_DURATION = 3.0f;
 
         public Util.Dir Direction
         {
@@ -19,6 +31,18 @@ namespace Snail
         }
         public bool Armored { get { return armored; } }
         public bool Invulnerable { get { return invulnerable > 0.0f; } }
+        public bool Aggro { get { return aggro; } }
+        public bool DamageHitboxEnable
+        {
+            get
+            {
+                return damageHitbox.activeSelf;
+            }
+            set
+            {
+                damageHitbox.SetActive(value);
+            }
+        }
 
         [SerializeField]
         private Util.Dir direction;
@@ -32,22 +56,27 @@ namespace Snail
         [SerializeField]
         private bool aggro = false;
 
-
         /// <summary>
         /// Time for invulnerability
         /// </summary>
         private float invulnerable = 0.0f;
-
-        /// <summary>
-        /// Time to next direction change update
-        /// </summary>
-        private float nextTurn = 0.0f;
-
         private Animator anim;
+        private GameObject damageHitbox;
+        private StateMachine<BasicSnailCore> fsm;
 
         void Awake()
         {
             anim = gameObject.GetComponent<Animator>();
+            anim.SetBool("Moving", false);
+            anim.SetBool("Armored", true);
+            fsm = new StateMachine<BasicSnailCore>(this);
+            fsm.InitialState(WanderState.Instance(this, fsm));
+            damageHitbox = transform.FindChild("DamageHitbox").gameObject;
+        }
+
+        void Start()
+        {
+            damageHitbox.SetActive(false);
         }
 
         void OnCollisionEnter2D(Collision2D col)
@@ -57,50 +86,22 @@ namespace Snail
             {
                 Direction = Util.FlipDirection(direction);
             }
-
-            // TODO: Change to figure out player collider
-            if (col.gameObject.tag == "Player")
-            {
-                GameManager.Player.TakeDamage(12);
-                GameManager.Player.ApplyImpulse(
-                    1.0f * 
-                    (GameManager.Player.transform.position - transform.position).normalized);
-            }
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (invulnerable > 0.0f)
-            {
-                invulnerable -= Time.deltaTime;
-                anim.SetBool("Invulnerable", true);
-            }
-            else
-            {
-                anim.SetBool("Invulnerable", false);
-            }
+            if (invulnerable > 0.0f) invulnerable -= Time.deltaTime;;
+            anim.SetBool("Invulnerable", invulnerable > 0.0f);
+            anim.SetBool("Moving", rigidbody2D.velocity.sqrMagnitude > 0.0f);
+            anim.SetBool("Attacking", DamageHitboxEnable);
 
-            nextTurn -= Time.deltaTime;
-
-            if (nextTurn <= 0.0f)
-            {
-                if (aggro)
-                {
-                    Direction = Util.GetDirectionFromVector(
-                        GameManager.Player.transform.position - transform.position);
-                }
-                else
-                {
-                    Direction = (Util.Dir)(int)(Random.value * 8);
-                }
-                nextTurn = TURN_FREQUENCY;
-            }
+            fsm.Execute();
         }
 
         void FixedUpdate()
         {
-            rigidbody2D.velocity = Util.GetVectorFromDirection(direction) * SPEED;
+            fsm.FixedExecute();
         }
         
         public void TakeDamage(float damage)
@@ -108,8 +109,7 @@ namespace Snail
             aggro = true;
             anim.SetTrigger("Hurt");
             health -= damage;
-            invulnerable = 0.2f;
-            nextTurn = 0.0f;
+            invulnerable = INVULN_TIME;
 
             //Want to have it so that if the enemy dies, we shake the camera
             if (health <= 0)
@@ -140,17 +140,18 @@ namespace Snail
 
         public void SetAwareness(bool aware)
         {
-            throw new System.NotImplementedException();
+            aggro = aware;
         }
 
         public void EnterAwareness(GameObject go)
         {
-            throw new System.NotImplementedException();
+            aggro = true;
         }
 
         public void LeaveAwareness(GameObject go)
         {
-            throw new System.NotImplementedException();
+            aggro = false;
         }
+
     }
 }

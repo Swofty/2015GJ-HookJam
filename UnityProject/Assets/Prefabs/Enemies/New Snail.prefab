@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &111628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 411628}
+  - 61: {fileID: 6111628}
+  - 114: {fileID: 11452110}
+  m_Layer: 13
+  m_Name: DamageHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &154332
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +73,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &411628
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111628}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 454336}
+  m_RootOrder: 2
 --- !u!4 &454332
 Transform:
   m_ObjectHideFlags: 1
@@ -87,11 +116,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.33757424, y: -.0221086685, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454334}
   - {fileID: 454332}
+  - {fileID: 411628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5054336
@@ -109,6 +139,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!61 &6111628
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111628}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: .627972484, y: 1.37184906}
+  m_Center: {x: .00716812909, y: .0127270222}
 --- !u!61 &6154334
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -118,8 +159,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .939999998, y: .50999999}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .325910777, y: .566017151}
+  m_Center: {x: -.0554450303, y: .184321046}
 --- !u!61 &6154336
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -129,8 +170,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.30999994, y: 1.16999996}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .523142815, y: .361418605}
+  m_Center: {x: -.00821882486, y: -.349687099}
 --- !u!95 &9554336
 Animator:
   serializedVersion: 3
@@ -146,6 +187,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11452110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e51f182fa58b7848a9fd07a865df2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DAMAGE: 10
+  KNOCKBACK: 1
 --- !u!114 &11454330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,8 +234,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727f15fdba140424aa876e9379c6e410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SPEED: .5
   TURN_FREQUENCY: 2
+  SPEED: .5
+  INVULN_TIME: .200000003
+  PAUSE_DURATION: 2
+  MOVE_DURATION: 3
+  AGGRO_CHASE_DURATION: 5
+  AGGRO_PAUSE_DURATION: 2
+  AGGRO_ATTACK_RADIUS: 1.5
+  ATTACK_SPEED: 12
+  ATTACK_PREP_DURATION: .800000012
+  ATTACK_JUMP_DURATION: .200000003
+  ATTACK_RECOVER_DURATION: 2
   direction: 0
   health: 12
   armored: 1

@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: North
+  m_Name: WestAttack
   serializedVersion: 4
   m_AnimationType: 2
   m_Compressed: 0
@@ -21,11 +21,6 @@ AnimationClip:
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-      - time: 1
-        value: {x: 0, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
-        tangentMode: 157540820
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: Head
@@ -46,18 +41,41 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .75
+        value: -.032191515
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: .75
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Center.x
+    path: DamageHitbox
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1.89690495
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_Size.x
+    path: DamageHitbox
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -.7813344
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Center.x
     path: Head
     classID: 61
     script: {fileID: 0}
@@ -65,83 +83,49 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .180031538
-        inSlope: -.0133229494
-        outSlope: -.0133229494
-        tangentMode: 10
-      - time: 1
-        value: .166708589
-        inSlope: -.0133229494
-        outSlope: -.0133229494
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.y
-    path: Head
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: .760125279
-        inSlope: .0998747349
-        outSlope: .0998747349
-        tangentMode: 10
-      - time: 1
-        value: .860000014
-        inSlope: .0998747349
-        outSlope: .0998747349
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.x
-    path: Shell
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1.20992148
-        inSlope: -.0532913208
-        outSlope: -.0532913208
-        tangentMode: 10
-      - time: 1
-        value: 1.15663016
-        inSlope: -.0532913208
-        outSlope: -.0532913208
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.y
-    path: Shell
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -.115913033
-        inSlope: .0233150721
-        outSlope: .0233150721
-        tangentMode: 10
-      - time: 1
-        value: -.0925979614
-        inSlope: .0233150721
-        outSlope: .0233150721
+        value: -.0957573652
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_Center.y
-    path: Shell
+    path: Head
     classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.013792336
+        value: .255979538
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.x
+    path: Head
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .477957964
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.y
+    path: Head
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .0812664926
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -155,26 +139,49 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .598771334
-        inSlope: .0266458392
-        outSlope: .0266458392
-        tangentMode: 10
-      - time: 1
-        value: .625417173
-        inSlope: .0266458392
-        outSlope: .0266458392
+        value: -.0790177584
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_Center.y
-    path: Head
+    path: Shell
     classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 1.32641077
+        value: 1.65940094
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.x
+    path: Shell
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .489495993
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.y
+    path: Shell
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .67595458
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -188,52 +195,20 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.00999212265
+        value: -.0616377592
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_Center.y
-    path: DamageHitbox
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: .59365201
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.x
-    path: DamageHitbox
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -.00999212265
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Center.x
     path: DamageHitbox
     classID: 61
     script: {fileID: 0}
   m_PPtrCurves:
   - curve:
-    - time: .000166666665
-      value: {fileID: 21300028, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
-    - time: 1
-      value: {fileID: 21300030, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
-    - time: 2
-      value: {fileID: 21300030, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
+    - time: 0
+      value: {fileID: 21300006, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -245,36 +220,6 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 130111906
-      attribute: 2368279999
-      script: {fileID: 0}
-      classID: 61
-      customType: 0
-      isPPtrCurve: 0
-    - path: 2220072441
-      attribute: 4197328169
-      script: {fileID: 0}
-      classID: 61
-      customType: 0
-      isPPtrCurve: 0
-    - path: 2220072441
-      attribute: 2368279999
-      script: {fileID: 0}
-      classID: 61
-      customType: 0
-      isPPtrCurve: 0
-    - path: 2220072441
-      attribute: 1394318531
-      script: {fileID: 0}
-      classID: 61
-      customType: 0
-      isPPtrCurve: 0
-    - path: 130111906
-      attribute: 1394318531
-      script: {fileID: 0}
-      classID: 61
-      customType: 0
-      isPPtrCurve: 0
     - path: 0
       attribute: 0
       script: {fileID: 0}
@@ -293,14 +238,62 @@ AnimationClip:
       classID: 4
       customType: 0
       isPPtrCurve: 0
+    - path: 3520587777
+      attribute: 605858901
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 3520587777
+      attribute: 4197328169
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 130111906
+      attribute: 605858901
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 130111906
+      attribute: 1394318531
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
     - path: 130111906
       attribute: 4197328169
       script: {fileID: 0}
       classID: 61
       customType: 0
       isPPtrCurve: 0
+    - path: 130111906
+      attribute: 2368279999
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
     - path: 2220072441
       attribute: 605858901
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2220072441
+      attribute: 1394318531
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2220072441
+      attribute: 4197328169
+      script: {fileID: 0}
+      classID: 61
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2220072441
+      attribute: 2368279999
       script: {fileID: 0}
       classID: 61
       customType: 0
@@ -317,26 +310,12 @@ AnimationClip:
       classID: 61
       customType: 0
       isPPtrCurve: 0
-    - path: 3520587777
-      attribute: 4197328169
-      script: {fileID: 0}
-      classID: 61
-      customType: 0
-      isPPtrCurve: 0
-    - path: 3520587777
-      attribute: 605858901
-      script: {fileID: 0}
-      classID: 61
-      customType: 0
-      isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300028, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
-    - {fileID: 21300030, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
-    - {fileID: 21300030, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
+    - {fileID: 21300006, guid: 6bcc8548e6d26fe4fb36a32a2c32e7e0, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 2.01666665
+    m_StopTime: .0166666675
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -355,87 +334,34 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .75
+        value: -.032191515
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: .75
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Center.x
+    path: DamageHitbox
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1.89690495
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_Size.x
-    path: Head
+    path: DamageHitbox
     classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .180031538
-        inSlope: -.0133229494
-        outSlope: -.0133229494
-        tangentMode: 10
-      - time: 1
-        value: .166708589
-        inSlope: -.0133229494
-        outSlope: -.0133229494
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.y
-    path: Head
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: .760125279
-        inSlope: .0998747349
-        outSlope: .0998747349
-        tangentMode: 10
-      - time: 1
-        value: .860000014
-        inSlope: .0998747349
-        outSlope: .0998747349
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.x
-    path: Shell
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1.20992148
-        inSlope: -.0532913208
-        outSlope: -.0532913208
-        tangentMode: 10
-      - time: 1
-        value: 1.15663016
-        inSlope: -.0532913208
-        outSlope: -.0532913208
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.y
-    path: Shell
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 1
         value: 0
         inSlope: 0
         outSlope: 0
@@ -454,11 +380,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.y
@@ -473,16 +394,67 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.z
     path: Head
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -.7813344
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Center.x
+    path: Head
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -.0957573652
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Center.y
+    path: Head
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .255979538
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.x
+    path: Head
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .477957964
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.y
+    path: Head
+    classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
@@ -530,26 +502,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.115913033
-        inSlope: .0233150721
-        outSlope: .0233150721
-        tangentMode: 10
-      - time: 1
-        value: -.0925979614
-        inSlope: .0233150721
-        outSlope: .0233150721
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Center.y
-    path: Shell
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -.013792336
+        value: .0812664926
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -563,26 +516,49 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .598771334
-        inSlope: .0266458392
-        outSlope: .0266458392
-        tangentMode: 10
-      - time: 1
-        value: .625417173
-        inSlope: .0266458392
-        outSlope: .0266458392
+        value: -.0790177584
+        inSlope: 0
+        outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_Center.y
-    path: Head
+    path: Shell
     classID: 61
     script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 1.32641077
+        value: 1.65940094
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.x
+    path: Shell
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .489495993
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Size.y
+    path: Shell
+    classID: 61
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .67595458
         inSlope: 0
         outSlope: 0
         tangentMode: 10
@@ -596,41 +572,13 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -.00999212265
+        value: -.0616377592
         inSlope: 0
         outSlope: 0
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_Center.y
-    path: DamageHitbox
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: .59365201
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Size.x
-    path: DamageHitbox
-    classID: 61
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -.00999212265
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_Center.x
     path: DamageHitbox
     classID: 61
     script: {fileID: 0}

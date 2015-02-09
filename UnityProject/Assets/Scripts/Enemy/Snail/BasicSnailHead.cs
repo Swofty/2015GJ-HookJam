@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Snail
+namespace Enemy.Snail
 {
 
-    public class BasicSnailHead : HittableSubpart<BasicSnailCore>
+    public class BasicSnailHead : HittablePart
     {
+        private BasicSnailCore core;
+
+        void Awake()
+        {
+            core = GetComponentInParent<BasicSnailCore>();
+        }
 
         override public void OnAttackHit(GameObject source, float damageHint)
         {

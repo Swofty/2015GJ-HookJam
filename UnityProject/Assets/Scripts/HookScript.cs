@@ -199,20 +199,20 @@ public class HookScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy" && false)
         {
-            var sc = col.gameObject.GetComponent<EnemyHitbox>();
-            sc.OnGrappleHit();
+            var sc = col.gameObject.GetComponent<HookablePart>();
+            sc.OnHookHit();
             if (charged)
             {
-                sc.OnPull();
+                //sc.OnPull();
                 hookHeadCollider.SetActive(false);
                 rigidbody2D.velocity = Vector2.zero;
                 Invoke("Tug", PULL_DELAY);
             }
             else
             {
-                sc.OnIncoming();
+                //sc.OnIncoming();
                 Latch();
             }
         }
@@ -238,7 +238,7 @@ public class HookScript : MonoBehaviour
                 Latch();
             }
 
-            HookablePart p = col.GetComponent<HookablePart>();
+            HookablePart p = Util.GetHookablePart(col);
             if(p)
             {
                 //charged = false;
